@@ -33,6 +33,15 @@ class VariantTests(unittest.TestCase):
                 create_variant("pocket-tray", "bad", {"length": float("nan")}, Path(temp))
             self.assertFalse((Path(temp) / "bad").exists())
 
+    def test_existing_unrelated_output_index_is_preserved(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            index = root / "index.html"
+            index.write_text("An unrelated user document", encoding="utf-8")
+            with self.assertRaisesRegex(FileExistsError, "unrelated index"):
+                create_variant("pocket-tray", "new-tray", {}, root)
+            self.assertEqual(index.read_text(encoding="utf-8"), "An unrelated user document")
+            self.assertFalse((root / "new-tray").exists())
     def test_guidance_requests_real_setup_and_does_not_invent_profiles(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

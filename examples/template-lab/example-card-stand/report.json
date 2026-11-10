@@ -61,7 +61,7 @@
     "geometry": {
       "status": "passed",
       "checker": "cadquery-brep-and-openprintlab-mesh",
-      "checker_source_sha256": "7640832bd8a7ab228e66e81876c6b35d3d464577d75b5b4c6b44567e3d4b24da"
+      "checker_source_sha256": "656315181016e66348b2f2b103c135208e82c10e27955cc67f6258f3952980e5"
     },
     "slicer": {
       "status": "not_performed",
@@ -104,7 +104,7 @@
     "stl": "example-card-stand.stl",
     "stl_sha256": "a2afe96f043538d642f1eeb560f671d08c4bf7d9f2afef4fc91e1ca23f12ed18",
     "step": "example-card-stand.step",
-    "step_sha256": "03d48ff34b3ec25d1eb262e3915e428c0fd1df93ff55be3289a4d39ed2f5d8bd"
+    "step_sha256": "789ea7eceaa24b4462de222bd97f954d947cbf26c5a197f91d1c1dc55aab437c"
   },
   "limitations": [
     "Geometry checks do not certify printability, fit or safety.",

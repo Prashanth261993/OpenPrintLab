@@ -141,7 +141,7 @@ are deferred, not silently added to this milestone.
 
 ## Verification notes and resolved findings
 
-- Baseline suite: 19 tests, with the two CAD-only cases explicitly skipped in the
+- Baseline suite: 20 tests, with the two CAD-only cases explicitly skipped in the
   no-CAD interpreter; optional geometry tests passed in the CAD interpreter.
 - Original 16 export files and original recipe/mesh/SVG code remain unchanged.
 - Real MCP stdio CAD generation, overwrite refusal, strict numeric rejection and
@@ -154,11 +154,13 @@ are deferred, not silently added to this milestone.
   The original gallery renderer/artifacts were not altered.
 - Browser checks cover the actual geometry image, STL/STEP byte hashes,
   passport links, three families, keyboard and 375px/landscape layouts.
-- Linux runs all 19 unit tests with the optional backend, actual MCP CAD calls
+- The optional Linux job runs the full unit suite with CAD, actual MCP CAD calls
   and the browser journey. The separate baseline run passes without installing CAD.
 - Curated references are regenerated with `python -m tools.template_examples`
   in the optional environment. This intentionally refreshes only public examples;
   ordinary `customize` never overwrites private variants.
+- A dedicated output-root guard also refuses an unrelated existing `index.html`;
+  a variant export cannot overwrite another local site's landing page.
 
 ## Links
 

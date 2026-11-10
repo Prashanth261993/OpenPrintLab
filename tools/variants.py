@@ -20,6 +20,12 @@ DEFAULT_OUTPUT = ROOT / "build" / "variants"
 GUIDE = "https://prashanth261993.github.io/OpenPrintLab/beginner.html"
 
 
+def check_variant_root(directory):
+    index = Path(directory) / "index.html"
+    if index.is_symlink() or (index.exists() and "<title>Template lab | OpenPrintLab local lab</title>" not in index.read_text(encoding="utf-8")):
+        raise FileExistsError("Refusing to replace an unrelated index.html; choose a dedicated variant output directory")
+
+
 def safe_name(name):
     if not isinstance(name, str) or len(name) > 64 or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name):
         raise ValueError("Variant name must be 1-64 lowercase letters/digits with single hyphens")
@@ -200,6 +206,7 @@ def render_variant(template, report):
 
 def render_index(directory):
     directory = Path(directory)
+    check_variant_root(directory)
     cards = []
     for path in sorted(directory.glob("*/report.json")):
         if path.parent.name.startswith(".variant-"):
@@ -231,6 +238,7 @@ def create_variant(identifier, name, overrides=None, output=None):
     safe_name(name)
     template = describe_template(identifier)
     directory = Path(output) if output is not None else DEFAULT_OUTPUT
+    check_variant_root(directory)
     target = directory / name
     if target.exists() or target.is_symlink():
         raise FileExistsError(f"Variant '{name}' already exists; choose a new name. Nothing was overwritten.")

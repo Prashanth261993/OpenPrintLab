@@ -7,11 +7,12 @@ from pathlib import Path
 import shutil
 
 from tools.catalog import ROOT
-from tools.variants import DEFAULT_OUTPUT, render_index
+from tools.variants import DEFAULT_OUTPUT, check_variant_root, render_index
 
 
 def seed_examples(directory, *, refresh_curated=False):
     directory = Path(directory)
+    check_variant_root(directory)
     directory.mkdir(parents=True, exist_ok=True)
     examples = ROOT / "examples" / "template-lab"
     if examples.is_dir():

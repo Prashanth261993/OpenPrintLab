@@ -61,7 +61,7 @@
     "geometry": {
       "status": "passed",
       "checker": "cadquery-brep-and-openprintlab-mesh",
-      "checker_source_sha256": "7640832bd8a7ab228e66e81876c6b35d3d464577d75b5b4c6b44567e3d4b24da"
+      "checker_source_sha256": "656315181016e66348b2f2b103c135208e82c10e27955cc67f6258f3952980e5"
     },
     "slicer": {
       "status": "not_performed",
@@ -104,7 +104,7 @@
     "stl": "example-pen-rest.stl",
     "stl_sha256": "b093907bc896dab685d768cdf8d5dedfa975e7b2552fff9f4a6ab8db7cfd6e76",
     "step": "example-pen-rest.step",
-    "step_sha256": "1fca391da975b6e767b882e12d84ac171f477217ca139333f321a0ec3970d88e"
+    "step_sha256": "874f458d8fe08cbd4d044650b72c77d20eb487e51ff1c350dbd421bac8908f79"
   },
   "limitations": [
     "Geometry checks do not certify printability, fit or safety.",
