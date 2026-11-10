@@ -8,6 +8,10 @@ tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07]
 
 # 002 - Evidence-first models and staged technology reuse
 
+> Historical milestone spine. The newly approved optional backend/template work
+> is tracked separately in [003 Template lab](devtool/features/003-template-lab/plan.md).
+> Completed 002 task/evidence records below are preserved.
+
 ## Objective
 
 Make the working OpenPrintLab starter trustworthy and easy to test locally,

@@ -6,6 +6,7 @@ import shutil
 
 from tools.catalog import ROOT, build_model, load_catalog, parameter_schema, source_archive
 from tools.release import release
+from tools.lab import seed_examples
 
 
 def page(title, body, prefix=""):
@@ -88,6 +89,7 @@ def build_site(destination=None):
         body = (ROOT / "docs" / f"{name}.html").read_text(encoding="utf-8")
         (directory / f"{name}.html").write_text(page(title, f'<article class="wrap article">{body}</article>'), encoding="utf-8")
     (directory / ".nojekyll").write_text("", encoding="utf-8")
+    seed_examples(directory / "lab", refresh_curated=True)
     print(f"Built {len(cards)} model pages and guides in {directory}")
 
 

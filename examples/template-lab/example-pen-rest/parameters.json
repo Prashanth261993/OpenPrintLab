@@ -1,0 +1,9 @@
+{
+  "length": 80,
+  "width": 50,
+  "height": 8,
+  "wall": 2.4,
+  "base": 2,
+  "radius": 6,
+  "channels": 3
+}

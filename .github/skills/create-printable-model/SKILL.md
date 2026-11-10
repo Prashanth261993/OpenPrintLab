@@ -7,6 +7,31 @@ description: Create or customize OpenPrintLab parametric 3D models with validate
 
 This skill produces a **candidate for slicing**, not a printability certification.
 
+For the optional template lab, also read `docs/template-lab.md`. You (the user's
+tool-capable assistant) interpret their instructions. The CLI/MCP is a
+deterministic geometry tool, not a natural-language model.
+
+1. Discover with `python -m tools.cli templates`, then `template ID` (or MCP
+   `list_templates` / `describe_template`). Clarify missing dimensions, intended
+   use, fit/clearance and unsupported style requests. Supported CAD aesthetics
+   are rounded corners and compartment/channel counts; text/sculpting/import
+   are not shipped.
+2. With the optional interpreter, use `python -m tools.cli customize ID --variant
+   NEW-NAME --set key=value`. For revisions, read the prior `parameters.json`,
+   create a different name and use `--params FILE` plus explicit overrides.
+   Never overwrite originals or prior variants. Missing CadQuery requires the
+   user's approved isolated install, not silent fallback.
+3. Inspect the actual report and SVG derived from the exported STL. Return the
+   preview URI and, if the lab server is verified running, its exact local URL.
+   Include STL, STEP when supported, source and passport. Do not substitute
+   illustrative generated art for the model preview.
+4. Ask for actual printer/nozzle/plate/filament/use or call `guidance NAME` /
+   `variant_guidance`. Follow `needs_input` and `unsupported_setup` honestly.
+   The supported P2S/0.4 mm/PLA suggestions are not certified profiles.
+5. Hand off to human offline slicing. No printer operation or physical-test claim.
+
+Original simple-model workflow (still dependency-free):
+
 1. Read `AGENTS.md`, `docs/decisions.md`, and the target entry in
    `models/catalog.json`. Confirm the intended object, non-critical use,
    dimensions in mm, clearance and actual printer/nozzle/material when relevant.

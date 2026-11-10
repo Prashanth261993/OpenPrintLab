@@ -14,6 +14,10 @@ trial models/previews/reports, experiment guides and planning documents in
 `devtool/` are also CC BY 4.0. Experiment runners/tests are MIT. Installed
 third-party CAD dependencies retain their own licenses and are not redistributed
 or relicensed here.
+The original template definitions/designs in `models/` and deliberately published
+example geometry, previews, passports and source bundles in
+`examples/template-lab/` are also CC BY 4.0. No user-private variants from
+`build/variants/` are automatically published.
 
 You may share and adapt this content, including commercially, with appropriate
 credit, a license link, and an indication of changes. Do not imply endorsement.

@@ -8,6 +8,11 @@ requirement. Independent community project, not affiliated with Bambu Lab.
 
 **[Browse models & beginner guides](https://Prashanth261993.github.io/OpenPrintLab/)**
 
+**New: [Template lab](https://prashanth261993.github.io/OpenPrintLab/lab/)** -
+rounded organizers, multi-pen rests and lightweight paper-card stands.
+Browse real geometry previews and examples, then use your own tool-capable
+assistant to generate a new variant locally. No hosted AI or provider key.
+
 > All four starter models are generated and software-checked. **None are
 > slicer-checked or physically print-tested.** Review the slice yourself before
 > printing. Suggested settings are starting points, not certified presets.
@@ -74,6 +79,36 @@ It supports orthogonal solids, not curved or organic modeling. Exported `.scad`
 snapshots can be inspected with OpenSCAD; editable Python recipes remain the
 source of truth.
 
+### Give your assistant instructions and see the result
+
+The [template-lab walkthrough](docs/template-lab.md) covers the complete local
+flow, supported edits, exact prompts, setup advice and client limitations.
+Your assistant interprets the request; our shared CLI/MCP deterministically
+validates and builds it. A generic model/chat page without tool access cannot
+execute this workflow.
+
+```powershell
+python -m venv .venv-cadquery
+.\.venv-cadquery\Scripts\python.exe -m pip install -e ".[cadquery,mcp,test]" -c experiments\cadquery\constraints.txt
+.\.venv-cadquery\Scripts\python.exe -m tools.cli customize rounded-organizer --variant my-desk-organizer --set length=120 --set width=80 --set height=18 --set compartments=3 --set radius=8
+python -m tools.lab --port 8766
+```
+
+Open `http://127.0.0.1:8766/my-desk-organizer/` for the actual STL-derived geometry,
+STL/STEP downloads, editable source and variant passport. Existing variant names
+are refused, never overwritten; request a new name for revisions. The viewer
+also shows three public examples without requiring CadQuery to be installed.
+CAD generation is opt-in and adds a substantial native dependency footprint;
+the original four models remain dependency-free.
+
+Example prompt: "Use create-printable-model to make a 120 x 80 x 18 mm organizer
+for dry desk bits, three compartments, 8 mm corners, 2.4 mm walls and 2 mm base.
+Preserve the original and show the preview and downloads. Ask for my actual
+hardware before recommending settings."
+
+Names/text, arbitrary sculpting and external STL/STEP/3MF editing are deferred.
+No browser chatbot, paid generation or printer automation is implied.
+
 ### Optional MCP
 
 Install in a virtual environment from this trusted clone:
@@ -90,7 +125,12 @@ service. Configure your MCP client to launch that Python command with
 absolute Python path. See the [creator guide](https://Prashanth261993.github.io/OpenPrintLab/create.html)
 for a full JSON configuration example.
 
-Working tools: `list_models`, `describe_model`, `check_model`, `export_model`.
+Original tools: `list_models`, `describe_model`, `check_model`, `export_model`.
+Template tools: `list_templates`, `describe_template`, `create_variant`,
+`variant_guidance`. For CAD generation, configure the same server with the
+`.venv-cadquery` interpreter and add `--cadquery` to the server arguments; no
+separate provider wrapper is needed. Native CAD initializes before the async
+server starts; the default server stays builtin-only.
 Exports are confined to `build/mcp`, overwriting the previous export for that
 model. CLI and MCP share validation and generation logic. No arbitrary commands,
 arbitrary output paths, network or printer controls are exposed. Enable tool
@@ -160,18 +200,18 @@ automatic certification or status promotion.
 [plan.md](plan.md) records requirements, owned files, dependencies, uncertainty,
 verification commands and approval gates. It distinguishes **precise functional
 CAD** (the shipped, limited local path) from **decorative AI meshes** (future opt-in).
-The [isolated CadQuery tray experiment](experiments/cadquery/README.md) now has
-editable parameters, downloadable STEP/STL trials and passing Windows/Linux
-geometry evidence. It is separate from the catalog and core environment.
-The [choose/decline report](experiments/cadquery/report.md) recommends considering
-an opt-in adapter; **adoption or migration still requires review**.
+The [isolated CadQuery tray experiment](experiments/cadquery/README.md) retains
+its original Windows/Linux evidence. The user subsequently approved the bounded
+optional backend and template lab, tracked separately in
+[milestone 003](devtool/features/003-template-lab/plan.md). This is not a wholesale
+catalog migration; the historical 002 plan and experiment report are preserved.
 
 The plan evaluates reuse of Meshy's official MCP/skill, and defers community
 FreeCAD/Blender bridges, Zoo/KCL and Tripo until justified. No provider keys,
 installations or paid API calls are enabled by this plan. Only the explicitly
-approved CadQuery experiment environment was installed. The no-key V1 baseline
-stays working. Real P2S test-print evidence, reviewed slicer profiles and a
-production CAD integration remain roadmap items, not shipped claims.
+approved CAD environments are opt-in. The no-key V1 baseline stays working.
+Real P2S test-print evidence, certified profiles, imported-model editing and
+additional providers remain roadmap items, not shipped claims.
 
 ## Licenses
 

@@ -4,6 +4,13 @@ Build useful, understandable models; never imply that generated means printable.
 
 - Read `docs/decisions.md`, `models/catalog.json` and the relevant recipe first.
 - Use `.github/skills/create-printable-model/SKILL.md` for authoring/customization.
+- For richer editable templates, read `docs/template-lab.md`. The optional
+  CadQuery backend is approved under milestone 003; keep it opt-in.
+- Discover using `python -m tools.cli templates` and `template ID`. Interpret
+  natural-language requests in the assistant, not a fabricated CLI parser.
+- Use `customize ID --variant NEW-NAME --set key=value` for non-destructive
+  results. Return the actual preview URI/local lab URL and STL/STEP/report paths.
+  Never replace a prior variant or the original to satisfy a revision request.
 - Lengths are mm. Validate all parameters, including finite values, counts and
   relationships. Do not bypass the limits with scale transforms.
 - Core tools: `python -m tools.cli list`, `parameters MODEL`, `check MODEL`,
@@ -22,9 +29,11 @@ Build useful, understandable models; never imply that generated means printable.
   inherit slicer/physical evidence. Suggested recipes are not actual settings.
 - Use the public print-result issue form for real observations, including
   failures; never automatically promote user-submitted claims into validation.
-- `plan.md` separates shipped functional CAD from future decorative AI meshes.
-  New CAD engines/providers require the user's review; no paid or private-data
-  operations are authorized by the existence of the plan.
+- The 003 plan authorizes the bounded optional CadQuery templates, not a full
+  migration, arbitrary imported model editing or paid decorative AI generation.
+  Fonts/text templates and additional providers remain deferred.
+- For setup advice, call `guidance` / `variant_guidance`; ask for missing actual
+  printer/nozzle/plate/material/use. Unsupported setups have no tested profile.
 - Keep suggestions separate from verified facts. Users select actual
   printer/nozzle/plate/filament presets and inspect their own slices.
 - Reject food-contact, electrical, medical, weapon, structural/load-bearing,

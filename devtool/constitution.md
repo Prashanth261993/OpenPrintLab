@@ -4,10 +4,13 @@ status: active
 updated: 2026-11-10
 ---
 
-# OpenPrintLab - approved T-05 experiment constraints
+# OpenPrintLab - bounded optional CAD constraints
 
 This records the user's explicit T-05 approval **before experimental code**.
 It does not retroactively claim a constitution governed the existing V1 build.
+The user subsequently approved milestone 003's optional CadQuery backend,
+bounded generators and own-assistant preview journey (D-02). That approval
+precedes 003 implementation and does not authorize migration or paid providers.
 
 ## What this project is
 
@@ -41,6 +44,8 @@ Install only the experiment dependency closure in the experiment environment.
 
 No general CAD engine, default catalog migration, provider integration, T-06,
 automatic promotion or physical-testing claim.
+Milestone 003 may add a separate optional backend and variant viewer under its
+own plan; it must retain the original no-dependency behavior.
 
 ## Definition of done
 

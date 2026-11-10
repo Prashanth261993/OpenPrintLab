@@ -1,10 +1,13 @@
 """Optional local stdio MCP. Uses the same catalog and build checks as the CLI."""
 
 from mcp.server.fastmcp import FastMCP
+from pydantic import StrictFloat, StrictInt
 
 from tools.catalog import ROOT, build_model, get_model, load_catalog, parameter_schema, write_build
+from tools import variants
 
 mcp = FastMCP("OpenPrintLab")
+_CAD_ENABLED = False
 
 
 @mcp.tool()
@@ -43,7 +46,62 @@ def export_model(model_id: str, parameters: dict[str, float] | None = None) -> d
     return {"stl": str(output / f"{model_id}.stl"), "report": report}
 
 
+def _variant_output():
+    output = variants.DEFAULT_OUTPUT
+    if output.resolve() != ROOT.resolve() / "build" / "variants":
+        raise ValueError("Variant output root must not use symlinks")
+    return output
+
+
+@mcp.tool()
+def list_templates() -> dict:
+    """Discover builtin and optional CAD generators without importing CadQuery."""
+    return {"templates": variants.list_templates(), "available_backends": ["builtin", "cadquery"] if _CAD_ENABLED else ["builtin"]}
+
+
+@mcp.tool()
+def describe_template(template_id: str) -> dict:
+    """Get bounds, default dimensions, supported styles and intended-use limits."""
+    return variants.describe_template(template_id)
+
+
+@mcp.tool()
+def create_variant(template_id: str, variant_name: str, parameters: dict[str, StrictFloat | StrictInt] | None = None) -> dict:
+    """Create checked STL, optional STEP, real SVG/HTML preview and passport.
+
+    Requires approval to write local files. Uses build/variants only. Existing
+    names are refused, not overwritten. CAD templates need the optional backend.
+    No natural-language parser, paid API, arbitrary code execution or printer control.
+    """
+    if variants.describe_template(template_id)["backend"] == "cadquery" and not _CAD_ENABLED:
+        raise ValueError("CAD tools require starting this server with --cadquery using the optional CAD environment. Builtin tools remain available.")
+    return variants.create_variant(template_id, variant_name, parameters, _variant_output())
+
+
+@mcp.tool()
+def variant_guidance(variant_name: str, printer: str | None = None, nozzle_mm: float | None = None,
+                     plate: str | None = None, material: str | None = None, intended_use: str | None = None) -> dict:
+    """Ask for missing actual setup, or return bounded cited starting suggestions.
+
+    Intended use is desk-organization, hobby-sorting, learning or paper-display,
+    subject to the model's limits. Suggestions never promote evidence status.
+    """
+    setup = {"printer": printer, "nozzle_mm": nozzle_mm, "plate": plate, "material": material, "use": intended_use}
+    return variants.guidance(variant_name, setup, _variant_output())
+
+
 def main():
+    import argparse
+    global _CAD_ENABLED
+    parser = argparse.ArgumentParser(description="Local OpenPrintLab stdio MCP; optional CAD is explicit.")
+    parser.add_argument("--cadquery", action="store_true", help="Initialize the optional native CAD stack before starting the async server")
+    args = parser.parse_args()
+    if args.cadquery:
+        try:
+            variants._cadquery()
+        except ValueError as exc:
+            parser.error(str(exc))
+        _CAD_ENABLED = True
     mcp.run(transport="stdio")
 
 

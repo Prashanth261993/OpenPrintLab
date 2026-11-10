@@ -35,13 +35,15 @@ class SiteTests(unittest.TestCase):
                 parser = Links()
                 parser.feed(text)
                 pages[path.resolve()] = parser
-            self.assertEqual(len(pages), 7)
+            self.assertEqual(len(pages), 11)
             for path, parser in pages.items():
                 for link in parser.links:
                     url = urlsplit(link)
                     if url.scheme or url.netloc:
                         continue
                     target = (path.parent / unquote(url.path)).resolve() if url.path else path
+                    if target.is_dir():
+                        target = target / "index.html"
                     self.assertTrue(target.is_relative_to(root.resolve()), link)
                     self.assertTrue(target.is_file(), f"{path.name}: {link}")
                     if url.fragment and target in pages:

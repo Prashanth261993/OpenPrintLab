@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "templates": [
+    {
+      "id": "rounded-organizer", "name": "Rounded compartment organizer", "version": "1.0.0", "backend": "cadquery",
+      "category": "Desk", "color": "#df8661",
+      "parameters": {"length": 96, "width": 64, "height": 16, "wall": 2.4, "base": 2, "radius": 6, "compartments": 2},
+      "limits": {"length": [40, 200], "width": [30, 180], "height": [8, 40], "wall": [1.6, 4], "base": [1.6, 4], "radius": [0, 30], "compartments": [1, 5]},
+      "counts": ["compartments"], "uses": ["desk-organization", "hobby-sorting"],
+      "notes": "Broad flat base down, compartments open upward. For dry, non-hazardous desk/craft bits only; not food, liquids, hot objects or safety-critical storage. Radius rounds vertical corners, not the top lip. Compartment size is nominal, not a fit guarantee.",
+      "prompt": "Make a 120 x 80 x 18 mm organizer for dry desk bits, three compartments, 8 mm corners, 2.4 mm walls and 2 mm base. Preserve the original and show me the geometry and downloads."
+    },
+    {
+      "id": "rounded-pen-rest", "name": "Rounded multi-pen rest", "version": "1.0.0", "backend": "cadquery",
+      "category": "Desk", "color": "#88a79b",
+      "parameters": {"length": 80, "width": 50, "height": 8, "wall": 2.4, "base": 2, "radius": 6, "channels": 3},
+      "limits": {"length": [40, 160], "width": [24, 120], "height": [5, 20], "wall": [1.6, 4], "base": [1.6, 4], "radius": [0, 20], "channels": [1, 5]},
+      "counts": ["channels"], "uses": ["desk-organization"],
+      "notes": "Base down, open-ended channels upward. Measure your pens; this is a shallow rest, not a clip or friction-fit holder. Rounded ends stay inside the base footprint. Not for hot tools or electrical parts.",
+      "prompt": "Make a rounded rest for three pens, 80 mm long and 50 mm wide, with 8 mm total height and 6 mm corner radius. Tell me the nominal channel width and show the exported geometry."
+    },
+    {
+      "id": "paper-card-stand", "name": "Paper-card slot stand", "version": "1.0.0", "backend": "cadquery",
+      "category": "Household", "color": "#a89cc4",
+      "parameters": {"length": 80, "width": 28, "height": 12, "base": 3, "radius": 4, "slot_width": 2, "end_margin": 4},
+      "limits": {"length": [40, 140], "width": [20, 60], "height": [8, 20], "base": [2, 4], "radius": [0, 12], "slot_width": [1.2, 5], "end_margin": [3, 10]},
+      "counts": [], "uses": ["paper-display"],
+      "notes": "Broad base down, slot upward. For lightweight paper/photo cards on a desk only, not phones, tablets or structural loads. The vertical slot has a closed base; measure card thickness and allow clearance. Holding stability and fit are not physically verified.",
+      "prompt": "Make a stand for a lightweight paper card, 80 x 28 x 12 mm, with a 2 mm vertical slot, 3 mm base and 4 mm corners. Keep the original unchanged and give me a preview plus STL and STEP."
+    }
+  ]
+}

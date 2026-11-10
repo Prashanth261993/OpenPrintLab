@@ -1,0 +1,35 @@
+name: Optional template lab
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  optional-cad:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Explicit optional backend environment
+        run: |
+          python -m venv .venv-cadquery
+          .venv-cadquery/bin/python -m pip install -e ".[cadquery,mcp,test]" -c experiments/cadquery/constraints.txt
+          .venv-cadquery/bin/python -m playwright install --with-deps chromium
+      - name: Verify the optional backend is really installed
+        run: .venv-cadquery/bin/python -c "import cadquery; print(cadquery.__version__)"
+      - name: Template and retained-baseline tests
+        run: |
+          .venv-cadquery/bin/python -m unittest discover -s tests -v
+          python -m tools.release --check
+      - name: Actual MCP CAD calls and browser journey
+        run: |
+          .venv-cadquery/bin/python -m tests.mcp_smoke
+          .venv-cadquery/bin/python -m tests.lab_browser_smoke

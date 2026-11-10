@@ -1,0 +1,135 @@
+{
+  "model": "paper-card-stand",
+  "units": "mm",
+  "parameters": {
+    "length": 80,
+    "width": 28,
+    "height": 12,
+    "base": 3,
+    "radius": 4,
+    "slot_width": 2,
+    "end_margin": 4
+  },
+  "sha256": "a2afe96f043538d642f1eeb560f671d08c4bf7d9f2afef4fc91e1ca23f12ed18",
+  "backend": {
+    "name": "cadquery",
+    "version": "2.8.0",
+    "ocp_version": "7.9.3.1.1",
+    "linear_tolerance_mm": 0.02,
+    "angular_tolerance_radians": 0.1,
+    "relative": false,
+    "parallel": false,
+    "step_supported": true
+  },
+  "passport": {
+    "schema_version": 1,
+    "model_version": "1.0.0",
+    "variant_id": "2e78c0fe131e21a07a298219639991611afcaf1518930ad8f5b147bac99537fd",
+    "design_license": "CC-BY-4.0",
+    "attribution": "OpenPrintLab contributors",
+    "editable_source": {
+      "recipe_path": "models/cadquery_templates.py",
+      "recipe_sha256": "7dbaf0bc7e8ecc76f828a79db5a2444d5a9a2b223f0bc81422d47594e0312b40",
+      "catalog_path": "models/templates.json",
+      "catalog_entry_sha256": "758c8ad5177f5f2fa777b4f75cbe4d86ffd6a059b2934f8f83d41b24fe07db10"
+    },
+    "suggested_print_recipe": {
+      "id": "p2s-pla-0.4-v1",
+      "status": "unverified_starting_point",
+      "printer": "Bambu Lab P2S",
+      "nozzle_mm": 0.4,
+      "material": "PLA",
+      "plate": "Select the actual installed plate preset",
+      "layer_height_mm": 0.2,
+      "wall_loops": 3,
+      "top_shell_layers": 4,
+      "bottom_shell_layers": 4,
+      "infill_percent": 15,
+      "supports": "Off initially; inspect every layer",
+      "brim": "Off initially; review adhesion",
+      "temperature_and_speed": "Use actual printer and filament preset defaults",
+      "orientation": "Broad flat base down",
+      "ams_required": false
+    }
+  },
+  "evidence": {
+    "scope": {
+      "model_version": "1.0.0",
+      "variant_id": "2e78c0fe131e21a07a298219639991611afcaf1518930ad8f5b147bac99537fd",
+      "stl_sha256": "a2afe96f043538d642f1eeb560f671d08c4bf7d9f2afef4fc91e1ca23f12ed18"
+    },
+    "geometry": {
+      "status": "passed",
+      "checker": "cadquery-brep-and-openprintlab-mesh",
+      "checker_source_sha256": "7640832bd8a7ab228e66e81876c6b35d3d464577d75b5b4c6b44567e3d4b24da"
+    },
+    "slicer": {
+      "status": "not_performed",
+      "actual_settings": null,
+      "record_url": null
+    },
+    "physical": {
+      "status": "not_performed",
+      "actual_settings": null,
+      "record_url": null
+    }
+  },
+  "validation": {
+    "generated": true,
+    "software_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "checks": {
+    "dimensions_mm": [
+      80.0,
+      28.0,
+      12.0
+    ],
+    "triangles": 540,
+    "volume_mm3": 25418.944,
+    "closed_edges": true,
+    "consistent_winding": true,
+    "connected": true,
+    "nondegenerate": true,
+    "within_p2s_envelope": true,
+    "kernel_valid": true,
+    "solid_count": 1,
+    "kernel_volume_mm3": 25419.18578948924,
+    "mesh_kernel_volume_error_percent": 0.0009512086313114951,
+    "step_roundtrip_valid": true
+  },
+  "repair_operations": [],
+  "artifacts": {
+    "stl": "example-card-stand.stl",
+    "stl_sha256": "a2afe96f043538d642f1eeb560f671d08c4bf7d9f2afef4fc91e1ca23f12ed18",
+    "step": "example-card-stand.step",
+    "step_sha256": "03d48ff34b3ec25d1eb262e3915e428c0fd1df93ff55be3289a4d39ed2f5d8bd"
+  },
+  "limitations": [
+    "Geometry checks do not certify printability, fit or safety.",
+    "STEP carries geometry, not Python parameter history.",
+    "Tessellation can vary by platform; keep the exact file hash.",
+    "No slicer or physical test has been performed."
+  ],
+  "variant_name": "example-card-stand",
+  "parent_template": "paper-card-stand",
+  "original_parameters": {
+    "length": 80,
+    "width": 28,
+    "height": 12,
+    "base": 3,
+    "radius": 4,
+    "slot_width": 2,
+    "end_margin": 4
+  },
+  "template_notes": "Broad base down, slot upward. For lightweight paper/photo cards on a desk only, not phones, tablets or structural loads. The vertical slot has a closed base; measure card thickness and allow clearance. Holding stability and fit are not physically verified.",
+  "allowed_uses": [
+    "paper-display"
+  ],
+  "preview": {
+    "renderer": "orthographic-depth-buffer-v1",
+    "renderer_source_sha256": "dd7a6beae1afdf876e1b88bf5f0ba1ec3cc84ef97bff76a2216141bab36e9086",
+    "sha256": "4d20bda222ba60308333d54a185a9e35fc3faa0fbbe602347e52c81e824fee8d"
+  }
+}
