@@ -1,7 +1,7 @@
 ---
 artifact: plan
 feature: 002-evidence-and-reuse
-status: planning
+status: building
 updated: 2026-11-10
 tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07]
 ---
@@ -12,8 +12,9 @@ tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07]
 
 Make the working OpenPrintLab starter trustworthy and easy to test locally,
 then reuse mature CAD and AI capabilities only where they earn their complexity.
-This plan does **not** authorize external installation, paid calls or a CAD migration.
-Small passport/feedback additions are approved; future integrations require review.
+The user approved isolated CadQuery installation and T-05 on 2026-11-10.
+This does **not** authorize paid calls, other providers or a catalog/CAD migration.
+Small passport/feedback additions are complete; adoption still requires review.
 
 ## Current state
 
@@ -23,9 +24,12 @@ static catalog, optional local MCP and automated Pages deployment. Local preview
 and a customized tray have been verified; the coordinator received the local-ready
 handoff before this roadmap was completed. Versioned passports, a feedback form
 and distinct creation-path guidance are implemented and locally verified.
-Future integration tasks are blocked pending user review; the plan is not a
-claim that those integrations have shipped. **No model has been sliced or
-physically printed.**
+T-05 is now in progress following explicit approval: isolated CadQuery, a reference
+tray and two rounded variants, STEP/STL exports and Windows/Linux geometry checks.
+The existing catalog and local preview remain unchanged. Windows G-2 geometry
+tests pass and trial STEP/STL files are exported; Linux verification is next.
+Other integration tasks are blocked pending review. **No model has been sliced
+or physically printed.**
 
 ## Phases
 
@@ -44,7 +48,7 @@ physically printed.**
 | T-02 | Bind passports and fresh evidence scope to model versions and variants | R-02 | T-01 | `models/catalog.json`, `models/exports/*`, `tools/catalog.py`, `tools/site.py`, `tests/test_models.py`, `docs/create.html`, `AGENTS.md` | - | done | `python -m unittest tests.test_models -v`; `python -m tools.release`; `python -m tools.release --check` |
 | T-03 | Add public success/failure feedback form and privacy/evidence instructions | R-04 | T-02 | `.github/ISSUE_TEMPLATE/print-result.yml`, `tests/test_feedback.py` | - | done | `python -m unittest tests.test_feedback -v`; authenticated users can inspect the published GitHub issue-form preview without submitting an issue |
 | T-04 | Document separate creation paths and verify the foundation for publication | R-01, R-03, R-05, R-06 | T-02, T-03 | `README.md`, `docs/create.html`, `docs/decisions.md`, `requirements.md`, `plan.md` | - | done | `python -m unittest discover -s tests -v`; `python -m tools.release --check`; `.\.venv\Scripts\python.exe -m tests.mcp_smoke`; `.\.venv\Scripts\python.exe -m tests.browser_smoke` |
-| T-05 | Proposed first experiment: isolated CadQuery tray with editable parameters and STEP/STL | R-02, R-05, R-06 | T-04, Q-1 approval | `experiments/cadquery/requirements.txt`, `experiments/cadquery/probe.py`, `experiments/cadquery/test_probe.py`, `experiments/cadquery/report.md` | - | blocked | Planned after approval: `experiments\cadquery\.venv\Scripts\python.exe -m unittest discover -s experiments\cadquery -p test_probe.py -v`; baseline: `python -m tools.release --check` |
+| T-05 | Approved isolated CadQuery tray experiment with editable parameters and STEP/STL | R-02, R-05, R-06 | T-04 | `experiments/cadquery/*`, `.github/workflows/cadquery-experiment.yml`, `.gitattributes`, `devtool/constitution.md`, `devtool/DECISIONS.md` | - | in progress | `experiments\cadquery\.venv\Scripts\python.exe -m unittest discover -s experiments\cadquery -p test_probe.py -v`; isolated Linux workflow; baseline: `python -m tools.release --check` |
 | T-06 | Optional decorative-path trial reusing official Meshy tools, not a new wrapper | R-02, R-04, R-05, R-06 | T-04, Q-2 approval | `experiments/meshy/check_evidence.py`, `experiments/meshy/consent.json`, `experiments/meshy/evidence.json`, `experiments/meshy/report.md` | - | blocked | Planned after approval: `python experiments\meshy\check_evidence.py --consent experiments\meshy\consent.json --evidence experiments\meshy\evidence.json`; baseline: `python -m tools.release --check` |
 | T-07 | Choose a next integration from evidence, or explicitly decline it | R-05, R-06 | T-05; T-06 only if commissioned | `docs/integration-decision.md`, `plan.md` | - | blocked | Planned after experiments: `git diff --check`; `python -m unittest discover -s tests -v`; user review of measured results against G-2/G-3 |
 
@@ -149,7 +153,7 @@ by default. A slicer handoff is not permission to print.
 
 ## First bounded integration experiment: T-05
 
-Only after Q-1 approval, create an isolated CadQuery environment under its
+Q-1 was approved on 2026-11-10. Create an isolated CadQuery environment under its
 experiment directory. Do not change the default catalog, core dependencies or
 local MCP tools.
 
@@ -195,16 +199,18 @@ local MCP tools.
 
 | # | Question | Blocking? | Raised | Answer |
 |---|----------|-----------|--------|--------|
-| Q-1 | Approve T-05 as the first isolated CadQuery experiment? | T-05 only | 2026-11-10 | Awaiting review; no installation yet |
+| Q-1 | Approve T-05 as the first isolated CadQuery experiment? | Resolved | 2026-11-10 | User: "Start the isolated CadQuery experiment (Recommended)"; installation and Windows/Linux trial approved, adoption not approved |
 | Q-2 | Is a Meshy trial desired, and with what privacy/rights approval and credit cap? | T-06 only | 2026-11-10 | Deferred; no API calls |
 | Q-3 | Which actual printer/nozzle/plate/PLA will be used for the first human trial? | Slicing/printing only | 2026-11-10 | User selects actual setup in Bambu Studio |
 
 ## Notes
 
 The approved foundation work does not wait on these future decisions.
-No FreeCAD, Blender, Zoo, CadQuery or cloud provider integration was installed by
-this planning task. No public print report or fake test result is filed by the
-agent. The issue form is an invitation for real observations.
+No FreeCAD, Blender, Zoo or cloud provider integration is authorized or installed.
+T-05 now permits CadQuery only in its experiment environment. Linux verification
+uses an experiment-only Actions workflow, not a change to the catalog pipeline.
+The user has no printer available yet; geometry and offline slicing can proceed,
+but physical evidence must remain pending. No fake print report is filed.
 
 ## Links
 

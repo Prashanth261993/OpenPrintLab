@@ -1,0 +1,2 @@
+-c constraints.txt
+cadquery==2.8.0

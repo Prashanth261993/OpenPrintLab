@@ -1,0 +1,43 @@
+name: Isolated CadQuery experiment
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - experiments/cadquery/design.py
+      - experiments/cadquery/probe.py
+      - experiments/cadquery/test_probe.py
+      - experiments/cadquery/requirements.txt
+      - experiments/cadquery/constraints.txt
+      - .github/workflows/cadquery-experiment.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-geometry:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Create isolated CAD environment
+        run: |
+          python -m venv experiments/cadquery/.venv
+          experiments/cadquery/.venv/bin/python -m pip install -r experiments/cadquery/requirements.txt
+      - name: Verify G-2 acceptance criteria
+        run: experiments/cadquery/.venv/bin/python -m unittest discover -s experiments/cadquery -p test_probe.py -v
+      - name: Export three trial cases and dependency evidence
+        run: experiments/cadquery/.venv/bin/python experiments/cadquery/probe.py --output build/cadquery-linux
+      - name: Verify the unchanged no-key baseline without CAD environment
+        run: |
+          python -m tools.release --check
+          python -m unittest discover -s tests -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cadquery-linux-evidence
+          path: build/cadquery-linux
+          if-no-files-found: warn

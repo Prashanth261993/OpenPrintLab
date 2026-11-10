@@ -2,9 +2,9 @@ MIT License
 
 Copyright (c) 2026 OpenPrintLab contributors
 
-This license covers tooling code (tools/, tests/), website code and templates
+This license covers tooling code (tools/, tests/, and experiment runners/tests), website code and templates
 (web/), automation, assistant integration instructions, and project configuration.
-It does NOT cover model/design sources, model exports, previews, catalog content,
+It does NOT cover model/design sources (including experimental designs), model exports, previews, catalog content,
 README.md, or guides. Those are licensed under LICENSE-CONTENT.md (CC BY 4.0).
 In particular, models/recipes.py is design source, NOT MIT tooling.
 

@@ -9,6 +9,11 @@ The original design sources in `models/` (including `recipes.py` and
 The [legal code](https://creativecommons.org/licenses/by/4.0/legalcode) controls.
 The same scope applies to copies served on the website or in source archives.
 MIT applies only to the separate tooling and other files described in `LICENSE`.
+Original experimental design source (`experiments/cadquery/design.py`), generated
+trial models/previews/reports, experiment guides and planning documents in
+`devtool/` are also CC BY 4.0. Experiment runners/tests are MIT. Installed
+third-party CAD dependencies retain their own licenses and are not redistributed
+or relicensed here.
 
 You may share and adapt this content, including commercially, with appropriate
 credit, a license link, and an indication of changes. Do not imply endorsement.
