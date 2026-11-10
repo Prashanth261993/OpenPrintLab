@@ -1,7 +1,7 @@
 ---
 artifact: plan
 feature: 003-template-lab
-status: verifying
+status: complete
 updated: 2026-11-10
 tasks: [T-01, T-02, T-03, T-04, T-05]
 ---
@@ -23,7 +23,9 @@ and Linux. The original 16 artifacts were rechecked at milestone start.
 The three generators, non-destructive variants, CLI/MCP, grounded guidance and
 local lab now pass local checks. A real custom organizer is visible at
 `http://127.0.0.1:8766/my-desk-organizer-v2/`; the earlier variant was preserved.
-Publication and Linux optional-backend CI are the remaining release steps.
+The optional lab is published. Both Linux optional-backend and baseline/Pages
+checks passed. Pages deployment is gated on both suites, while the baseline
+suite deliberately runs without CadQuery. No physical or slicer test is claimed.
 
 ## Phases
 
@@ -31,7 +33,7 @@ Publication and Linux optional-backend CI are the remaining release steps.
 - [x] Design - bounded contract and tradeoffs below.
 - [x] Plan - sequential task table.
 - [x] Build.
-- [ ] Verify and publish.
+- [x] Verify and publish.
 - Red-team - not commissioned; ordinary focused checks still apply.
 
 ## Tasks
@@ -42,7 +44,7 @@ Publication and Linux optional-backend CI are the remaining release steps.
 | T-02 | Add the optional CAD backend and three bounded template families | R-01, R-02, R-06 | T-01 | `models/templates.json`, `models/cadquery_templates.py`, `tools/variants.py`, `tools/template_examples.py`, `pyproject.toml`, `.gitignore`, `tests/test_cadquery_templates.py`, `examples/template-lab/*` | - | done | `.venv-cadquery\Scripts\python.exe -m unittest tests.test_cadquery_templates -v`; curated exports generated and hash/source checked |
 | T-03 | Wire shared CLI/MCP and model-aware setup guidance | R-04, R-05 | T-02 | `tools/cli.py`, `tools/mcp_server.py`, `tools/variants.py`, `tests/mcp_smoke.py`, `tests/test_variants.py`, `AGENTS.md`, `.github/skills/create-printable-model/SKILL.md` | - | done | `.venv-cadquery\Scripts\python.exe -m tests.mcp_smoke`; `python -m unittest tests.test_variants -v` passed |
 | T-04 | Ship the local lab journey and exact prompt/run documentation | R-03, R-04, R-05 | T-03 | `README.md`, `docs/template-lab.md`, `docs/create.html`, `tools/lab.py`, `tools/mesh_preview.py`, `tests/test_mesh_preview.py`, `tests/lab_browser_smoke.py`, `LICENSE-CONTENT.md` | - | done | `.venv-cadquery\Scripts\python.exe -m tests.lab_browser_smoke` passed; real custom preview/downloads verified |
-| T-05 | Verify on Windows/Linux, publish and report local readiness | R-01, R-02, R-03, R-04, R-05, R-06 | T-04 | `.github/workflows/template-lab.yml`, `requirements.md`, `plan.md`, `devtool/features/003-template-lab/*` | - | in progress | `python -m unittest discover -s tests -v`; CAD-environment suite; `python -m tools.release --check`; live local HTTP and artifact hashes; CI |
+| T-05 | Verify on Windows/Linux, publish and report local readiness | R-01, R-02, R-03, R-04, R-05, R-06 | T-04 | `.github/workflows/template-lab.yml`, `.github/workflows/pages.yml`, `requirements.md`, `plan.md`, `devtool/features/003-template-lab/*` | - | done | `python -m unittest discover -s tests -v`; CAD suite; `python -m tools.release --check`; live local HTTP/hashes; [optional CI](https://github.com/Prashanth261993/OpenPrintLab/actions/runs/42925559346), [baseline/Pages](https://github.com/Prashanth261993/OpenPrintLab/actions/runs/42925559317) passed |
 
 No parallel groups: shared pipeline/CLI files make these tasks sequential.
 Commands marked planned are contracts, not claims that those modules exist yet.
@@ -152,6 +154,8 @@ are deferred, not silently added to this milestone.
   The original gallery renderer/artifacts were not altered.
 - Browser checks cover the actual geometry image, STL/STEP byte hashes,
   passport links, three families, keyboard and 375px/landscape layouts.
+- Linux runs all 19 unit tests with the optional backend, actual MCP CAD calls
+  and the browser journey. The separate baseline run passes without installing CAD.
 - Curated references are regenerated with `python -m tools.template_examples`
   in the optional environment. This intentionally refreshes only public examples;
   ordinary `customize` never overwrites private variants.

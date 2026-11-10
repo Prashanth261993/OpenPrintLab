@@ -15,6 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  optional-cad:
+    uses: ./.github/workflows/template-lab.yml
   verify:
     runs-on: ubuntu-latest
     steps:
@@ -41,7 +43,7 @@ jobs:
           path: site
   deploy:
     if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
-    needs: verify
+    needs: [verify, optional-cad]
     runs-on: ubuntu-latest
     permissions:
       pages: write
