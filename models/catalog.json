@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "printer": "Bambu Lab P2S",
+  "models": [
+    {
+      "id": "pocket-tray",
+      "name": "Pocket tray",
+      "category": "Household",
+      "summary": "A little landing spot for spare buttons, tokens and everyday bits.",
+      "recipe": "tray",
+      "parameters": {"length": 96, "width": 64, "height": 16, "wall": 2.4, "base": 2, "dividers": 0},
+      "color": "#df8661",
+      "notes": "Print with the broad flat base on the plate and the opening facing up. Internal space is 91.2 x 59.2 x 14 mm. Not for food, liquids, hot objects or safety-critical storage.",
+      "customize": "Change length and width for your space; keep the wall at least 1.6 mm and the base at least 1.2 mm.",
+      "tags": ["organizer", "tray", "beginner"]
+    },
+    {
+      "id": "pen-rest",
+      "name": "Two-pen rest",
+      "category": "Desk",
+      "summary": "Two shallow channels to stop pens wandering across your desk.",
+      "recipe": "rest",
+      "parameters": {"length": 70, "width": 38, "height": 8, "wall": 2.4, "base": 2, "channels": 2},
+      "color": "#88a79b",
+      "notes": "Print base down, channels facing up. Each open-ended channel is 15.4 mm wide; measure your pens first. This is a shallow rest, not a retaining clip or vertical holder.",
+      "customize": "Adjust width for your pens. Channel width must remain at least 6 mm; there is no friction-fit promise.",
+      "tags": ["pens", "organization", "channels"]
+    },
+    {
+      "id": "parts-palette",
+      "name": "Parts palette",
+      "category": "Hobby",
+      "summary": "Three open compartments for sorting small craft parts as you work.",
+      "recipe": "tray",
+      "parameters": {"length": 108, "width": 60, "height": 14, "wall": 2.4, "base": 2, "dividers": 2},
+      "color": "#a89cc4",
+      "notes": "Print base down with all compartments open upward. Each compartment is 32.8 x 55.2 x 12 mm. For dry, non-hazardous craft parts only, not paint solvents or food. Small parts are a choking hazard; keep away from children and pets.",
+      "customize": "Change dividers from 0 to 4, then check the resulting shape and dimensions in your slicer.",
+      "tags": ["craft", "sorting", "compartments"]
+    },
+    {
+      "id": "step-study",
+      "name": "Layer staircase",
+      "category": "Learning",
+      "summary": "A simple four-step shape for learning how layers become an object.",
+      "recipe": "steps",
+      "parameters": {"length": 48, "width": 24, "height": 16, "steps": 4},
+      "color": "#d2ac61",
+      "notes": "Print the full rectangular base down, with the steps facing up. Each tread is 12 mm long and each rise is 4 mm. Inspect the layer slider in Bambu Studio to see the outline change. Educational object, not a certified calibration gauge or toy.",
+      "customize": "Change step count from 2 to 8. Each tread must be at least 4 mm and each rise at least 1 mm.",
+      "tags": ["layers", "education", "first-print"]
+    }
+  ]
+}

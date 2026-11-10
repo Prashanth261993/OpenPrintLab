@@ -1,0 +1,38 @@
+{
+  "model": "pocket-tray",
+  "units": "mm",
+  "parameters": {
+    "length": 96,
+    "width": 64,
+    "height": 16,
+    "wall": 2.4,
+    "base": 2,
+    "dividers": 0
+  },
+  "sha256": "2280b555c67ae9dadb8bb408d19e6d8695d5ab4bee7307e5923f93396207caa9",
+  "validation": {
+    "generated": true,
+    "software_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "checks": {
+    "dimensions_mm": [
+      96.0,
+      64.0,
+      16.0
+    ],
+    "triangles": 92,
+    "volume_mm3": 22717.443,
+    "closed_edges": true,
+    "consistent_winding": true,
+    "connected": true,
+    "nondegenerate": true,
+    "within_p2s_envelope": true
+  },
+  "limitations": [
+    "No slicer review or physical print test has been performed.",
+    "These checks do not certify printability, tolerances, strength or safety.",
+    "Only axis-aligned box-union recipes are supported; not a general mesh repair tool."
+  ]
+}

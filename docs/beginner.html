@@ -1,0 +1,34 @@
+<p class="eyebrow">YOUR FIRST PRINT / BAMBU LAB P2S</p>
+<h1>From a file to something you can hold.</h1>
+<p class="lede">Start small. Use one color of PLA, keep the default model dimensions, and take a minute to inspect every layer before you print.</p>
+<aside class="notice"><strong>Important:</strong> these models are generated and software-checked, not slicer-checked or physically print-tested. A clean mesh is only the first step. You decide whether to print.</aside>
+<h2>Before you begin</h2>
+<p>You need a set-up Bambu Lab P2S, a suitable build plate, PLA filament, and <a href="https://bambulab.com/en/download/studio">Bambu Studio from the manufacturer</a>. Complete the printer's official setup and calibration first. No AMS or multi-color hardware is required.</p>
+<p>The <a href="https://bambulab.com/en/p2s/specs">official P2S specifications</a> list a 256 x 256 x 256 mm build volume, an included 0.4 mm hardened steel nozzle, 1.75 mm filament and an included textured PEI plate (checked November 10, 2026). Your machine may have a different nozzle or plate fitted. Select what is actually installed, not what a guide assumes.</p>
+<h2>1. Choose and download</h2>
+<p>Open a model page and read its size, use limits and print notes. The <a href="models/step-study.html">Layer staircase</a> is the smallest starter. Download the <strong>STL</strong>, not the preview image or source ZIP. STL describes a shape; it does not contain printer settings. Our units are millimeters.</p>
+<h2>2. Select your real printer and materials</h2>
+<p>Open Bambu Studio and select <strong>Bambu Lab P2S</strong> with the nozzle diameter actually fitted. If P2S is missing, update Studio or consult the official setup guide; do not substitute a P1S profile. Select your actual build plate type and the appropriate PLA filament preset for your spool. Use the preset's temperatures and speed limits; this project does not supply certified temperature or speed profiles.</p>
+<p>If you do not have an AMS, use the external-spool workflow described in the official P2S guide. Do not select an AMS slot that does not exist.</p>
+<h2>3. Import and orient</h2>
+<p>Import the STL and confirm its bounding dimensions match the model page. If prompted to convert units, keep millimeters. Place its broad flat base on the plate at Z=0, with open compartments or steps facing upward. Keep the model centered with room for any brim or printer-required margins. Do not uniformly shrink the model: that also thins its walls and base.</p>
+<h2>4. Start with conservative process settings</h2>
+<p>For the catalog's default geometry with a 0.4 mm nozzle and PLA, the following are <strong>suggested starting points only</strong>: a compatible 0.20 mm layer-height process, 3 wall loops, 4 top and 4 bottom shell layers, and 15% infill. Inspect shell closure in the slice; the learning staircase also has horizontal top surfaces at every step.</p>
+<p>The shapes are designed to stand base-down without overhangs that need support. Start with supports off, then verify every layer. Start without a brim on a clean plate; if corners lift, investigate cleanliness and the correct plate preset before trying a small brim. Other nozzle sizes, materials, dimensions and process presets need a fresh review.</p>
+<h2>5. Slice, then inspect</h2>
+<p>Click <strong>Slice plate</strong>. Resolve all warnings. In Preview, use the layer slider from bottom to top. Check that the entire first layer touches the plate, walls and bases are continuous, no region starts in mid-air, and compartments remain open. Check the selected filament, material estimate and time estimate in your own slicer. We do not publish invented estimates.</p>
+<p>If Studio repairs the mesh or reports errors, stop, save the warning and report the model ID and file hash. Do not treat automatic repair as proof that the result matches the design.</p>
+<h2>6. Print deliberately</h2>
+<p>Only after inspection, initiate the print yourself using the official printer workflow. Confirm the selected device and material. Watch the first layer from a safe distance. Pause or stop using the printer controls if the part detaches or the nozzle drags material. Never reach into a moving or hot machine. Let the plate and part cool before removal; handle any sharp edges carefully.</p>
+<h2>Troubleshooting without guesswork</h2>
+<table><thead><tr><th>What you see</th><th>What to check first</th></tr></thead><tbody>
+<tr><td>Model looks tiny or huge</td><td>Check STL units are mm and compare all three dimensions with the model page. Reset accidental scaling.</td></tr>
+<tr><td>First layer will not stick</td><td>Check actual plate selection, the manufacturer's cleaning guidance, calibration and PLA preset. Do not touch the hot plate.</td></tr>
+<tr><td>Corners curl upward</td><td>Check plate cleanliness and material settings; follow manufacturer chamber guidance. Then consider a brim and re-slice.</td></tr>
+<tr><td>Stringing or rough surfaces</td><td>Check filament condition and the correct material preset. Follow the spool maker's drying guidance; do not improvise temperatures.</td></tr>
+<tr><td>Missing walls or floating islands</td><td>Stop. Check orientation and dimensions, restore defaults and re-slice. Attach the preview and exact parameters to an issue.</td></tr>
+<tr><td>Customized object does not fit</td><td>Measure the real object, account for printer/material tolerances, and print a small fit sample. Nominal CAD dimensions are not a fit guarantee.</td></tr>
+</tbody></table>
+<h2>Safety and scope</h2>
+<p>Use a stable workspace with ventilation appropriate to your material and the manufacturer's instructions. Keep children and pets away from moving machinery and small parts. PLA can deform with heat. These designs are not for food contact, hot objects, electrical enclosures, medical use, weapons, structural loads or other safety-critical uses. Do not leave a first experimental print unattended. This project never sends commands to your printer.</p>
+<p>For machine-specific setup, cleaning, material and chamber guidance, use the <a href="https://wiki.bambulab.com/en/p2s">official P2S documentation</a>. OpenPrintLab is independent of Bambu Lab.</p>

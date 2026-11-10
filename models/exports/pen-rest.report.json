@@ -1,0 +1,38 @@
+{
+  "model": "pen-rest",
+  "units": "mm",
+  "parameters": {
+    "length": 70,
+    "width": 38,
+    "height": 8,
+    "wall": 2.4,
+    "base": 2,
+    "channels": 2
+  },
+  "sha256": "8d10a3f9b76f2d74514c5d39fdc403b8024486ab5f2b7bc8be79ac9bb579943b",
+  "validation": {
+    "generated": true,
+    "software_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "checks": {
+    "dimensions_mm": [
+      70.0,
+      38.0,
+      8.0
+    ],
+    "triangles": 68,
+    "volume_mm3": 8344.001,
+    "closed_edges": true,
+    "consistent_winding": true,
+    "connected": true,
+    "nondegenerate": true,
+    "within_p2s_envelope": true
+  },
+  "limitations": [
+    "No slicer review or physical print test has been performed.",
+    "These checks do not certify printability, tolerances, strength or safety.",
+    "Only axis-aligned box-union recipes are supported; not a general mesh repair tool."
+  ]
+}

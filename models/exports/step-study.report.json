@@ -1,0 +1,36 @@
+{
+  "model": "step-study",
+  "units": "mm",
+  "parameters": {
+    "length": 48,
+    "width": 24,
+    "height": 16,
+    "steps": 4
+  },
+  "sha256": "2c960fa1e38497cf5bb611c232b7b3119791727761780b0501ecd3e32a463ef9",
+  "validation": {
+    "generated": true,
+    "software_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "checks": {
+    "dimensions_mm": [
+      48.0,
+      24.0,
+      16.0
+    ],
+    "triangles": 72,
+    "volume_mm3": 11520.0,
+    "closed_edges": true,
+    "consistent_winding": true,
+    "connected": true,
+    "nondegenerate": true,
+    "within_p2s_envelope": true
+  },
+  "limitations": [
+    "No slicer review or physical print test has been performed.",
+    "These checks do not certify printability, tolerances, strength or safety.",
+    "Only axis-aligned box-union recipes are supported; not a general mesh repair tool."
+  ]
+}

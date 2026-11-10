@@ -1,0 +1,47 @@
+<p class="eyebrow">THE CREATOR PATH / LOCAL &amp; OPEN</p>
+<h1>Make it fit your idea.</h1>
+<p class="lede">Use your AI coding assistant to change understandable dimensions, not to guess whether a mesh is printable. Everything runs locally; there is no hosted AI generator.</p>
+<h2>Get the source</h2>
+<p>Install Python 3.11 or newer and clone <a href="https://github.com/Prashanth261993/OpenPrintLab">the repository</a>. The core model tools need no third-party packages. Run commands from the repository root. A model's source ZIP also contains the files needed for the core CLI; unzip before running it.</p>
+<pre><code>git clone https://github.com/Prashanth261993/OpenPrintLab.git
+cd OpenPrintLab
+python -m tools.cli list
+python -m tools.cli parameters pocket-tray
+python -m tools.cli check pocket-tray --set length=120
+python -m tools.cli build pocket-tray --set length=120</code></pre>
+<p>The last command writes <code>build/pocket-tray.stl</code> and a JSON report. Repeating it replaces those files; use <code>--output build/my-variant</code> to keep a separate variant. A check failure exits nonzero and explains why. Open the STL in Bambu Studio and follow the <a href="beginner.html">beginner workflow</a>; a software report cannot replace slicing.</p>
+<h2>Use the repository skill</h2>
+<p>Open this clone in your coding assistant. <code>AGENTS.md</code> describes the rules, and <code>.github/copilot-instructions.md</code> points Copilot at them. The repository-local skill lives at <code>.github/skills/create-printable-model/SKILL.md</code>. In a client that supports repository skills, enable discovery and ask it to use <strong>create-printable-model</strong>. Clients differ: if your assistant does not discover that folder, explicitly ask it to read that file before making changes. No plugin install or API key is required by this repository.</p>
+<pre><code>Read AGENTS.md and .github/skills/create-printable-model/SKILL.md.
+Customize pocket-tray to 120 x 80 x 18 mm for dry craft parts.
+Use PLA on a Bambu Lab P2S with my 0.4 mm nozzle.
+Keep walls at 2.4 mm and the base at 2 mm. Write to build/my-tray.
+Validate the parameters and exported mesh. Report actual checks and
+file paths. Do not claim a slicer check or physical print test.
+Do not connect to or control my printer.</code></pre>
+<h2>What can be customized?</h2>
+<p><code>models/catalog.json</code> contains the default dimensions and descriptions. <code>models/recipes.py</code> defines three original parametric designs: trays, open-channel rests and staircases. Dimensions are millimeters; counts are integers. The CLI exposes the exact supported limits, rejects unknown keys and validates relationships such as remaining compartment width.</p>
+<p>These are simple box-union solids, not a general CAD kernel. They have square corners, not rounded fillets. Generated OpenSCAD files are inspection snapshots of the same boxes; editing one does not update the Python source or report. For a new curved or organic object, choose an appropriate CAD tool and add a real export/validation pipeline before claiming support.</p>
+<h2>Optional local MCP integration</h2>
+<p>For an MCP-capable assistant, install the official SDK in a virtual environment using the optional dependency. Use an editable install from this trusted clone; exports are kept in the clone's <code>build/mcp</code> directory.</p>
+<pre><code>python -m venv .venv
+# Windows:
+.\.venv\Scripts\python.exe -m pip install -e ".[mcp]"
+# macOS/Linux:
+.venv/bin/python -m pip install -e ".[mcp]"</code></pre>
+<p>Add a local stdio server in your client's MCP settings. For clients using an <code>mcpServers</code> JSON object, the Windows example below works after replacing both absolute paths. Other clients use different configuration wrappers: preserve the command and arguments, and follow your client's documentation.</p>
+<pre><code>{
+  "mcpServers": {
+    "openprintlab": {
+      "command": "C:\\path\\OpenPrintLab\\.venv\\Scripts\\python.exe",
+      "args": ["-m", "tools.mcp_server"],
+      "cwd": "C:\\path\\OpenPrintLab"
+    }
+  }
+}</code></pre>
+<p>The four tools are <code>list_models</code>, <code>describe_model</code>, <code>check_model</code>, and <code>export_model</code>. Ask the assistant to describe a model, check proposed parameters, then export after your approval. Export replaces the previous MCP export for that model. It only accepts known model IDs and numeric parameters; there are no shell, arbitrary-path, network or printer-control tools. Your MCP client controls tool approval. Run only trusted source code.</p>
+<h2>Contribute a model, not an unsupported promise</h2>
+<p>State the intended use and exclusions, dimensions, limits, material, orientation and expected clearance. Add original design source and catalog metadata, tests for invalid dimensions and analytical geometry, and regenerate all exports with <code>python -m tools.release</code>. Run <code>python -m unittest discover -s tests -v</code> and <code>python -m tools.release --check</code>. Then build the site with <code>python -m tools.site</code>.</p>
+<p>Do not silently promote validation levels. A slicer review needs the STL hash, application version, exact printer/nozzle/plate/material/process selections, warnings and preview observations. A physical test additionally needs real photos, date and outcomes. New dimensions invalidate the old evidence. Record this in a review or issue until the catalog supports evidence-backed promotion.</p>
+<h2>Licenses and attribution</h2>
+<p>Tooling and website code are MIT. Original models, editable design recipes, catalog content, previews and guides are CC BY 4.0. Keep attribution and indicate changes when sharing derivatives. Read the <a href="https://github.com/Prashanth261993/OpenPrintLab/blob/main/LICENSE-CONTENT.md">content license scope</a>; design Python is not automatically MIT simply because it is code.</p>

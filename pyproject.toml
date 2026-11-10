@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openprintlab"
+version = "0.1.0"
+description = "Local, reproducible starter models for beginner 3D printing"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp==1.30.0"]
+test = ["playwright==1.64.1"]
+
+[project.scripts]
+openprintlab = "tools.cli:main"
+openprintlab-mcp = "tools.mcp_server:main"
+
+[tool.setuptools]
+packages = ["tools", "models"]
+
+[tool.setuptools.package-data]
+models = ["catalog.json"]

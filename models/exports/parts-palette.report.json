@@ -1,0 +1,38 @@
+{
+  "model": "parts-palette",
+  "units": "mm",
+  "parameters": {
+    "length": 108,
+    "width": 60,
+    "height": 14,
+    "wall": 2.4,
+    "base": 2,
+    "dividers": 2
+  },
+  "sha256": "f27c92f18a31c94128864d17363a41b209b8828f335248e99d56e74c2bc1175d",
+  "validation": {
+    "generated": true,
+    "software_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "checks": {
+    "dimensions_mm": [
+      108.0,
+      60.0,
+      14.0
+    ],
+    "triangles": 188,
+    "volume_mm3": 25539.842,
+    "closed_edges": true,
+    "consistent_winding": true,
+    "connected": true,
+    "nondegenerate": true,
+    "within_p2s_envelope": true
+  },
+  "limitations": [
+    "No slicer review or physical print test has been performed.",
+    "These checks do not certify printability, tolerances, strength or safety.",
+    "Only axis-aligned box-union recipes are supported; not a general mesh repair tool."
+  ]
+}
