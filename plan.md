@@ -1,7 +1,7 @@
 ---
 artifact: plan
 feature: 002-evidence-and-reuse
-status: building
+status: planning
 updated: 2026-11-10
 tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07]
 ---
@@ -24,12 +24,12 @@ static catalog, optional local MCP and automated Pages deployment. Local preview
 and a customized tray have been verified; the coordinator received the local-ready
 handoff before this roadmap was completed. Versioned passports, a feedback form
 and distinct creation-path guidance are implemented and locally verified.
-T-05 is now in progress following explicit approval: isolated CadQuery, a reference
-tray and two rounded variants, STEP/STL exports and Windows/Linux geometry checks.
-The existing catalog and local preview remain unchanged. Windows G-2 geometry
-tests pass and trial STEP/STL files are exported; Linux verification is next.
-Other integration tasks are blocked pending review. **No model has been sliced
-or physically printed.**
+T-05 is complete following explicit approval: isolated CadQuery, a reference tray
+and two rounded variants, STEP/STL exports and passing Windows/Linux G-2 geometry
+checks. The [experiment report](experiments/cadquery/report.md) recommends a future
+opt-in adapter candidate, not a default migration. The existing catalog and
+local preview remain unchanged. Adoption and other integrations await review.
+**No model has been sliced or physically printed.**
 
 ## Phases
 
@@ -48,14 +48,14 @@ or physically printed.**
 | T-02 | Bind passports and fresh evidence scope to model versions and variants | R-02 | T-01 | `models/catalog.json`, `models/exports/*`, `tools/catalog.py`, `tools/site.py`, `tests/test_models.py`, `docs/create.html`, `AGENTS.md` | - | done | `python -m unittest tests.test_models -v`; `python -m tools.release`; `python -m tools.release --check` |
 | T-03 | Add public success/failure feedback form and privacy/evidence instructions | R-04 | T-02 | `.github/ISSUE_TEMPLATE/print-result.yml`, `tests/test_feedback.py` | - | done | `python -m unittest tests.test_feedback -v`; authenticated users can inspect the published GitHub issue-form preview without submitting an issue |
 | T-04 | Document separate creation paths and verify the foundation for publication | R-01, R-03, R-05, R-06 | T-02, T-03 | `README.md`, `docs/create.html`, `docs/decisions.md`, `requirements.md`, `plan.md` | - | done | `python -m unittest discover -s tests -v`; `python -m tools.release --check`; `.\.venv\Scripts\python.exe -m tests.mcp_smoke`; `.\.venv\Scripts\python.exe -m tests.browser_smoke` |
-| T-05 | Approved isolated CadQuery tray experiment with editable parameters and STEP/STL | R-02, R-05, R-06 | T-04 | `experiments/cadquery/*`, `.github/workflows/cadquery-experiment.yml`, `.gitattributes`, `devtool/constitution.md`, `devtool/DECISIONS.md` | - | in progress | `experiments\cadquery\.venv\Scripts\python.exe -m unittest discover -s experiments\cadquery -p test_probe.py -v`; isolated Linux workflow; baseline: `python -m tools.release --check` |
+| T-05 | Approved isolated CadQuery tray experiment with editable parameters and STEP/STL | R-02, R-05, R-06 | T-04 | `experiments/cadquery/*`, `.github/workflows/cadquery-experiment.yml`, `.gitattributes`, `devtool/constitution.md`, `devtool/DECISIONS.md` | - | done | `experiments\cadquery\.venv\Scripts\python.exe -m unittest discover -s experiments\cadquery -p test_probe.py -v`; `python experiments\cadquery\compare.py`; [Linux pass](https://github.com/Prashanth261993/OpenPrintLab/actions/runs/42910032523); `python -m tools.release --check` |
 | T-06 | Optional decorative-path trial reusing official Meshy tools, not a new wrapper | R-02, R-04, R-05, R-06 | T-04, Q-2 approval | `experiments/meshy/check_evidence.py`, `experiments/meshy/consent.json`, `experiments/meshy/evidence.json`, `experiments/meshy/report.md` | - | blocked | Planned after approval: `python experiments\meshy\check_evidence.py --consent experiments\meshy\consent.json --evidence experiments\meshy\evidence.json`; baseline: `python -m tools.release --check` |
 | T-07 | Choose a next integration from evidence, or explicitly decline it | R-05, R-06 | T-05; T-06 only if commissioned | `docs/integration-decision.md`, `plan.md` | - | blocked | Planned after experiments: `git diff --check`; `python -m unittest discover -s tests -v`; user review of measured results against G-2/G-3 |
 
 No parallel groups are scheduled. T-02 and T-04 share documentation, so execute
 them sequentially. Future experiment directories are disjoint, but do not launch
 parallel installations or paid trials merely because that is possible. Future
-verification scripts above are **planned files, not existing capabilities**.
+T-06/T-07 verification scripts above are **planned files, not existing capabilities**.
 
 ### Uncertainty and stop conditions
 
@@ -135,7 +135,7 @@ versions, licenses, pricing and tool permissions before installation.
 | Technology | Decision now | Choose if / decline if | Source |
 |---|---|---|---|
 | Existing V1 CLI, catalog, skill and local MCP | Adopt and retain as the no-key baseline | Every experiment must leave its tests, exports and downloads working. Decline any integration that forces provider credentials for basic use. | [Repository](https://github.com/Prashanth261993/OpenPrintLab), `docs/decisions.md` |
-| CadQuery / OpenCascade | Evaluate first; reuse a mature kernel rather than extend custom meshing to curves | Choose if isolated Windows/Linux builds preserve parameters, valid solids and STEP/STL export with reviewed dependency licenses. Decline if installation cannot be reproduced, geometry fails G-2, or a broad migration is needed before value is demonstrated. | [CadQuery introduction](https://cadquery.readthedocs.io/en/latest/intro.html) |
+| CadQuery / OpenCascade | T-05 evaluated successfully; candidate for a separately approved opt-in adapter, not adopted | Windows/Linux G-2 passed; preserve explicit versions/hashes despite tessellation differences. Review ~1.21 GB installation and native/bundled license obligations before distribution. Decline default migration now. | [CadQuery introduction](https://cadquery.readthedocs.io/en/latest/intro.html), [experiment evidence](experiments/cadquery/report.md) |
 | Meshy official MCP and skill | Evaluate later, opt-in; do not write a duplicate provider wrapper | Choose only with explicit account/privacy/output-license review and a credit cap. Decline if outputs cannot be shared under acceptable terms, data is sensitive, costs cannot be bounded, or repair destroys intended shape. Provider claims are not local evidence. | [Official AI integration docs](https://docs.meshy.ai/en/api/ai), [official MCP](https://github.com/meshy-dev/meshy-mcp-server), [official skill](https://github.com/meshy-dev/meshy-3d-agent) |
 | FreeCAD MCP | Defer; community candidate for advanced CAD editing | Evaluate only when GUI editing provides concrete value beyond CadQuery. Decline unattended use without isolation and explicit approval of Python execution. Review addon/bridge permissions and licenses first. | [Community repository](https://github.com/neka-nat/freecad-mcp) |
 | MCP for Blender | Defer; community candidate for decorative mesh inspection/repair | Evaluate only when a controlled editor workflow is needed. It exposes arbitrary Python execution; do not give it unattended access to private files or credentials. Decline if the execution surface cannot be isolated. Not an official Blender Foundation plugin. | [Canonical community repository](https://github.com/ahujasid/mcp-for-blender) |
@@ -207,10 +207,12 @@ local MCP tools.
 
 The approved foundation work does not wait on these future decisions.
 No FreeCAD, Blender, Zoo or cloud provider integration is authorized or installed.
-T-05 now permits CadQuery only in its experiment environment. Linux verification
-uses an experiment-only Actions workflow, not a change to the catalog pipeline.
-The user has no printer available yet; geometry and offline slicing can proceed,
-but physical evidence must remain pending. No fake print report is filed.
+T-05 installed CadQuery only in its experiment environment and passed Windows and
+Linux G-2 checks. Linux verification uses an experiment-only Actions workflow,
+not a change to the catalog pipeline. The environment is approximately 1.21 GB.
+Rounded STL triangulations vary across platforms; exact hashes and differences
+are recorded, not silently normalized. Geometry and offline slicing can proceed,
+but physical evidence remains pending. No fake print report is filed.
 
 ## Links
 

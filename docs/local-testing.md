@@ -88,5 +88,7 @@ serials and credentials. A report does not automatically certify the model.
 ## Integration boundary
 
 See [../plan.md](../plan.md) for staged reuse of CadQuery and optional AI providers.
-The first proposed CadQuery experiment and any Meshy trial await user review.
-They are not prerequisites for this local test and are not installed.
+The separately approved [CadQuery experiment](../experiments/cadquery/README.md)
+has software-checked rounded-tray exports and its own isolated environment.
+CadQuery adoption/migration and any Meshy trial still await user review.
+None is a prerequisite for the original catalog's local test.

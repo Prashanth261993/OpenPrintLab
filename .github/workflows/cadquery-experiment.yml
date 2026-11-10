@@ -6,6 +6,7 @@ on:
     paths:
       - experiments/cadquery/design.py
       - experiments/cadquery/probe.py
+      - experiments/cadquery/compare.py
       - experiments/cadquery/test_probe.py
       - experiments/cadquery/requirements.txt
       - experiments/cadquery/constraints.txt

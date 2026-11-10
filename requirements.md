@@ -114,6 +114,6 @@ promotion, or claim that a model has been sliced or printed.
 
 | ID | Question | Blocking? |
 |---|---|---|
-| Q-1 | Approve the isolated CadQuery tray experiment after reviewing `plan.md`? | Future T-05 only |
+| Q-1 | User approved the isolated CadQuery tray experiment on 2026-11-10; results are in `experiments/cadquery/report.md`. Adoption remains separate. | Resolved for T-05 |
 | Q-2 | If Meshy is later evaluated, which account, privacy terms and credit cap are approved? | Future T-06 only |
 | Q-3 | Which actual P2S nozzle, plate and PLA will the human trial use? | Human slice/print only, not local preview |

@@ -1,0 +1,75 @@
+{
+  "experiment": "T-05-cadquery",
+  "case": "rounded-96",
+  "model_version": "0.1.0-experiment",
+  "design_license": "CC-BY-4.0",
+  "attribution": "OpenPrintLab contributors",
+  "units": "mm",
+  "parameters": {
+    "length": 96,
+    "width": 64,
+    "height": 16,
+    "wall": 2.4,
+    "base": 2,
+    "radius": 6
+  },
+  "source_sha256": "f4b862b5e84ea52c466955f4592fe01c69a0eb46bcf094daa1a57b2f6f5cc20c",
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.16",
+    "cadquery": "2.8.0"
+  },
+  "export": {
+    "linear_tolerance_mm": 0.02,
+    "angular_tolerance_radians": 0.1,
+    "relative": false,
+    "parallel": false
+  },
+  "artifacts": {
+    "stl_sha256": "2b0465c21ea4a905079c81eb9b5cc6f85ef5b2ed98b978dbd0ca4ca039fdaf38",
+    "step_sha256": "4b8c3c2593b4091824f3777fafd198a228aec319631627330b1622e554bded70"
+  },
+  "checks": {
+    "kernel_valid": true,
+    "solid_count": 1,
+    "kernel_dimensions_mm": [
+      96.00361437564557,
+      64.00361437564558,
+      16.00361437564557
+    ],
+    "kernel_volume_mm3": 22378.746797400392,
+    "analytic_volume_mm3": 22378.74679740038,
+    "mesh": {
+      "dimensions_mm": [
+        96.0,
+        64.0,
+        16.0
+      ],
+      "triangles": 1052,
+      "volume_mm3": 22378.252,
+      "closed_edges": true,
+      "consistent_winding": true,
+      "connected": true,
+      "nondegenerate": true,
+      "within_p2s_envelope": true
+    },
+    "max_dimension_error_mm": 0.003614375645582868,
+    "kernel_analytic_volume_error_percent": 4.876920285162238e-14,
+    "mesh_kernel_volume_error_percent": 0.00221101478501543,
+    "step_roundtrip_valid": true,
+    "step_roundtrip_volume_error_percent": 9.916404579829879e-13
+  },
+  "g2_geometry_passed": true,
+  "repair_operations": [],
+  "validation": {
+    "geometry_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "limitations": [
+    "Experimental original model, not part of the starter catalog.",
+    "Kernel and mesh checks do not certify printability, fit or strength.",
+    "No slicer review or physical print has been performed.",
+    "STEP carries geometry, not the editable Python parameter history."
+  ]
+}

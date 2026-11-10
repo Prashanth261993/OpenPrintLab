@@ -21,6 +21,18 @@ reference tray, a rounded 96 x 64 x 16 mm tray, and a rounded 120 x 80 x 18 mm t
 Each includes STEP, STL, a geometry SVG, and an evidence report. Both rounded
 cases use a 6 mm outer corner radius, 2.4 mm walls and a 2 mm base.
 
+**Windows and Linux software checks passed.** See the
+[choose/decline report](report.md) and [cross-platform evidence](artifacts/comparison.json).
+No model has been sliced or physically printed.
+
+| Trial | Windows exports | Linux exports |
+|---|---|---|
+| Sharp reference | [STL](artifacts/windows/reference-sharp.stl), [STEP](artifacts/windows/reference-sharp.step) | [STL](artifacts/linux/reference-sharp.stl), [STEP](artifacts/linux/reference-sharp.step) |
+| Rounded 96 x 64 x 16 mm | [STL](artifacts/windows/rounded-96.stl), [STEP](artifacts/windows/rounded-96.step) | [STL](artifacts/linux/rounded-96.stl), [STEP](artifacts/linux/rounded-96.step) |
+| Rounded 120 x 80 x 18 mm | [STL](artifacts/windows/rounded-120.stl), [STEP](artifacts/windows/rounded-120.step) | [STL](artifacts/linux/rounded-120.stl), [STEP](artifacts/linux/rounded-120.step) |
+
+![Generated rounded-tray geometry preview, not a physical print](artifacts/windows/rounded-96.svg)
+
 For Linux use `.venv/bin/python` in the same experiment directory. The dedicated
 workflow runs Linux checks without adding CAD to the normal Pages pipeline.
 
@@ -47,6 +59,7 @@ angular tolerance, binary STL and serial meshing; no repair operations are used.
 ```powershell
 experiments\cadquery\.venv\Scripts\python.exe -m unittest discover -s experiments\cadquery -p test_probe.py -v
 python -m tools.release --check
+python experiments\cadquery\compare.py
 ```
 
 Checks include a valid single kernel solid, analytic volume agreement, mesh

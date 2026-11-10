@@ -2,10 +2,12 @@
 
 import dataclasses
 from pathlib import Path
+import shutil
 import tempfile
 import unittest
 
 import probe
+from compare import compare
 
 
 class TrayExperimentTests(unittest.TestCase):
@@ -57,6 +59,17 @@ class TrayExperimentTests(unittest.TestCase):
                 shape = probe.make_tray(probe.TrayParameters(radius=radius))
                 self.assertTrue(shape.isValid())
                 self.assertEqual(len(shape.Solids()), 1)
+
+    def test_stored_cross_platform_evidence_rejects_modified_downloads(self):
+        root = Path(probe.__file__).parent / "artifacts"
+        result = compare(root / "windows", root / "linux")
+        self.assertTrue(result["both_platforms_pass_geometry_gates"])
+        with tempfile.TemporaryDirectory() as temp:
+            changed = Path(temp) / "windows"
+            shutil.copytree(root / "windows", changed)
+            (changed / "rounded-96.step").write_bytes(b"not the tested export")
+            with self.assertRaisesRegex(ValueError, "bytes do not match"):
+                compare(changed, root / "linux")
 
 
 if __name__ == "__main__":

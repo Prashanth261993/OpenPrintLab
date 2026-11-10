@@ -160,14 +160,18 @@ automatic certification or status promotion.
 [plan.md](plan.md) records requirements, owned files, dependencies, uncertainty,
 verification commands and approval gates. It distinguishes **precise functional
 CAD** (the shipped, limited local path) from **decorative AI meshes** (future opt-in).
-The first proposed experiment is an isolated CadQuery tray with editable
-parameters and STEP/STL export; it is **awaiting review, not installed**.
+The [isolated CadQuery tray experiment](experiments/cadquery/README.md) now has
+editable parameters, downloadable STEP/STL trials and passing Windows/Linux
+geometry evidence. It is separate from the catalog and core environment.
+The [choose/decline report](experiments/cadquery/report.md) recommends considering
+an opt-in adapter; **adoption or migration still requires review**.
 
 The plan evaluates reuse of Meshy's official MCP/skill, and defers community
 FreeCAD/Blender bridges, Zoo/KCL and Tripo until justified. No provider keys,
-installations or paid API calls are enabled by this plan. The no-key V1 baseline
-stays working. Real P2S test-print evidence, reviewed slicer profiles and advanced
-CAD remain roadmap items, not shipped claims.
+installations or paid API calls are enabled by this plan. Only the explicitly
+approved CadQuery experiment environment was installed. The no-key V1 baseline
+stays working. Real P2S test-print evidence, reviewed slicer profiles and a
+production CAD integration remain roadmap items, not shipped claims.
 
 ## Licenses
 

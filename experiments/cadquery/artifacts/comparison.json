@@ -1,0 +1,36 @@
+{
+  "baseline_hashes_identical": true,
+  "both_platforms_pass_geometry_gates": true,
+  "windows_python": "3.12.10",
+  "linux_python": "3.12.16",
+  "cases": [
+    {
+      "case": "reference-sharp",
+      "stl_bytes_identical": true,
+      "step_bytes_identical": false,
+      "triangle_geometry_equal_rounded_to_1e_6_mm": true,
+      "vertex_positions_equal_rounded_to_1e_6_mm": true,
+      "kernel_volume_difference_mm3": 0.0,
+      "mesh_volume_difference_mm3": 0.0
+    },
+    {
+      "case": "rounded-120",
+      "stl_bytes_identical": false,
+      "step_bytes_identical": false,
+      "triangle_geometry_equal_rounded_to_1e_6_mm": false,
+      "vertex_positions_equal_rounded_to_1e_6_mm": true,
+      "kernel_volume_difference_mm3": 0.0,
+      "mesh_volume_difference_mm3": 0.0
+    },
+    {
+      "case": "rounded-96",
+      "stl_bytes_identical": false,
+      "step_bytes_identical": false,
+      "triangle_geometry_equal_rounded_to_1e_6_mm": false,
+      "vertex_positions_equal_rounded_to_1e_6_mm": true,
+      "kernel_volume_difference_mm3": 0.0,
+      "mesh_volume_difference_mm3": 0.0
+    }
+  ],
+  "note": "Hash differences are recorded, not silently normalized. Rounded geometry comparison is supplementary, not a byte-equivalence claim."
+}
