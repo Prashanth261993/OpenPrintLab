@@ -10,6 +10,59 @@
     "dividers": 0
   },
   "sha256": "2280b555c67ae9dadb8bb408d19e6d8695d5ab4bee7307e5923f93396207caa9",
+  "passport": {
+    "schema_version": 1,
+    "model_version": "1.0.0",
+    "variant_id": "87866ae342398c29f6b650cb075deffcca6916ac7e907799e6523f195ea4e269",
+    "design_license": "CC-BY-4.0",
+    "attribution": "OpenPrintLab contributors",
+    "editable_source": {
+      "recipe_path": "models/recipes.py",
+      "recipe_sha256": "e14264525158821b20ae92be35f2850053f8fa45d9494342a2a020e3474fe245",
+      "catalog_path": "models/catalog.json",
+      "catalog_entry_sha256": "5ccf0b343d0dbcab0d80549b937d61e530aaf7316ff3c51b517e14bf22cc2b81"
+    },
+    "suggested_print_recipe": {
+      "id": "p2s-pla-0.4-v1",
+      "status": "unverified_starting_point",
+      "printer": "Bambu Lab P2S",
+      "nozzle_mm": 0.4,
+      "material": "PLA",
+      "plate": "Select the actual installed plate preset",
+      "layer_height_mm": 0.2,
+      "wall_loops": 3,
+      "top_shell_layers": 4,
+      "bottom_shell_layers": 4,
+      "infill_percent": 15,
+      "supports": "Off initially; inspect every layer",
+      "brim": "Off initially; review adhesion",
+      "temperature_and_speed": "Use actual printer and filament preset defaults",
+      "orientation": "Broad flat base down",
+      "ams_required": false
+    }
+  },
+  "evidence": {
+    "scope": {
+      "model_version": "1.0.0",
+      "variant_id": "87866ae342398c29f6b650cb075deffcca6916ac7e907799e6523f195ea4e269",
+      "stl_sha256": "2280b555c67ae9dadb8bb408d19e6d8695d5ab4bee7307e5923f93396207caa9"
+    },
+    "geometry": {
+      "status": "passed",
+      "checker": "openprintlab.geometry.v1",
+      "checker_source_sha256": "c7c10af43469c94dc56322ff4711f68589f82f38d5fce5b304cdaf117c61674f"
+    },
+    "slicer": {
+      "status": "not_performed",
+      "actual_settings": null,
+      "record_url": null
+    },
+    "physical": {
+      "status": "not_performed",
+      "actual_settings": null,
+      "record_url": null
+    }
+  },
   "validation": {
     "generated": true,
     "software_checked": true,

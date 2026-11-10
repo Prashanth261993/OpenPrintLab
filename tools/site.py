@@ -42,9 +42,9 @@ def detail(model, report):
     <div class="detail-hero"><figure class="detail-image"><img src="../downloads/{identifier}.svg" width="700" height="460" alt="{escape(model['name'])} generated geometry">
     <figcaption>Generated from the exported STL. Not a physical-print photo.</figcaption></figure>
     <div><p class="eyebrow">{escape(model['category']).upper()} / ORIGINAL DESIGN</p><h1>{escape(model['name'])}</h1>
-    <p class="lede">{escape(model['summary'])}</p><p><strong>{dimensions(report)}</strong><br>Millimeters &middot; single-color PLA &middot; P2S starting point</p>
+    <p class="lede">{escape(model['summary'])}</p><p><strong>{dimensions(report)}</strong><br>Version {escape(model['version'])} &middot; millimeters &middot; single-color PLA</p>
     <a class="button primary" href="../downloads/{identifier}.stl" download>Download STL <span aria-hidden="true">&#8595;</span></a>
-    <div class="detail-links"><a href="../downloads/{identifier}.source.zip" download>Editable source ZIP</a><a href="../downloads/{identifier}.scad" download>OpenSCAD snapshot</a><a href="../downloads/{identifier}.report.json">Validation report</a></div>
+    <div class="detail-links"><a href="../downloads/{identifier}.source.zip" download>Editable source ZIP</a><a href="../downloads/{identifier}.scad" download>OpenSCAD snapshot</a><a href="../downloads/{identifier}.report.json">Model passport &amp; report</a></div>
     <aside class="notice"><strong>Not slicer-checked or physically print-tested.</strong> Review the slice before printing. No fit, time, material-use or strength claims.</aside></div></div>
     <div class="detail-columns"><section><h2>Place it on the plate</h2><p>{escape(model['notes'])}</p>
     <h2>Suggested starting points</h2><p>For PLA and an actual 0.4 mm nozzle: a compatible 0.20 mm layer-height process, 3 wall loops, 4 top and 4 bottom shell layers, 15% infill. Start base-down with supports off and no brim, then inspect the slice. These are suggestions, <strong>not certified presets</strong>.</p>
@@ -60,6 +60,9 @@ python -m tools.cli build {identifier} --output build/my-variant</code></pre>
     <h2>What we checked</h2><ul class="checks-list"><li>Generated: yes</li><li>Software checks: passed on the exported STL</li><li>Slicer review: not performed</li><li>Physical print: not performed</li></ul>
     <p>{report['checks']['triangles']} triangles. Closed, consistently wound edges; finite, nondegenerate faces; connected mesh; positive volume; Z=0 placement within the P2S build envelope. These limited checks do not prove printability or detect every possible geometry defect.</p>
     <p class="small">STL SHA-256: <code>{report['sha256']}</code></p>
+    <p class="small">Variant ID: <code>{report['passport']['variant_id']}</code><br>Suggested recipe: <code>{escape(report['passport']['suggested_print_recipe']['id'])}</code> (unverified). Exact design-source hashes and separate evidence scope are in the passport.</p>
+    <p><a href="https://github.com/Prashanth261993/OpenPrintLab/issues/new?template=print-result.yml">Share a print result: successes and failures welcome &#8594;</a></p>
+    <p class="small">Include model version, variant ID, STL hash and actual settings. Public reports are observations, not automatic certification.</p>
     <p class="small">Original design by OpenPrintLab contributors. <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>; keep attribution and indicate changes. Tooling code has a separate MIT license.</p></section></div></div>"""
 
 

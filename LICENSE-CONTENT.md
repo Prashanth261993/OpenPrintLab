@@ -4,7 +4,7 @@ Copyright 2026 OpenPrintLab contributors.
 
 The original design sources in `models/` (including `recipes.py` and
 `catalog.json`), generated STL and OpenSCAD files, model previews and reports,
-`README.md`, and guides in `docs/` are licensed under the
+`README.md`, `requirements.md`, `plan.md`, and guides in `docs/` are licensed under the
 [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/).
 The [legal code](https://creativecommons.org/licenses/by/4.0/legalcode) controls.
 The same scope applies to copies served on the website or in source archives.

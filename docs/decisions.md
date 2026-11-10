@@ -60,3 +60,22 @@ Future work: document real P2S test prints and slicer reviews with exact file
 hashes, settings and observations; add rounded CAD designs using a mature kernel;
 expand accessible previews and community submissions. Those are roadmap items,
 not shipped capabilities. A test of one parameter set does not validate its variants.
+
+## Approved evidence and reuse follow-up (2026-11-10)
+
+The user approved versioned passports, the first-successful-print path,
+constrained customization, feedback including failures, and separate functional
+CAD/decorative AI-mesh paths. V1 already delivered the beginner and constrained
+customization capabilities; do not rebuild them.
+
+The small missing pieces add explicit model versions, source/variant/STL identity,
+separate geometry/slicer/physical evidence scope and suggested-recipe metadata,
+plus a GitHub print-result form. No reported result is automatically promoted.
+The current report format records actual slicer and physical settings as null
+because those activities have not been performed.
+
+See `../requirements.md` and `../plan.md` for the staged reuse decomposition.
+The proposed first integration experiment reuses CadQuery for a bounded rounded
+tray instead of extending the in-house geometry engine to advanced CAD.
+Future provider/editor installations, paid API calls and broad migrations require
+user review. Local testing is ready independently; see `local-testing.md`.

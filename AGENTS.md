@@ -17,6 +17,14 @@ Build useful, understandable models; never imply that generated means printable.
 - Initial printer is Bambu Lab **P2S**, not P1S. Do not assume AMS ownership.
 - Never invent slice times, filament usage, successful prints, photos or evidence.
   Reports explicitly keep slicer_checked and physical_print_tested false.
+- Preserve model passport version, variant ID, source hashes and STL hash.
+  Review model-version changes when changing design source; fresh variants never
+  inherit slicer/physical evidence. Suggested recipes are not actual settings.
+- Use the public print-result issue form for real observations, including
+  failures; never automatically promote user-submitted claims into validation.
+- `plan.md` separates shipped functional CAD from future decorative AI meshes.
+  New CAD engines/providers require the user's review; no paid or private-data
+  operations are authorized by the existence of the plan.
 - Keep suggestions separate from verified facts. Users select actual
   printer/nozzle/plate/filament presets and inspect their own slices.
 - Reject food-contact, electrical, medical, weapon, structural/load-bearing,

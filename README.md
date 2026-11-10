@@ -35,6 +35,10 @@ Read the [complete beginner guide](https://Prashanth261993.github.io/OpenPrintLa
 for suggested starting settings, first-layer checks, troubleshooting and safety.
 No G-code is distributed and no tool controls a printer.
 
+**Ready to test locally:** follow the [verified Windows walkthrough](docs/local-testing.md)
+for the catalog preview, a 120 x 80 x 18 mm tray variant and a human Bambu Studio
+smoke test. The local baseline needs no API key or provider installation.
+
 ## Create with an AI assistant
 
 Clone this repository and open it in your coding assistant. Ask it to read
@@ -137,8 +141,33 @@ fit guarantee, strength rating or safety certification. Never use starter models
 for food contact, electrical, medical, weapon, structural, hot or safety-critical
 applications. All process suggestions must be reviewed against the actual setup.
 
-**Roadmap, not shipped:** real P2S test-print evidence, evidence-backed slicer
-profiles, rounded models using a mature CAD kernel, and more community models.
+### Model passports and real feedback
+
+Each report includes model version, effective parameters/dimensions, a variant ID,
+editable-source hashes, exact STL SHA-256, design license and a separately labeled
+suggested printer recipe. Geometry evidence is generated afresh for every export.
+Slicer and physical records remain `not_performed`, with null actual settings;
+successful evidence from a different variant is never inherited.
+
+Use the [print-result issue form](https://github.com/Prashanth261993/OpenPrintLab/issues/new?template=print-result.yml)
+to share successes, partial successes, failures or a trial stopped before printing.
+Include the passport IDs, actual setup and photos/screenshots when available.
+Reports are public: remove private details and credentials. A user report is not
+automatic certification or status promotion.
+
+### Technology reuse plan
+
+[plan.md](plan.md) records requirements, owned files, dependencies, uncertainty,
+verification commands and approval gates. It distinguishes **precise functional
+CAD** (the shipped, limited local path) from **decorative AI meshes** (future opt-in).
+The first proposed experiment is an isolated CadQuery tray with editable
+parameters and STEP/STL export; it is **awaiting review, not installed**.
+
+The plan evaluates reuse of Meshy's official MCP/skill, and defers community
+FreeCAD/Blender bridges, Zoo/KCL and Tripo until justified. No provider keys,
+installations or paid API calls are enabled by this plan. The no-key V1 baseline
+stays working. Real P2S test-print evidence, reviewed slicer profiles and advanced
+CAD remain roadmap items, not shipped claims.
 
 ## Licenses
 

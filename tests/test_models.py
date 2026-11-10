@@ -57,6 +57,35 @@ class ModelTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             build_model("../escape")
 
+    def test_passport_binds_version_source_and_variant_without_promoting_evidence(self):
+        _, baseline = build_model("pocket-tray")
+        _, identical = build_model("pocket-tray", {"length": 96.0})
+        _, changed = build_model("pocket-tray", {"length": 120})
+        self.assertEqual(baseline["passport"]["variant_id"], identical["passport"]["variant_id"])
+        self.assertNotEqual(baseline["passport"]["variant_id"], changed["passport"]["variant_id"])
+        with patch("tools.catalog.source_hash", return_value="0" * 64):
+            _, new_source = build_model("pocket-tray")
+        self.assertNotEqual(baseline["passport"]["variant_id"], new_source["passport"]["variant_id"])
+        changed_model = copy.deepcopy(load_catalog()["models"][0])
+        changed_model["version"] = "1.1.0"
+        with patch("tools.catalog.get_model", return_value=changed_model):
+            _, new_version = build_model("pocket-tray")
+        self.assertNotEqual(baseline["passport"]["variant_id"], new_version["passport"]["variant_id"])
+        self.assertEqual(new_version["evidence"]["scope"]["model_version"], "1.1.0")
+        self.assertEqual(baseline["passport"]["model_version"], "1.0.0")
+        self.assertEqual(baseline["passport"]["design_license"], "CC-BY-4.0")
+        for report in (baseline, identical, changed, new_source, new_version):
+            self.assertEqual(report["evidence"]["scope"], {
+                "model_version": report["passport"]["model_version"],
+                "variant_id": report["passport"]["variant_id"], "stl_sha256": report["sha256"],
+            })
+            self.assertEqual(report["evidence"]["geometry"]["status"], "passed")
+            for stage in ("slicer", "physical"):
+                self.assertEqual(report["evidence"][stage], {
+                    "status": "not_performed", "actual_settings": None, "record_url": None,
+                })
+            self.assertEqual(report["passport"]["suggested_print_recipe"]["status"], "unverified_starting_point")
+
     def test_supported_parameter_samples_are_closed(self):
         rng = random.Random(261993)
         successful = 0
@@ -108,6 +137,11 @@ class ModelTests(unittest.TestCase):
         changed["models"][0]["color"] = '"><script>'
         with patch.object(Path, "read_text", return_value=json.dumps(changed)):
             with self.assertRaises(ValueError):
+                load_catalog()
+        changed = copy.deepcopy(catalog)
+        changed["models"][0]["version"] = "latest"
+        with patch.object(Path, "read_text", return_value=json.dumps(changed)):
+            with self.assertRaisesRegex(ValueError, "version"):
                 load_catalog()
 
     def test_release_detects_stale_missing_and_extra_artifacts(self):

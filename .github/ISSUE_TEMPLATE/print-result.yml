@@ -1,0 +1,100 @@
+{
+  "name": "Print result or slicer trial",
+  "description": "Share a success, partial success, failure, or trial stopped before printing.",
+  "title": "[Print result] ",
+  "body": [
+    {
+      "type": "markdown",
+      "attributes": {
+        "value": "Thanks for sharing real evidence, including failures. This issue is PUBLIC. Do not include credentials, serial numbers, network identifiers, faces, addresses, private designs, or other sensitive information. A report does not automatically make a model slicer-checked or print-tested. Use the exact passport for the file you tested."
+      }
+    },
+    {
+      "type": "dropdown",
+      "id": "outcome",
+      "attributes": {
+        "label": "Outcome",
+        "options": ["Success", "Partial success", "Failure", "Stopped before printing (slicer review only)"]
+      },
+      "validations": {"required": true}
+    },
+    {
+      "type": "input",
+      "id": "model_id",
+      "attributes": {"label": "Model ID", "placeholder": "step-study"},
+      "validations": {"required": true}
+    },
+    {
+      "type": "input",
+      "id": "model_version",
+      "attributes": {"label": "Model version", "description": "From passport.model_version; do not use the website deployment version.", "placeholder": "1.0.0"},
+      "validations": {"required": true}
+    },
+    {
+      "type": "input",
+      "id": "variant_id",
+      "attributes": {"label": "Variant ID", "description": "Paste passport.variant_id from the exact export report."},
+      "validations": {"required": true}
+    },
+    {
+      "type": "input",
+      "id": "stl_sha256",
+      "attributes": {"label": "STL SHA-256", "description": "Paste sha256 from the report. If the file was repaired or edited later, report that and its new hash too."},
+      "validations": {"required": true}
+    },
+    {
+      "type": "textarea",
+      "id": "parameters",
+      "attributes": {
+        "label": "Dimensions, parameters and changes",
+        "description": "Paste the effective parameters and dimensions from the report. Include scaling, geometry changes or automatic repairs after export; say none if unchanged."
+      },
+      "validations": {"required": true}
+    },
+    {
+      "type": "textarea",
+      "id": "actual_settings",
+      "attributes": {
+        "label": "Actual printer, material and slicer settings",
+        "description": "Record what you actually used, not merely the suggested recipe. No serial numbers or network IDs.",
+        "placeholder": "Slicer name/version:\nPrinter model:\nInstalled nozzle diameter:\nBuild plate:\nFilament material/brand/preset:\nProcess preset and changes:\nLayer height, wall loops, top/bottom layers, infill:\nNozzle/bed temperature and speed changes:\nOrientation/scaling:\nSupports/brim:\nExternal spool or AMS (if used):"
+      },
+      "validations": {"required": true}
+    },
+    {
+      "type": "input",
+      "id": "test_date",
+      "attributes": {"label": "Trial date", "placeholder": "YYYY-MM-DD"},
+      "validations": {"required": true}
+    },
+    {
+      "type": "textarea",
+      "id": "observations",
+      "attributes": {
+        "label": "What happened",
+        "description": "Describe expected versus observed results, warnings, first layer, failures, fit and any changes tried. For a stopped trial, explain why. Only report time/material as measured or slicer-estimated, clearly distinguished."
+      },
+      "validations": {"required": true}
+    },
+    {
+      "type": "textarea",
+      "id": "evidence",
+      "attributes": {
+        "label": "Photos or slicer screenshots",
+        "description": "Drag relevant photos/screenshots here. Show the failure too. If unavailable, explicitly explain why; do not invent evidence. Remove private details and share only images you own or have permission to share. Do not attach machine-ready G-code or private printer configuration."
+      },
+      "validations": {"required": true}
+    },
+    {
+      "type": "checkboxes",
+      "id": "acknowledgements",
+      "attributes": {
+        "label": "Before submitting",
+        "options": [
+          {"label": "I understand this report is public and have removed sensitive information and checked permission to share attachments.", "required": true},
+          {"label": "I described only work actually performed; this report is not an automatic safety or printability certification.", "required": true}
+        ]
+      }
+    }
+  ]
+}

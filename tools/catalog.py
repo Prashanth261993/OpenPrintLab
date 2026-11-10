@@ -12,6 +12,15 @@ from tools.geometry import decode_stl, encode_stl, mesh_union, validate_mesh
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def canonical_hash(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest()
+
+
+def source_hash(relative_path):
+    # Universal-newline reading keeps source identity stable across checkouts.
+    return hashlib.sha256((ROOT / relative_path).read_text(encoding="utf-8").encode()).hexdigest()
+
+
 def load_catalog():
     catalog = json.loads((ROOT / "models" / "catalog.json").read_text(encoding="utf-8"))
     if catalog["schema_version"] != 1 or catalog["units"] != "mm":
@@ -21,6 +30,8 @@ def load_catalog():
         identifier = model["id"]
         if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", identifier) or identifier in ids:
             raise ValueError("Invalid or duplicate model ID")
+        if not re.fullmatch(r"(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)", model.get("version", "")):
+            raise ValueError("Model version must be a major.minor.patch version")
         ids.add(identifier)
         validate_parameters(model["recipe"], model["parameters"])
         for key in ("name", "summary", "category", "notes", "customize"):
@@ -44,9 +55,37 @@ def build_model(identifier, overrides=None):
     shape = boxes(model["recipe"], parameters)
     data = encode_stl(mesh_union(shape))
     checks = validate_mesh(decode_stl(data))
+    stl_hash = hashlib.sha256(data).hexdigest()
+    recipe_hash = source_hash("models/recipes.py")
+    variant_id = canonical_hash({
+        "model": identifier, "model_version": model["version"],
+        "parameters": {key: float(value) for key, value in parameters.items()},
+        "recipe_sha256": recipe_hash, "stl_sha256": stl_hash,
+    })
     report = {
         "model": identifier, "units": "mm", "parameters": parameters,
-        "sha256": hashlib.sha256(data).hexdigest(),
+        "sha256": stl_hash,
+        "passport": {
+            "schema_version": 1,
+            "model_version": model["version"],
+            "variant_id": variant_id,
+            "design_license": "CC-BY-4.0",
+            "attribution": "OpenPrintLab contributors",
+            "editable_source": {
+                "recipe_path": "models/recipes.py", "recipe_sha256": recipe_hash,
+                "catalog_path": "models/catalog.json", "catalog_entry_sha256": canonical_hash(model),
+            },
+            "suggested_print_recipe": load_catalog()["suggested_print_recipe"],
+        },
+        "evidence": {
+            "scope": {"model_version": model["version"], "variant_id": variant_id, "stl_sha256": stl_hash},
+            "geometry": {
+                "status": "passed", "checker": "openprintlab.geometry.v1",
+                "checker_source_sha256": source_hash("tools/geometry.py"),
+            },
+            "slicer": {"status": "not_performed", "actual_settings": None, "record_url": None},
+            "physical": {"status": "not_performed", "actual_settings": None, "record_url": None},
+        },
         "validation": {"generated": True, "software_checked": True, "slicer_checked": False, "physical_print_tested": False},
         "checks": checks,
         "limitations": [

@@ -2,9 +2,28 @@
   "schema_version": 1,
   "units": "mm",
   "printer": "Bambu Lab P2S",
+  "suggested_print_recipe": {
+    "id": "p2s-pla-0.4-v1",
+    "status": "unverified_starting_point",
+    "printer": "Bambu Lab P2S",
+    "nozzle_mm": 0.4,
+    "material": "PLA",
+    "plate": "Select the actual installed plate preset",
+    "layer_height_mm": 0.2,
+    "wall_loops": 3,
+    "top_shell_layers": 4,
+    "bottom_shell_layers": 4,
+    "infill_percent": 15,
+    "supports": "Off initially; inspect every layer",
+    "brim": "Off initially; review adhesion",
+    "temperature_and_speed": "Use actual printer and filament preset defaults",
+    "orientation": "Broad flat base down",
+    "ams_required": false
+  },
   "models": [
     {
       "id": "pocket-tray",
+      "version": "1.0.0",
       "name": "Pocket tray",
       "category": "Household",
       "summary": "A little landing spot for spare buttons, tokens and everyday bits.",
@@ -17,6 +36,7 @@
     },
     {
       "id": "pen-rest",
+      "version": "1.0.0",
       "name": "Two-pen rest",
       "category": "Desk",
       "summary": "Two shallow channels to stop pens wandering across your desk.",
@@ -29,6 +49,7 @@
     },
     {
       "id": "parts-palette",
+      "version": "1.0.0",
       "name": "Parts palette",
       "category": "Hobby",
       "summary": "Three open compartments for sorting small craft parts as you work.",
@@ -41,6 +62,7 @@
     },
     {
       "id": "step-study",
+      "version": "1.0.0",
       "name": "Layer staircase",
       "category": "Learning",
       "summary": "A simple four-step shape for learning how layers become an object.",
