@@ -197,6 +197,16 @@ automatic certification or status promotion.
 
 ### Technology reuse plan
 
+The current [repository roadmap and reuse backlog](devtool/features/004-reuse-roadmap/plan.md)
+tracks controlled new-design authoring, P2S project-3MF plus real slicer review,
+cross-assistant packages, reusable evidence-backed patterns, OpenSCAD/assembly
+workflows and additional checks. **Tracked does not mean implemented or approved
+to build.** Sources, priorities, dependencies and evidence gates are recorded.
+The [frame A/B benchmark](evals/frame-shadowbox-24x36/README.md) now has a frozen
+common brief, rubric, protocol and exact actual launch prompts. The coordinator
+has launched the two fresh sessions; this administrative update creates no designs,
+launches no agents and does not inspect running candidates.
+
 [plan.md](plan.md) records requirements, owned files, dependencies, uncertainty,
 verification commands and approval gates. It distinguishes **precise functional
 CAD** (the shipped, limited local path) from **decorative AI meshes** (future opt-in).

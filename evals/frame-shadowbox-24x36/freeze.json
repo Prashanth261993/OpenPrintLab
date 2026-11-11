@@ -1,0 +1,48 @@
+{
+  "freeze_id": "frame-shadowbox-24x36-v1",
+  "recorded_date": "2026-11-11",
+  "product_code_revision": "8d78523aa68fc1973b61c16fa435d1550833ecd4",
+  "administrative_commit_binding": "The Git commit containing this manifest; record its exact SHA separately in the eventual results manifest.",
+  "repository_archive_timing": "After coordinator launch; no pre-launch Git archive is claimed.",
+  "authoritative_launch_text": "actual-prompts.md",
+  "files": {
+    "brief.md": {
+      "role": "Original user requirements and agreed design-scope record",
+      "encoding": "Committed UTF-8/LF Git blob bytes",
+      "sha256": "a799b757d888feed83a470476d80c2fd48270385cda71379da32058f5711cf4c"
+    },
+    "rubric.md": {
+      "role": "Formatted neutral evaluation rubric; actual common scoring is preserved in actual-prompts.md",
+      "encoding": "Committed UTF-8/LF Git blob bytes",
+      "sha256": "4ae15b4ab2cd293f6e37c2eacc710c88f5873d7dd1d663fc6983914d96b7e47c"
+    },
+    "protocol.md": {
+      "role": "Protocol and actual launch chronology",
+      "encoding": "Committed UTF-8/LF Git blob bytes",
+      "sha256": "f698aa6890bbfdd371197c1f46f7faccd9986f7924d80f6785a8af21b186b180"
+    },
+    "actual-prompts.md": {
+      "role": "Authoritative verbatim common and arm-specific kickoff blocks",
+      "encoding": "Exact coordinator artifact bytes, preserved with a path-specific -text Git attribute",
+      "sha256": "981a4cff338ce5b28e9eec96a4db2e2fde2986e2af403d1abfb385bdbd264aeb",
+      "byte_identity_verified_against_coordinator_artifact": true
+    }
+  },
+  "arms": {
+    "with_toolkit": {
+      "session_id": "2d9929e5-abdd-4dcd-a460-dc99f0472f94",
+      "status": "launched; outputs not collected by this administrative task",
+      "actual_output_instruction": "evals/frame-shadowbox-24x36/arms/with-toolkit/ in its own worktree"
+    },
+    "independent_baseline": {
+      "session_id": "0a781a5e-151a-4763-bca7-a60ac9e00b3b",
+      "status": "launched; outputs not collected by this administrative task",
+      "actual_output_instruction": "Session-owned deliverables directory; coordinator archives exact outputs into this repository after completion"
+    }
+  },
+  "model_configuration": "Both inherited the parent configuration; no model overrides were supplied",
+  "experiment_time_token_spending_caps_requested_or_set": false,
+  "candidate_outputs_inspected_by_this_task": false,
+  "designs_or_agents_created_by_this_task": false,
+  "runtime_product_code_changed_by_this_task": false
+}

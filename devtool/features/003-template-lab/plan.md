@@ -2,11 +2,15 @@
 artifact: plan
 feature: 003-template-lab
 status: complete
-updated: 2026-11-10
+updated: 2026-11-11
 tasks: [T-01, T-02, T-03, T-04, T-05]
 ---
 
 # 003 - Own-assistant editable template lab
+
+> This completed milestone is preserved. Future capabilities and the separate
+> pending benchmark are tracked in [004 Roadmap](../004-reuse-roadmap/plan.md),
+> without implying implementation authorization.
 
 ## Objective
 

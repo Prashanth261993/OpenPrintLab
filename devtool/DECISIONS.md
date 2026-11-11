@@ -1,7 +1,7 @@
 ---
 artifact: decisions
-updated: 2026-11-10
-decisions: [D-01, D-02]
+updated: 2026-11-11
+decisions: [D-01, D-02, D-03]
 ---
 
 # Decisions
@@ -34,3 +34,21 @@ decisions: [D-01, D-02]
 - **Rejected because:** migration, external-file import, hosted chatbot and paid
   providers were not requested or authorized.
 - **Reversible:** yes; original no-CAD path and artifacts remain intact.
+
+## D-03 - Track roadmap and comparison records in the repository
+
+- **When:** 2026-11-11.
+- **Phase:** 004 administrative tracking, not feature implementation.
+- **Decided by:** human-confirmed.
+- **Options:** leave ideas/results in chat; maintain repository-owned backlog and
+  evaluation records; immediately implement roadmap items or launch a comparison.
+- **Chosen:** "everything should be in repo and not within session". Record the
+  requested next capabilities and useful upstream ideas with requirements,
+  priorities, sources and evidence gates in
+  [004 Roadmap](features/004-reuse-roadmap/plan.md).
+- **Rejected because:** tracking approval is not implementation authorization;
+  feature implementation is separate from the benchmark. The coordinator later
+  supplied frozen common text and exact prompts for two launched sessions;
+  repository archival occurred after launch, not before.
+- **Reversible:** tracking can be amended with history retained. No feature,
+  frame design or comparison agent is created by this administrative decision.

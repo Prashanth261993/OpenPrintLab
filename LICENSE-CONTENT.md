@@ -18,6 +18,9 @@ The original template definitions/designs in `models/` and deliberately publishe
 example geometry, previews, passports and source bundles in
 `examples/template-lab/` are also CC BY 4.0. No user-private variants from
 `build/variants/` are automatically published.
+Original evaluation briefs, rubrics and written reports under `evals/` are also
+CC BY 4.0. Third-party sources and evaluation artifacts retain their own licenses
+and require per-artifact provenance; this does not relicense upstream code/assets.
 
 You may share and adapt this content, including commercially, with appropriate
 credit, a license link, and an indication of changes. Do not imply endorsement.

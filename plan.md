@@ -2,7 +2,7 @@
 artifact: plan
 feature: 002-evidence-and-reuse
 status: planning
-updated: 2026-11-10
+updated: 2026-11-11
 tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07]
 ---
 
@@ -11,6 +11,8 @@ tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07]
 > Historical milestone spine. The newly approved optional backend/template work
 > is tracked separately in [003 Template lab](devtool/features/003-template-lab/plan.md).
 > Completed 002 task/evidence records below are preserved.
+> Current unbuilt capabilities and reuse ideas are tracked in
+> [004 Roadmap](devtool/features/004-reuse-roadmap/plan.md); tracking is not build approval.
 
 ## Objective
 
