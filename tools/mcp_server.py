@@ -11,6 +11,17 @@ _CAD_ENABLED = False
 
 
 @mcp.tool()
+def design_patterns(pattern_id: str | None = None) -> dict:
+    """Read curated patterns with pinned source observations, not safety ratings.
+
+    None lists all patterns. Unknown identifiers fail rather than substituting advice.
+    Local physical/slicer evidence is not promoted from upstream reports.
+    """
+    from tools.patterns import describe_pattern, list_patterns
+    return list_patterns() if pattern_id is None else describe_pattern(pattern_id)
+
+
+@mcp.tool()
 def list_models() -> dict:
     """List original designs; none are physically print-tested."""
     return load_catalog()
@@ -51,6 +62,21 @@ def _variant_output():
     if output.resolve() != ROOT.resolve() / "build" / "variants":
         raise ValueError("Variant output root must not use symlinks")
     return output
+
+
+@mcp.tool()
+def inspect_variant(variant_name: str, mode: str = "part",
+                    margin_mm: StrictFloat | StrictInt = 0,
+                    overhang_degrees: StrictFloat | StrictInt = 45,
+                    clearance_mm: StrictFloat | StrictInt = 0) -> dict:
+    """Read-only screening of an existing variant's exact STL inside build/variants.
+
+    No arbitrary paths or repair. Inspect findings/has_errors; warnings are not
+    slicer or mechanical evidence, and overlapping bounds need an exact check.
+    """
+    from tools.diagnostics import inspect_variant as inspect
+    return inspect(variant_name, root=_variant_output(), mode=mode, margin_mm=margin_mm,
+                   overhang_degrees=overhang_degrees, clearance_mm=clearance_mm)
 
 
 @mcp.tool()

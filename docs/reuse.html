@@ -1,0 +1,40 @@
+<p class="eyebrow">VERIFIED REUSE / LOCAL TOOLS</p>
+<h1>Better questions.<br>More useful checks.</h1>
+<p class="lede">Curated review patterns and read-only geometry diagnostics, adapted from selected ideas in <a href="https://github.com/wilsonwaters/3d-printing">wilsonwaters/3d-printing</a>. No new dependencies, hidden agent installs or paid calls.</p>
+<aside class="notice"><strong>Screening, not certification.</strong> These features do not prove fit, support-free printing, strength or safe hanging. Follow the <a href="https://github.com/Prashanth261993/OpenPrintLab/blob/main/docs/structural-design.md">structural-prototype policy</a>. Starter catalog uses remain unchanged.</aside>
+<h2>Try it from a full clone</h2>
+<p>Use Python 3.11+ from the repository root. No CadQuery is needed for inspection; generating CAD templates remains optional. A starter model's minimal source ZIP is not the full toolkit.</p>
+<pre><code>python -m tools.cli patterns
+python -m tools.cli pattern fastener-selection
+python -m tools.cli inspect-stl models\exports\pocket-tray.stl
+python -m tools.cli customize pocket-tray --variant review-tray
+python -m tools.cli inspect-variant review-tray</code></pre>
+<p>Choose an unused variant name. Inspection only reads the model; it does not repair, reorient, overwrite or promote its passport. The report binds the exact STL and checker hashes. The CLI returns 0 for no error findings (warnings may remain), 1 for reported geometry/placement errors, and 2 for invalid input or an unavailable file.</p>
+<h2>What the report can tell you</h2>
+<table><thead><tr><th>Mode or check</th><th>Meaning and limit</th></tr></thead><tbody>
+<tr><td><code>--mode part</code> (default)</td><td>Requires one edge-connected component. Checks each component's edge winding/closure, positive volume, Z=0, P2S envelope and requested XY margin.</td></tr>
+<tr><td><code>--mode plate</code></td><td>Allows several components but checks each one's placement. One grounded object cannot conceal another floating object.</td></tr>
+<tr><td><code>--mode assembly</code></td><td>Skips print placement rules; the assembly is not a printable part. Does not skip basic edge/volume findings.</td></tr>
+<tr><td><code>--margin 5</code></td><td>Reserves the user-requested XY edge distance in millimeters, without moving parts. Default is zero, not a practical brim allowance or certified usable-plate mask.</td></tr>
+<tr><td><code>--overhang 45</code></td><td>Reports oriented downward-face area exceeding the angle from vertical, excluding triangles at the bed. The default 45 degrees is a review threshold, not a universal printing limit. It does not distinguish bridges from unsupported spans.</td></tr>
+<tr><td><code>--clearance 1</code></td><td>Compares edge-connected components' axis-aligned bounding boxes. Separated bounds give a conservative distance lower bound. Overlap, contact or insufficient separation means an exact CAD check is needed, not that collision is proved.</td></tr>
+</tbody></table>
+<p>Input is binary STL in millimeters, limited to 200,000 triangles and 128 edge-connected components. Exact shared edges determine connectivity: vertex-only contact is not one component. ASCII STL, general solid repair, vertex-manifold proof, self-intersections, exact collision/clearance, motion envelopes and first-layer islands are not implemented. Enclosed cavity shells can trigger component/negative-volume findings even in a valid solid; review shell nesting in native CAD rather than repairing automatically. Bed-contact area is not a first-layer slice. Interpret topology errors before area/volume metrics, and inspect actual slicing separately.</p>
+<p>For custom CAD, export each printable part in its specified print orientation and keep assembly poses separate. Do not silently rescale or alter a model to pass. <code>inspect-stl</code> accepts a local file only in the CLI; MCP accepts only named variants already under this clone's <code>build/variants</code>, rejecting path escapes, symlinks and mismatched STL/report hashes.</p>
+<h2>Use with your assistant</h2>
+<p>The repository creation skill now points to these patterns and checks. The optional MCP server adds <code>design_patterns</code> and <code>inspect_variant</code>, backed by the same functions as the CLI. Restart an existing MCP server after updating the clone; keep normal client permission controls. A successful MCP exchange is not a successful geometry check: inspect <code>has_errors</code> and every finding.</p>
+<pre><code>Read AGENTS.md and the structural-prototype guide.
+Use geometry-design-review and any relevant fastener/material pattern.
+Inspect my existing variant review-tray without modifying it.
+Explain each warning, what was not checked, and what needs slicing
+or physical evidence. Do not mark the model safe or print-tested.</code></pre>
+<p><a href="create.html">MCP setup and creator workflow</a> &middot; <a href="lab/index.html">Browse the existing template lab</a></p>
+<h2>Curated review patterns</h2>
+<p>The records below are generated from the same data returned by CLI/MCP. All local geometry, slicer and physical evidence for these patterns remains <strong>not performed</strong>. Source-reported outcomes retain their original scope; they are not validation of your configuration.</p>
+%%PATTERNS%%
+<h2>What is not shipped</h2>
+<p>Bambu P2S project-3MF writing, installable cross-client packages, general new-design automation, exact assembly checking and an evaluation runner remain deferred. Bambu Studio is available on the development machine, but no project package or round-trip/slice verification is claimed by this release. ZIP/schema checks alone would not satisfy that gate.</p>
+<p>The <a href="https://github.com/Prashanth261993/OpenPrintLab/blob/main/devtool/features/006-reuse-slices/plan.md">adopt/adapt/defer ledger</a> records the reviewed implementations and reasons. Nothing launches design comparisons, installs global instructions or controls a printer.</p>
+<h2>Provenance and verification</h2>
+<p>Adapted from revision <code>f5e18a16031f5a11b20f7753574ff48494891587</code>. Copyright (c) 2026 Wilson Waters, MIT. Read the <a href="https://github.com/Prashanth261993/OpenPrintLab/blob/main/third_party/wilsonwaters/NOTICE.md">adaptation notice</a> and <a href="https://github.com/Prashanth261993/OpenPrintLab/blob/main/third_party/wilsonwaters/LICENSE">retained license</a>. Adapted patterns/tooling remain MIT; original models and original guide prose retain CC BY 4.0.</p>
+<p>Verification uses synthetic geometry with analytical dimensions/areas, deliberate failures, non-destructive CLI cases and actual MCP stdio calls. These are software checks, not physical prints or an assessment of an individual design. Reproduce the checks with <code>python -m unittest tests.test_patterns tests.test_diagnostics -v</code>; the optional SDK is required for <code>python -m tests.mcp_smoke</code>.</p>

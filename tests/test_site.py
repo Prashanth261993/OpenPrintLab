@@ -35,7 +35,7 @@ class SiteTests(unittest.TestCase):
                 parser = Links()
                 parser.feed(text)
                 pages[path.resolve()] = parser
-            self.assertEqual(len(pages), 11)
+            self.assertEqual(len(pages), 12)
             for path, parser in pages.items():
                 for link in parser.links:
                     url = urlsplit(link)

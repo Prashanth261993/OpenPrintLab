@@ -28,6 +28,10 @@ backlog item, separate from individual experiments.
 structural-prototype guidance. It does not complete the controlled-new-design
 automation, assembly diagnostics or evaluation-harness items below.
 
+The user subsequently authorized selective implementation. [Milestone 006](../006-reuse-slices/plan.md)
+implements curated patterns and bounded read-only diagnostics. Remaining items
+are deferred by explicit integration/evidence gates, not silently marked shipped.
+
 Tracking is approved by the user's 2026-11-11 request that plans and useful reuse
 ideas live in the repo rather than only the session. The user clarified that
 one-off tests should not be stored in the product tree by default. Keep reusable
@@ -50,13 +54,13 @@ reflect actual prerequisites, not the order of this table.
 
 | Item | Priority | Scope / source | Prerequisite and release gate | Status |
 |---|---|---|---|---|
-| T-02: controlled new design | 1 - suggested next | Beyond fixed templates, editable source, explicit unsupported cases; user direction, U-01 | Existing 003 pipeline; R-02 brief/source/permissions/geometry gates | tracked; not authorized |
-| T-03: P2S project-3MF + slicing | 2 - suggested next | Actual printer/process/filament preset project, not just mesh-in-ZIP; user direction, U-02 | Can start with an existing variant, not dependent on T-02; R-03 actual Studio review | tracked; not authorized |
-| T-04: cross-assistant packages | 3 | Generated adapters and plugin/skill ZIPs from one source; user direction, U-06/U-07 | Existing CLI/MCP contract; R-04 clean-install/permission/client evidence | tracked; not authorized |
-| T-05: reusable design patterns | 3 | Mechanical fasteners, supports, material/tolerance patterns with failed/unprinted evidence; user direction, U-01/U-04 | Existing passport schema; R-05 scoped claims and evidence. No universal upstream load ratings | tracked; not authorized |
-| T-06: OpenSCAD + assembly | later extension | Broader source authoring/editing, multi-part BOM/assembly flow; U-01 | T-02 control boundary and T-07 assembly checks; add T-03 if a Bambu project is claimed | tracked; not authorized |
-| T-07: assembly/orientation checks | enabling research | Collisions, Z=0, overhangs, first-layer islands; U-03 | Existing geometry pipeline and synthetic fixtures; does not need T-06 implemented first | tracked; not authorized |
-| T-08: reusable A/B evaluation | later product capability | No-product baseline, objective checks, fixed-camera renders and available cost/time metrics; user-approved reuse idea, U-05 | Approved harness scope and data-storage boundary; does not depend on building T-02 through T-07 | tracked; not authorized or implemented |
+| T-02: controlled new design | 1 - suggested next | Beyond fixed templates, editable source, explicit unsupported cases; user direction, U-01 | Existing 003 pipeline; R-02 brief/source/permissions/geometry gates | deferred; 005 documents custom engineering, not automation |
+| T-03: P2S project-3MF + slicing | 2 - suggested next | Actual printer/process/filament preset project, not just mesh-in-ZIP; user direction, U-02 | Can start with an existing variant, not dependent on T-02; R-03 actual Studio review | deferred; profile/round-trip/slice gates pending |
+| T-04: cross-assistant packages | 3 | Generated adapters and plugin/skill ZIPs from one source; user direction, U-06/U-07 | Existing CLI/MCP contract; R-04 clean-install/permission/client evidence | deferred; packaging/client gates pending |
+| T-05: reusable design patterns | 3 | Mechanical fasteners, supports, material/tolerance patterns with failed/unprinted evidence; user direction, U-01/U-04 | Existing passport schema; R-05 scoped claims and evidence. No universal upstream load ratings | partial: curated source-scoped records in 006; promotion not implemented |
+| T-06: OpenSCAD + assembly | later extension | Broader source authoring/editing, multi-part BOM/assembly flow; U-01 | T-02 control boundary and T-07 assembly checks; add T-03 if a Bambu project is claimed | deferred; authoring boundary pending |
+| T-07: assembly/orientation checks | enabling research | Collisions, Z=0, overhangs, first-layer islands; U-03 | Existing geometry pipeline and synthetic fixtures; does not need T-06 implemented first | partial: 006 geometry screening; exact collisions/islands deferred |
+| T-08: reusable A/B evaluation | later product capability | No-product baseline, objective checks, fixed-camera renders and available cost/time metrics; user-approved reuse idea, U-05 | Approved harness scope and data-storage boundary; does not depend on building T-02 through T-07 | deferred; no runner implemented |
 
 ## Tasks
 

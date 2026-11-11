@@ -7,6 +7,7 @@ import shutil
 from tools.catalog import ROOT, build_model, load_catalog, parameter_schema, source_archive
 from tools.release import release
 from tools.lab import seed_examples
+from tools.patterns import list_patterns
 
 
 def page(title, body, prefix=""):
@@ -16,6 +17,23 @@ def page(title, body, prefix=""):
 
 def dimensions(report):
     return " &times; ".join(f"{v:g}" for v in report["checks"]["dimensions_mm"]) + " mm"
+
+
+def pattern_sections():
+    sections = []
+    for pattern in list_patterns()["patterns"]:
+        checks = "".join(f"<li>{escape(text)}</li>" for text in pattern["checklist"])
+        observations = "".join(
+            f"<li><strong>Source-reported {escape(item['source_status'])}:</strong> "
+            f"{escape(item['scope'])} {escape(item['claim'])} Not independently verified.</li>"
+            for item in pattern["upstream_observations"]
+        )
+        limits = " ".join(escape(text) for text in pattern["limitations"])
+        sections.append(f'<section id="{escape(pattern["id"], quote=True)}">'
+                        f'<h3>{escape(pattern["title"])}</h3><p>{escape(pattern["use_when"])}</p>'
+                        f'<ul>{checks}</ul><p><a href="{escape(pattern["source"], quote=True)}">Pinned upstream source</a></p>'
+                        f'<ul>{observations}</ul><p>{limits}</p></section>')
+    return "\n".join(sections)
 
 
 def card(model, report, index):
@@ -85,8 +103,10 @@ def build_site(destination=None):
         cards.append(card(model, report, index))
     home = (ROOT / "web" / "home.html").read_text(encoding="utf-8").replace("%%CARDS%%", "\n".join(cards))
     (directory / "index.html").write_text(page("Small ideas. Real objects.", home), encoding="utf-8")
-    for name, title in (("beginner", "Your first print"), ("create", "Create with AI")):
+    for name, title in (("beginner", "Your first print"), ("create", "Create with AI"), ("reuse", "Patterns and diagnostics")):
         body = (ROOT / "docs" / f"{name}.html").read_text(encoding="utf-8")
+        if name == "reuse":
+            body = body.replace("%%PATTERNS%%", pattern_sections())
         (directory / f"{name}.html").write_text(page(title, f'<article class="wrap article">{body}</article>'), encoding="utf-8")
     (directory / ".nojekyll").write_text("", encoding="utf-8")
     seed_examples(directory / "lab", refresh_curated=True)

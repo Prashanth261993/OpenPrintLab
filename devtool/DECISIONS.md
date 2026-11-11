@@ -1,7 +1,7 @@
 ---
 artifact: decisions
 updated: 2026-11-11
-decisions: [D-01, D-02, D-03, D-04, D-05]
+decisions: [D-01, D-02, D-03, D-04, D-05, D-06]
 ---
 
 # Decisions
@@ -88,3 +88,21 @@ decisions: [D-01, D-02, D-03, D-04, D-05]
   operations is justified.
 - **Reversible:** revise guidance with review; no catalog geometry, supported-use
   allowlist, solver, dependency or automatic safety status is changed.
+
+## D-06 - Select verified reuse slices, not wholesale upstream installation
+
+- **When:** 2026-11-11.
+- **Phase:** 006 implementation after structural guidance.
+- **Decided by:** human-confirmed scope; implementation selection by agent.
+- **Chosen:** implement curated, source-scoped review patterns and read-only
+  diagnostics first, in the existing standard-library CLI/MCP/site architecture.
+  The user requested useful upstream features and README/Pages claims only
+  after verification. [006](features/006-reuse-slices/plan.md) records each
+  inspected implementation, adaptation and deferral gate.
+- **Rejected because:** copying universal material recipes, name-derived check
+  bypasses, mesh repair or implicit profile fallbacks would weaken existing
+  contracts. Package generation alone cannot establish client support, and a
+  3MF ZIP/schema check cannot establish Bambu Studio acceptance.
+- **Reversible:** separate read-only modules; baseline geometry/exports and setup
+  allowlists remain unchanged. Preserve upstream MIT notice and original CC BY
+  boundaries. No new environment, paid workflow or design comparison.

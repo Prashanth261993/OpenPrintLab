@@ -157,6 +157,11 @@ geometry-derived previews and file paths; include STEP only if actually exported
 
 Shared Python utilities have narrow contracts:
 
+The optional [read-only diagnostics walkthrough](reuse.html) now adds component,
+placement, bed-contact, downward-face and conservative bounding-box screening.
+It does not replace the per-part validation below, exact CAD checks or physical
+gates. It does not execute submitted source, repair files or promote passports.
+
 - `tools.geometry.decode_stl` reads **binary STL**, not every mesh format.
   `validate_mesh` checks finite/nondegenerate faces, duplicate faces, edge
   closure/winding, connectivity, positive volume and origin/envelope conditions.

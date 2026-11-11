@@ -52,3 +52,12 @@ own plan; it must retain the original no-dependency behavior.
 T-05 tests pass on Windows and Linux; STEP/STL and reproducible commands are
 available; an evidence-backed choose/decline report states unresolved limits.
 Choosing a candidate for a future adapter is not permission to adopt it.
+
+## Approved bounded reuse slices (2026-11-11)
+
+The user explicitly authorized selective integration from
+`wilsonwaters/3d-printing` after milestone 005. Milestone 006 retains Python's
+standard library, unittest, the existing CLI/optional MCP and static Pages.
+No new framework, datastore, dependency, provider or global client installation
+is selected. Scope: curated provenance/evidence patterns and read-only geometry
+diagnostics first; other candidates require their own verified release gates.

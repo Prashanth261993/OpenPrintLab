@@ -212,6 +212,42 @@ automatic certification or status promotion.
 
 ### Technology reuse plan
 
+Two [verified reuse slices](https://prashanth261993.github.io/OpenPrintLab/reuse.html)
+now work from a **full clone**, without new dependencies:
+
+```powershell
+python -m tools.cli patterns
+python -m tools.cli pattern fastener-selection
+python -m tools.cli inspect-stl models\exports\pocket-tray.stl
+python -m tools.cli inspect-variant my-desk-organizer
+```
+
+The last command needs an existing named variant. Review patterns retain pinned,
+source-reported successes, failures and unprinted cases without promoting local
+evidence. Read-only diagnostics report edge-connected components, per-component
+plate/contact checks, downward-face areas and conservative bounding-box separation.
+`--mode plate` allows multiple print parts; `--mode assembly` skips plate-placement
+rules. `--margin`, `--overhang` and `--clearance` are explicit review thresholds.
+Overlapping bounds require an exact CAD check; they do not prove a collision.
+The CLI exits 1 on error findings, 2 on invalid input; warnings may accompany exit 0.
+No repair, reorientation, first-layer-island, exact collision or safety claim.
+
+The optional MCP adds `design_patterns` and `inspect_variant` using the same
+functions. MCP accepts only named variants, not arbitrary STL paths; callers must
+read `has_errors` and findings even when the tool exchange succeeds.
+Restart the MCP server after updating the clone to discover the new tools.
+See the [walkthrough](docs/reuse.html) and
+[006 implementation/deferral ledger](devtool/features/006-reuse-slices/plan.md).
+
+Adapted from [wilsonwaters/3d-printing](https://github.com/wilsonwaters/3d-printing)
+at `f5e18a16031f5a11b20f7753574ff48494891587`; copyright 2026 Wilson Waters, MIT.
+[Attribution and adaptation scope](third_party/wilsonwaters/NOTICE.md) and
+[upstream license](third_party/wilsonwaters/LICENSE) are retained. The source's
+universal strength/tolerance/material recipes were not imported. Project-3MF,
+installable cross-client packages and evaluation infrastructure remain deferred,
+not shipped by importing an upstream script. Bambu Studio is installed locally,
+but no project round-trip/slice verification is claimed for this release.
+
 The bounded [structural-guidance milestone](devtool/features/005-structural-guidance/plan.md)
 records this guidance revision separately from unimplemented product capabilities.
 The current [repository roadmap and reuse backlog](devtool/features/004-reuse-roadmap/plan.md)
@@ -243,6 +279,7 @@ additional providers remain roadmap items, not shipped claims.
 ## Licenses
 
 [MIT](LICENSE): build tooling, website code, tests, integrations and configuration.
+Adapted review patterns are also MIT, with the upstream notice above.
 [CC BY 4.0](LICENSE-CONTENT.md): original models, **editable design source
 including `models/recipes.py`**, previews, catalog content, README and guides.
 Keep attribution and indicate modifications. Third-party manufacturer pages and

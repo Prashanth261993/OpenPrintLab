@@ -60,7 +60,7 @@ def main():
             assert page.get_by_role("link", name="Editable source ZIP").get_attribute("href").endswith(".source.zip")
             for width, height in ((375, 812), (812, 375), (768, 1024), (1440, 1000)):
                 page.set_viewport_size({"width": width, "height": height})
-                for route in ("/", "/beginner.html", "/create.html", "/models/parts-palette.html"):
+                for route in ("/", "/beginner.html", "/create.html", "/reuse.html", "/models/parts-palette.html"):
                     page.goto(base + route, wait_until="networkidle")
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), (width, route)
                     assert page.locator("h1").is_visible()
@@ -76,6 +76,11 @@ def main():
             assert plain.locator(".model-card").count() == 4
             plain.get_by_role("link", name="View Pocket tray", exact=True).click()
             assert plain.get_by_role("link", name="Download STL").is_visible()
+            plain.goto(base)
+            plain.get_by_role("link", name="Patterns & diagnostics").click()
+            assert plain.locator("#fastener-selection").is_visible()
+            assert plain.locator("#material-service-envelope").is_visible()
+            assert plain.locator("#geometry-design-review").is_visible()
             no_js.close()
             context.close()
             browser.close()

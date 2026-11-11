@@ -27,7 +27,14 @@ async def check():
             assert {tool.name for tool in tools.tools} == {
                 "list_models", "describe_model", "check_model", "export_model",
                 "list_templates", "describe_template", "create_variant", "variant_guidance",
+                "design_patterns", "inspect_variant",
             }
+            result = await session.call_tool("design_patterns", {"pattern_id": "fastener-selection"})
+            assert not result.isError
+            from tools.patterns import describe_pattern
+            assert json.loads(result.content[0].text) == describe_pattern("fastener-selection")
+            result = await session.call_tool("design_patterns", {"pattern_id": "unknown"})
+            assert result.isError
             result = await session.call_tool("describe_model", {"model_id": "pocket-tray"})
             assert not result.isError
             described = json.loads(result.content[0].text)
@@ -61,6 +68,17 @@ async def check():
                 created = json.loads(result.content[0].text)
                 assert Path(created["stl"]).is_file()
                 assert (output / "index.html").is_file()
+                result = await session.call_tool("inspect_variant", {"variant_name": name})
+                assert not result.isError
+                from tools.diagnostics import inspect_variant
+                assert json.loads(result.content[0].text) == inspect_variant(name)
+                result = await session.call_tool("inspect_variant", {"variant_name": name, "margin_mm": 5})
+                assert not result.isError
+                assert json.loads(result.content[0].text)["has_errors"]
+                for bad in ({"variant_name": "../outside"}, {"variant_name": name, "mode": "bad"},
+                            {"variant_name": name, "margin_mm": True}):
+                    result = await session.call_tool("inspect_variant", bad)
+                    assert result.isError, bad
                 result = await session.call_tool("create_variant", {"template_id": "pocket-tray", "variant_name": name})
                 assert result.isError
                 result = await session.call_tool("variant_guidance", {"variant_name": name})
@@ -81,6 +99,11 @@ async def check():
                     created = json.loads(result.content[0].text)
                     assert created["report"]["backend"]["name"] == "cadquery"
                     assert Path(created["step"]).is_file()
+                    result = await session.call_tool("inspect_variant", {"variant_name": name})
+                    assert not result.isError
+                    diagnostic = json.loads(result.content[0].text)
+                    assert not diagnostic["has_errors"]
+                    assert diagnostic["stl_sha256"] == created["report"]["sha256"]
                     result = await session.call_tool("variant_guidance", {
                         "variant_name": name, "printer": "P2S", "nozzle_mm": 0.4,
                         "plate": "Textured PEI", "material": "PLA", "intended_use": "desk-organization",
@@ -95,7 +118,7 @@ async def check():
                     if output.is_dir():
                         shutil.rmtree(output)
                         render_index(output.parent)
-    print("MCP stdio: discovery, metadata, checked customization, local export and invalid-input rejection passed.")
+    print("MCP stdio: discovery, patterns, exact variant inspection, checked customization, local export and invalid-input rejection passed.")
 
 
 if __name__ == "__main__":

@@ -13,6 +13,11 @@ Classify hazard, uncertainty, prototype eligibility and suitability separately.
 Follow its exclusions and escalation; missing physical evidence is not by itself
 a reason to refuse all modeling or a reason to promise safe use.
 
+Use `python -m tools.cli patterns`, then `pattern ID` for the relevant
+`fastener-selection`, `material-service-envelope` or `geometry-design-review`
+checklist (MCP: `design_patterns`). Source-reported proven/failed/unprinted
+observations are not local evidence or universal values.
+
 For the optional template lab, also read `docs/template-lab.md`. You (the user's
 tool-capable assistant) interpret their instructions. The CLI/MCP is a
 deterministic geometry tool, not a natural-language model.
@@ -67,6 +72,12 @@ tools/workspace. Preserve each revision and its source/license/output identities
 Follow the canonical guide's utility contracts: binary STL, one connected
 printable part per mesh check, recorded print orientation and separate assembly
 transforms. Unsupported checks must be reported, not bypassed.
+
+Use `inspect-stl FILE` (CLI) or `inspect-variant NAME` (CLI/MCP) for read-only
+component, placement, contact and downward-face screening. Select the appropriate
+mode and thresholds and inspect every finding plus `has_errors`. Overlapping
+bounds require an exact CAD check; no first-layer-island, exact collision,
+mechanical or slicer result is implied. See `docs/reuse.html`.
 
 Return the guide's complete prototype handoff: risk/assumptions, component mass
 budget and load path, actual geometry views/checks, fit/joint coupons, assembly

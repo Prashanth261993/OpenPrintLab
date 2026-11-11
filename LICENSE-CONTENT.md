@@ -19,6 +19,10 @@ example geometry, previews, passports and source bundles in
 `examples/template-lab/` are also CC BY 4.0. No user-private variants from
 `build/variants/` are automatically published.
 
+The adapted reference patterns in `patterns/review.json` and their rendered
+copies are MIT, not original CC BY content. Preserve
+`third_party/wilsonwaters/LICENSE` and `NOTICE.md` when redistributing them.
+
 You may share and adapt this content, including commercially, with appropriate
 credit, a license link, and an indication of changes. Do not imply endorsement.
 Suggested credit:

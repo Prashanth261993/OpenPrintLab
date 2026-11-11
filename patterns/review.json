@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "license": "MIT",
+  "attribution": "Adapted from wilsonwaters/3d-printing; Copyright (c) 2026 Wilson Waters. OpenPrintLab modifications. See third_party/wilsonwaters/NOTICE.md and LICENSE.",
+  "patterns": [
+    {
+      "id": "fastener-selection",
+      "title": "Fastener selection and service access",
+      "use_when": "A permitted decorative prototype uses screws, inserts, captive nuts or printed threads.",
+      "source": "https://github.com/wilsonwaters/3d-printing/blob/f5e18a16031f5a11b20f7753574ff48494891587/.claude/skills/3d-print-designer/pattern-fasteners.md",
+      "local_evidence": {"geometry": "not_performed", "slicer": "not_performed", "physical": "not_performed"},
+      "checklist": [
+        "Choose a fastening mechanism against actual hardware dimensions, assembly access, available tools and anticipated service cycles.",
+        "Separate alignment from retention; inspect bearing, pull-through, edge breakout, insert or thread pull-out, clamping relaxation and layer direction.",
+        "Dimension a representative mating coupon and record exact hardware, filament, orientation and process before generalizing fit.",
+        "Provide a reversible assembly path and tool access. Do not prescribe heat-set temperatures or hole sizes without the selected hardware and filament data."
+      ],
+      "upstream_observations": [
+        {"source_status": "failed", "scope": "Source-reported PETG caster-tube-insert v1, Bambu 0.4 mm nozzle; printed M8 thread.", "claim": "The source reports tooth breakage while driving the screw.", "independently_verified": false},
+        {"source_status": "failed", "scope": "Source-reported PETG caster-tube-insert v2, Bambu 0.4 mm nozzle; tighter self-tap pilot.", "claim": "The source reports seizure.", "independently_verified": false},
+        {"source_status": "proven", "scope": "Source-reported caster-tube-insert v3, X1C 0.4 mm nozzle, PETG, that specific geometry and assembly.", "claim": "The author reports that it held the caster. This is not a quantified lifetime/load test or a P2S rating.", "independently_verified": false},
+        {"source_status": "designed_not_printed", "scope": "Other thread sizes discussed in the same source.", "claim": "The author distinguishes unprinted designs from the reported trial.", "independently_verified": false}
+      ],
+      "limitations": ["No universal pilot diameter, pull-out force, torque or service-life rating is imported.", "Source-reported proven is not locally validated or transferable to other configurations."]
+    },
+    {
+      "id": "material-service-envelope",
+      "title": "Material, orientation and sustained service",
+      "use_when": "Choosing a material or changing a design's process, environment or loading.",
+      "source": "https://github.com/wilsonwaters/3d-printing/blob/f5e18a16031f5a11b20f7753574ff48494891587/.claude/skills/3d-print-designer/material-petg.md",
+      "local_evidence": {"geometry": "not_performed", "slicer": "not_performed", "physical": "not_performed"},
+      "checklist": [
+        "Record exact filament grade, condition, intended temperature/humidity/sunlight exposure and duty; use the supplier's data rather than generic material tables.",
+        "Evaluate orientation, shell continuity and sustained-load creep separately from initial stiffness or a short fit test.",
+        "Inspect bed contact and first-layer regions in the actual slicer. Geometric connectivity alone does not establish a continuous first layer.",
+        "Treat material or setting changes as new evidence scopes; preserve failed trials as well as successes."
+      ],
+      "upstream_observations": [
+        {"source_status": "failed", "scope": "Source-reported 196 mm PETG lattice on textured PEI with channels reaching the bed.", "claim": "The author reports repeated peeling of a fragmented first layer.", "independently_verified": false},
+        {"source_status": "proven", "scope": "Source-reported revision of that lattice with a sill and flared foot.", "claim": "The author reports successful printing, not a universal rule that all separated feet fail.", "independently_verified": false}
+      ],
+      "limitations": ["No generic strengths, creep life, temperatures, shrinkage compensation, hinge endurance or food-contact advice is imported.", "Material choice does not establish safety or eliminate environmental testing."]
+    },
+    {
+      "id": "geometry-design-review",
+      "title": "Review measured geometry against intended behavior",
+      "use_when": "Reviewing a new design or revision after export.",
+      "source": "https://github.com/wilsonwaters/3d-printing/blob/f5e18a16031f5a11b20f7753574ff48494891587/.claude/skills/3d-print-designer/design-review.md",
+      "local_evidence": {"geometry": "not_performed", "slicer": "not_performed", "physical": "not_performed"},
+      "checklist": [
+        "Trace each requirement to a measurement, geometry-derived view, documented observation or explicitly unverified residual.",
+        "Review actual assembled and section/joint views, not only an isometric thumbnail; use measurements rather than pixels for dimensions.",
+        "Check assembly/service order, joint engagement, stops, tool access and movement envelopes, recording poses and unresolved collision checks.",
+        "Report severity, part/interface location, evidence and suggested correction. Do not present an author's self-review as independent validation."
+      ],
+      "upstream_observations": [],
+      "limitations": ["No mandatory agent launch, budget, renderer, universal nozzle multiplier or untested clearance is adopted.", "A review checklist is not a mechanical, slicer or physical test."]
+    }
+  ]
+}

@@ -172,6 +172,11 @@ New shared tools: `list_templates`, `describe_template`, `create_variant`,
 confined to `build/variants`; MCP never accepts an arbitrary output path.
 No arbitrary source execution, provider calls or printer controls are exposed.
 
+The [reuse toolkit](reuse.html) also adds read-only `design_patterns` and
+`inspect_variant`. The latter verifies the variant STL hash against its report
+and returns diagnostics without altering either. CLI `inspect-stl` can inspect
+a custom binary STL; MCP remains confined to existing named variants.
+
 | Surface | Evidence boundary |
 |---|---|
 | CLI from this tool-capable coding-assistant session | Actual generation and local preview are exercised |

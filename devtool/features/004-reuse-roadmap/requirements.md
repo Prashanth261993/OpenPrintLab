@@ -14,6 +14,10 @@ Useful next capabilities and upstream reuse ideas must remain discoverable in
 the repository, not depend on a chat session. The user approved **tracking**:
 "everything should be in repo and not within session". The requirements below
 are proposed feature/evidence contracts, not authorization to implement them.
+Subsequent selective implementation is tracked in
+[006](../006-reuse-slices/plan.md): curated pattern records and bounded geometry
+screening are implemented subsets of R-05/R-07, not completion of these broader
+contracts. The remaining feature contracts below are not shipped.
 The [clarified storage scope](../../DECISIONS.md#d-04---retain-product-plans-remove-one-off-test-records-from-the-current-tree)
 covers reusable product planning, not automatic publication of one-off test data.
 
@@ -91,7 +95,7 @@ test data or change product capability to favor a comparison.
 
 ### R-05 - Reusable, evidence-backed design patterns
 
-**Priority:** must if commissioned. **Status:** proposed; implementation not approved.
+**Priority:** must if commissioned. **Status:** partial in 006; curated source-scoped records, no local physical promotion.
 
 - **AC-05.1:** When storing a fastener, support, material or tolerance pattern,
   record source/license, intended use, hardware/material/orientation, dimensions,
@@ -118,7 +122,7 @@ test data or change product capability to favor a comparison.
 
 ### R-07 - Assembly and print-orientation analysis
 
-**Priority:** should if commissioned. **Status:** proposed; implementation not approved.
+**Priority:** should if commissioned. **Status:** partial in 006; read-only screening, not exact collisions or first-layer analysis.
 
 - **AC-07.1:** Checks shall cover part collisions/interferences, intended versus
   unintended contacts, Z=0/bed contact, overhangs and first-layer islands.

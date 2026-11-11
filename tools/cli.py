@@ -13,6 +13,16 @@ def main():
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("list", help="List original models")
     commands.add_parser("templates", help="List original models and optional CAD generators")
+    commands.add_parser("patterns", help="Read curated review patterns and source-specific evidence")
+    pattern = commands.add_parser("pattern", help="Read one pattern; not a validated design or rating")
+    pattern.add_argument("identifier")
+    for name in ("inspect-stl", "inspect-variant"):
+        inspection = commands.add_parser(name, help="Read-only geometry diagnostics; not slicing or safety evidence")
+        inspection.add_argument("target")
+        inspection.add_argument("--mode", choices=["part", "plate", "assembly"], default="part")
+        inspection.add_argument("--margin", type=float, default=0, help="Reserved XY edge margin in mm")
+        inspection.add_argument("--overhang", type=float, default=45, help="Warning angle from vertical in degrees")
+        inspection.add_argument("--clearance", type=float, default=0, help="Conservative component-pair clearance threshold in mm")
     template = commands.add_parser("template", help="Describe a template and its supported parameters")
     template.add_argument("model")
     customize = commands.add_parser("customize", help="Create a new named variant with a real preview; never overwrite")
@@ -40,6 +50,14 @@ def main():
     try:
         if args.command == "list":
             result = load_catalog()
+        elif args.command in ("patterns", "pattern"):
+            from tools.patterns import describe_pattern, list_patterns
+            result = list_patterns() if args.command == "patterns" else describe_pattern(args.identifier)
+        elif args.command in ("inspect-stl", "inspect-variant"):
+            from tools.diagnostics import inspect_file, inspect_variant
+            inspect = inspect_file if args.command == "inspect-stl" else inspect_variant
+            result = inspect(args.target, mode=args.mode, margin_mm=args.margin,
+                             overhang_degrees=args.overhang, clearance_mm=args.clearance)
         elif args.command in ("templates", "template", "guidance"):
             from tools.variants import describe_template, guidance, list_templates
             if args.command == "templates":
@@ -73,6 +91,8 @@ def main():
             else:
                 _, result = build_model(args.model, overrides)
         print(json.dumps(result, indent=2))
+        if args.command in ("inspect-stl", "inspect-variant") and result["has_errors"]:
+            return 1
     except (ValueError, OSError, RuntimeError) as exc:
         print(f"OpenPrintLab: {exc}", file=sys.stderr)
         return 2

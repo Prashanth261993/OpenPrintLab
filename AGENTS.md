@@ -47,6 +47,15 @@ Build useful, understandable models; never imply that generated means printable.
   and preserving originals. Label custom work honestly; do not extend CLI/MCP
   capabilities, template allowed uses or safety claims to make it look supported.
 - Reuse shared catalog/build tools across CLI, site and MCP.
+- For design review, use `patterns` / `pattern ID` (MCP `design_patterns`).
+  Preserve source-reported evidence scope; none of those observations is local
+  print validation. The structural policy takes precedence over pattern advice.
+- Run `inspect-stl FILE` or `inspect-variant NAME` for additional read-only
+  diagnostics; MCP `inspect_variant` accepts named variants only. Choose part,
+  plate or assembly mode explicitly. Read findings and `has_errors`, not just tool
+  success. Bounding-box overlap is inconclusive; bed contact is not first-layer
+  island analysis. See `docs/reuse.html`; never substitute screening for slicing.
 - `models/`, including Python design recipes, and `docs/` are CC BY 4.0.
   `tools/`, tests, website code and assistant integrations are MIT.
+- Adapted pattern content remains MIT with `third_party/wilsonwaters` notices.
 - Do not add dependencies unless a required capability justifies them.
