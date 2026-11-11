@@ -12,7 +12,8 @@ tasks: [T-01, T-02, T-03, T-04, T-05, T-06, T-07, T-08]
 
 Track the next product capabilities and useful upstream ideas in one repository
 spine. **Approval to track is not approval to implement.** This documentation-only
-assignment does not build features, design the frame or launch comparison agents.
+roadmap does not implement features, launch comparisons or authorize publishing
+one-off test data.
 
 ## Current state
 
@@ -20,25 +21,22 @@ The working product is [milestone 003](../003-template-lab/plan.md): original
 dependency-free models, optional CadQuery templates, non-destructive variants,
 real previews, CLI/MCP and honest evidence. The
 [002 plan](../../../plan.md) and [T-05 experiment](../../../experiments/cadquery/report.md)
-retain their history. The current frame A/B effort is
-[frozen actual launch inputs, two arms launched](../../../evals/frame-shadowbox-24x36/README.md).
+retain their history. Generic A/B evaluation remains an unimplemented product
+backlog item, separate from individual experiments.
 
 Tracking is approved by the user's 2026-11-11 request that plans and useful reuse
-ideas live in the repo rather than only the session. Product items remain
-blocked on separate implementation authorization. The coordinator subsequently
-supplied the frozen comparison inputs and exact prompts for two sessions it has
-now launched. T-08 is in progress under that coordinator, not permission for this
-administrative session to design, launch or inspect either running candidate.
+ideas live in the repo rather than only the session. The user clarified that
+one-off tests should not be stored in the product tree by default. Keep reusable
+plans/research here; separate approval is needed for implementation and for any
+publication of case-specific test data.
 
 ## Phases
 
 - [x] Record user priorities, source provenance and history.
-- [x] Persist proposed requirements, backlog and evaluation hold.
+- [x] Persist proposed requirements, backlog and reusable evaluation ideas.
 - [ ] Approve a bounded implementation plan for any selected item.
 - [ ] Implement and verify that approved item.
-- [x] Persist the coordinator-supplied frozen benchmark inputs.
-- [x] Record coordinator-reported launches and exact actual prompts.
-- [ ] Coordinator collects completed outputs and evaluates; no candidate work is inspected here.
+- [ ] Approve and implement generic evaluation support if selected.
 - Red-team - not commissioned; future source-execution/install boundaries need review.
 
 ## Priorities, sources and dependencies
@@ -54,7 +52,7 @@ reflect actual prerequisites, not the order of this table.
 | T-05: reusable design patterns | 3 | Mechanical fasteners, supports, material/tolerance patterns with failed/unprinted evidence; user direction, U-01/U-04 | Existing passport schema; R-05 scoped claims and evidence. No universal upstream load ratings | tracked; not authorized |
 | T-06: OpenSCAD + assembly | later extension | Broader source authoring/editing, multi-part BOM/assembly flow; U-01 | T-02 control boundary and T-07 assembly checks; add T-03 if a Bambu project is claimed | tracked; not authorized |
 | T-07: assembly/orientation checks | enabling research | Collisions, Z=0, overhangs, first-layer islands; U-03 | Existing geometry pipeline and synthetic fixtures; does not need T-06 implemented first | tracked; not authorized |
-| T-08: controlled A/B benchmark | separate research track | No-product baseline, objective checks, fixed-camera renders and available cost/time metrics; user challenge, U-05 | Common text frozen in launch messages; exact prompts/IDs archived after launch. Does **not** depend on T-02 through T-07 | two fresh arms launched; outputs not collected |
+| T-08: reusable A/B evaluation | later product capability | No-product baseline, objective checks, fixed-camera renders and available cost/time metrics; user-approved reuse idea, U-05 | Approved harness scope and data-storage boundary; does not depend on building T-02 through T-07 | tracked; not authorized or implemented |
 
 ## Tasks
 
@@ -72,12 +70,15 @@ in the selected item's implementation plan.
 | T-05 | Establish scoped reusable pattern records and promotion rules | R-05 | T-01 | Proposed `patterns/`, `tests/test_patterns.py`, `docs/pattern-evidence.md` | - | blocked | Planned: `python -m unittest tests.test_patterns -v`; audit each claimed state against exact source, setup and success/failure evidence |
 | T-06 | Extend controlled OpenSCAD source and multi-part assembly flow | R-06 | T-02, T-07 | Proposed `tools/openscad_backend.py`, `tools/assembly.py`, `tests/test_openscad_workflow.py`, `docs/assemblies.md` | - | blocked | Planned: `python -m unittest tests.test_openscad_workflow -v`; reviewed assembly/BOM and part checks; actual slicer gate where applicable |
 | T-07 | Add bounded assembly and print-orientation diagnostics | R-07 | T-01 | Proposed `tools/assembly_checks.py`, `tests/test_assembly_checks.py`, `tests/fixtures/assemblies/` | - | blocked | Planned: `python -m unittest tests.test_assembly_checks -v`; known collision/contact, elevated-base, overhang and island fixtures with limits |
-| T-08 | Run and evaluate exactly two fresh design arms from the frozen inputs | R-08 | T-01 | `evals/frame-shadowbox-24x36/` inputs/actual prompts are present; `results/` outputs/evaluation and future `evals/verify_run.py` are reserved | - | in progress | Future: `python evals/verify_run.py evals/frame-shadowbox-24x36/results/RUN_ID`; exact prompt hashes, equivalent checks, fixed views and human rubric; no runner implemented now |
+| T-08 | Build reusable neutral evaluation support after approval | R-08 | T-01 | Proposed `tools/evaluation.py`, `tests/test_evaluation.py`, `tests/fixtures/evaluation/`, `docs/evaluation.md`; no one-off run records | - | blocked | Planned: `python -m unittest tests.test_evaluation -v`; synthetic pass/fail fixtures, equivalent measurement and rendering, missing-metric handling and explicit storage boundary |
 
 No parallel execution is scheduled or authorized. Before scheduling, narrow
 shared paths and prove disjoint ownership. T-01 is inherited evidence of the
 already-working system, not a claim that new roadmap features were implemented
 or re-tested during this documentation assignment.
+
+T-08 describes a future reusable capability, not an active comparison. No
+candidate-specific records or results are tracked by this product backlog.
 
 ## Evidence gates and uncertainty
 
@@ -116,24 +117,18 @@ behavior independently. The repository license is not blanket clearance for
 every third-party model, font, image or material claim. Do not copy wholesale
 or relicense upstream code as original CC BY content.
 
-## Benchmark boundary
+## Evaluation and storage boundary
 
-The frame comparison is an independent research track, not an implementation
-test to tune product capability against. The coordinator supplied confirmed
-dimensions and a frozen brief/rubric/protocol for persistence. This assignment
-records those [common inputs and actual launch prompts](../../../evals/frame-shadowbox-24x36/README.md);
-it does not choose a design, start an arm or inspect candidate work. The
-coordinator has launched both sessions with inherited model settings and no
-overrides or time/token/spending ceilings. The repository archive followed launch;
-do not claim a pre-launch Git freeze. Product code is pinned separately
-to `8d78523aa68fc1973b61c16fa435d1550833ecd4`; the later administrative commit
-must not be mistaken for a capability change.
+Retain the reusable methodology: a no-product baseline, objective geometry and
+requirements checks, fixed-camera presentation, declared confounders and actual
+available effort/cost measurements. Freeze each authorized comparison's inputs
+before execution, and do not tune the product mid-run to favor an arm.
 
-The final brief, rubric, protocol, source, outputs, fixed-camera renders,
-available measured cost/time, failures and evaluation must be inspectable from
-the repository without the originating session. Large artifacts need an approved
-repository storage approach (for example Git LFS), not silent replacement with
-session-only paths or expiring download links.
+Implementation approval for that methodology does not authorize publishing test
+data. Product code, reusable plans and approved synthetic fixtures belong in the
+repo. One-off briefs, prompts, candidate identifiers, outputs and run bookkeeping
+remain in designated session/test storage unless separately approved for
+publication. Preserve provenance and honest missing-evidence labels there.
 
 ## Retained deferrals
 
@@ -149,12 +144,11 @@ activate those paths or replace the no-key local baseline.
 | # | Question | Blocking? | Raised | Answer |
 |---|----------|-----------|--------|--------|
 | Q-1 | Which tracked product item should receive a bounded implementation authorization? | Implementation only | 2026-11-11 | Priorities recorded; no build authorization in this assignment |
-| Q-2 | What are the frame units, measured dimensions, depth meaning and aesthetic requirements? | Resolved in common input | 2026-11-11 | See the frozen brief; no frame design is chosen here |
-| Q-3 | Which common inputs and product revision govern the two arms? | Actual launch record archived | 2026-11-11 | Exact prompts and hash manifest; code pin 8d78523; two fresh sessions launched by the coordinator |
+| Q-2 | What reusable evaluation scope and synthetic fixtures would justify a harness? | T-08 implementation | 2026-11-11 | Not yet commissioned |
+| Q-3 | Where may a future comparison's case-specific data be stored or published? | That comparison only | 2026-11-11 | Require explicit approval; no default product-repo ingestion |
 
 ## Links
 
 - [Proposed requirements and acceptance criteria](requirements.md)
-- [Frozen frame benchmark and repository record layout](../../../evals/frame-shadowbox-24x36/README.md)
 - [Completed template lab](../003-template-lab/plan.md)
 - [Historical reuse spine](../../../plan.md)

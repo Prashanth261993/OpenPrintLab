@@ -1,7 +1,7 @@
 ---
 artifact: decisions
 updated: 2026-11-11
-decisions: [D-01, D-02, D-03]
+decisions: [D-01, D-02, D-03, D-04]
 ---
 
 # Decisions
@@ -35,20 +35,36 @@ decisions: [D-01, D-02, D-03]
   providers were not requested or authorized.
 - **Reversible:** yes; original no-CAD path and artifacts remain intact.
 
-## D-03 - Track roadmap and comparison records in the repository
+## D-03 - Track reusable roadmap in the repository (scope clarified by D-04)
 
 - **When:** 2026-11-11.
 - **Phase:** 004 administrative tracking, not feature implementation.
 - **Decided by:** human-confirmed.
-- **Options:** leave ideas/results in chat; maintain repository-owned backlog and
-  evaluation records; immediately implement roadmap items or launch a comparison.
+- **Options:** leave product ideas in chat; maintain a repository-owned backlog;
+  immediately implement roadmap items.
 - **Chosen:** "everything should be in repo and not within session". Record the
   requested next capabilities and useful upstream ideas with requirements,
   priorities, sources and evidence gates in
   [004 Roadmap](features/004-reuse-roadmap/plan.md).
-- **Rejected because:** tracking approval is not implementation authorization;
-  feature implementation is separate from the benchmark. The coordinator later
-  supplied frozen common text and exact prompts for two launched sessions;
-  repository archival occurred after launch, not before.
-- **Reversible:** tracking can be amended with history retained. No feature,
-  frame design or comparison agent is created by this administrative decision.
+- **Rejected because:** tracking approval is not implementation authorization.
+  The original storage interpretation also included one-off test records; that
+  scope is narrowed by D-04 rather than treated as the default product policy.
+- **Reversible:** roadmap tracking can be amended with Git history retained.
+
+## D-04 - Retain product plans, remove one-off test records from the current tree
+
+- **When:** 2026-11-11.
+- **Phase:** focused documentation cleanup.
+- **Decided by:** human-confirmed.
+- **Options:** retain all test records in the product repo; remove only one-off
+  artifacts while retaining reusable plans; rewrite public history.
+- **Chosen:** "ok clean them up please. Only relevant ones. Unless you see value
+  for them to be in repo". Keep product roadmap/reuse research and generic
+  evaluation capability tracking; remove one-off test records and their links
+  from the current product tree. Do not retain case-specific prompts, identifiers,
+  hashes or run bookkeeping in product docs.
+- **Rejected because:** a product-planning preference is not blanket permission
+  to publish one-off test data. History rewriting and changes to independent
+  design workspaces are outside the authorized cleanup.
+- **Reversible:** a normal deletion commit preserves Git history. Private archival
+  copies may support the ongoing local comparison without re-adding them to the repo.

@@ -202,10 +202,10 @@ tracks controlled new-design authoring, P2S project-3MF plus real slicer review,
 cross-assistant packages, reusable evidence-backed patterns, OpenSCAD/assembly
 workflows and additional checks. **Tracked does not mean implemented or approved
 to build.** Sources, priorities, dependencies and evidence gates are recorded.
-The [frame A/B benchmark](evals/frame-shadowbox-24x36/README.md) now has a frozen
-common brief, rubric, protocol and exact actual launch prompts. The coordinator
-has launched the two fresh sessions; this administrative update creates no designs,
-launches no agents and does not inspect running candidates.
+Reusable neutral A/B evaluation tooling is tracked as an unimplemented product
+capability. One-off comparison briefs, prompts, candidate identifiers and run
+records stay outside the product tree by default; committing test-specific data
+requires separate explicit approval.
 
 [plan.md](plan.md) records requirements, owned files, dependencies, uncertainty,
 verification commands and approval gates. It distinguishes **precise functional

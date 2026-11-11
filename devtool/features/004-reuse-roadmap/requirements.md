@@ -14,19 +14,22 @@ Useful next capabilities and upstream reuse ideas must remain discoverable in
 the repository, not depend on a chat session. The user approved **tracking**:
 "everything should be in repo and not within session". The requirements below
 are proposed feature/evidence contracts, not authorization to implement them.
+The [clarified storage scope](../../DECISIONS.md#d-04---retain-product-plans-remove-one-off-test-records-from-the-current-tree)
+covers reusable product planning, not automatic publication of one-off test data.
 
 ## Goals
 
 Preserve completed milestones; prioritize controlled new designs, P2S project
 export/slicer evidence, and installable cross-assistant packages plus reusable
 patterns. Track relevant upstream ideas with provenance and explicit evidence
-gates. Keep the two-arm frame benchmark separate from product development.
+gates. Keep reusable evaluation tooling distinct from one-off test data.
 
 ## Non-goals
 
-This update implements no generators, adapters, project writer, evaluation
-runner or frame design; installs nothing; launches no design agents; copies no
-upstream implementation. No capability may be changed to favor the benchmark.
+This roadmap authorizes no generator, adapter, project writer, evaluation runner,
+installation or test run. It copies no upstream implementation. Generic
+evaluation support is a future capability, not consent to publish individual
+test data or change product capability to favor a comparison.
 
 ## Requirements
 
@@ -125,23 +128,33 @@ upstream implementation. No capability may be changed to favor the benchmark.
 - **AC-07.3:** Geometric heuristics shall remain distinct from actual slicer
   support/layer evidence and physical assembly/strength evidence.
 
-### R-08 - Fair, repository-owned A/B evaluation
+### R-08 - Reusable neutral A/B evaluation capability
 
-**Priority:** must before an authorized comparison. **Status:** common launch text frozen; arms launched; repository archive follows launch.
+**Priority:** should if commissioned. **Status:** proposed generic capability; not implemented.
 
 - **AC-08.1:** Before either arm starts, freeze one common brief, rubric, tool
   allowlists, product/no-product conditions, versions, budgets and stopping rules
-  in the repo. Use exactly two fresh design agents only after that gate.
+  in an explicitly approved storage location. Use fresh independent design
+  contexts; a product-planning preference does not authorize publishing the data.
 - **AC-08.2:** The no-product baseline shall not receive OpenPrintLab product
   instructions/artifacts indirectly. Shared ordinary tools, model/version and
   budgets should match where feasible; unavoidable differences are confounders.
 - **AC-08.3:** Record objective requirements/geometry checks, identical fixed-camera
   render settings and a predeclared human aesthetic review. Preserve failures and
   retries. No product changes may be made mid-comparison to help one arm.
-- **AC-08.4:** Final brief, rubric, redacted run records, editable sources,
-  outputs, renders, evidence and evaluation shall be repository-owned. Cost,
-  tokens and elapsed time shall be actual available measurements, or explicitly
-  unavailable; no invented estimates or physical-print claims.
+- **AC-08.4:** Reusable evaluation tooling and approved synthetic fixtures may
+  live in the product repo. One-off briefs, prompts, candidate identifiers,
+  outputs and run bookkeeping stay in their designated session/test storage
+  unless the user separately approves publication. Cost, tokens and elapsed
+  time shall be actual available measurements or explicitly unavailable; no
+  invented estimates or physical-print claims.
+- **AC-08.5:** When the user changes a shared requirement mid-run, append the
+  amendment with provenance, reported equal delivery and the effective input
+  version. Preserve original prompts/hashes, record receipt/redesign when
+  collected, and do not silently change other scoring criteria.
+
+The evaluation capability requires a separate implementation approval. These
+criteria do not represent an active run or authorize result ingestion.
 
 ## Assumptions
 
@@ -154,9 +167,7 @@ upstream implementation. No capability may be changed to favor the benchmark.
 
 ## Open questions
 
-The coordinator supplied the frozen common inputs and then the exact actual
-prompts/IDs for two launched sessions. They are persisted at
-`evals/frame-shadowbox-24x36/`. Common text was frozen in launch messages, but the
-repository archive followed launch; the repo-first portion of AC-08.1 is recorded
-as unmet for this initial run, not retroactively claimed. No running candidate
-outputs are inspected here. Product implementation authorization remains separate.
+Which reusable capability should be implemented next remains an explicit user
+decision. Any future evaluation needs an approved protocol, storage boundary
+and tested-client/tool matrix. This product roadmap contains no one-off design
+brief, candidate identity, prompt archive or active-run bookkeeping.
