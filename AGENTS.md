@@ -3,6 +3,8 @@
 Build useful, understandable models; never imply that generated means printable.
 
 - Read `docs/decisions.md`, `models/catalog.json` and the relevant recipe first.
+- Read `docs/structural-design.md` before classifying a request involving loads,
+  joints, glazing or mounting. It is the canonical eligibility/evidence policy.
 - Use `.github/skills/create-printable-model/SKILL.md` for authoring/customization.
 - For richer editable templates, read `docs/template-lab.md`. The optional
   CadQuery backend is approved under milestone 003; keep it opt-in.
@@ -36,8 +38,14 @@ Build useful, understandable models; never imply that generated means printable.
   printer/nozzle/plate/material/use. Unsupported setups have no tested profile.
 - Keep suggestions separate from verified facts. Users select actual
   printer/nozzle/plate/filament presets and inspect their own slices.
-- Reject food-contact, electrical, medical, weapon, structural/load-bearing,
-  high-temperature and safety-critical designs in this starter collection.
+- Follow the canonical guide's hard exclusions and hazard escalation. Bounded
+  non-safety-critical decorative prototypes are eligible for custom engineering,
+  not automatically safe or impossible because they lack physical evidence.
+  Keep the explicit "not validated for hanging/load use" state and full handoff.
+- Frames/assemblies are not named templates. An assistant may author reviewed
+  task-specific CAD in an authorized workspace, using compatible shared utilities
+  and preserving originals. Label custom work honestly; do not extend CLI/MCP
+  capabilities, template allowed uses or safety claims to make it look supported.
 - Reuse shared catalog/build tools across CLI, site and MCP.
 - `models/`, including Python design recipes, and `docs/` are CC BY 4.0.
   `tools/`, tests, website code and assistant integrations are MIT.

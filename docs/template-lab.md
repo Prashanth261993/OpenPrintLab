@@ -28,6 +28,20 @@ deferred until a specific font binary, redistribution terms and glyph geometry
 are tested; arbitrary system fonts are not silently substituted. External
 STL/STEP/3MF editing/import remains future work.
 
+## Beyond templates: custom decorative prototypes
+
+Frames and general assemblies are not generators in this lab. Follow the
+[canonical structural-prototype guide](structural-design.md) for request
+classification, hazard escalation, custom-CAD boundaries and the full evidence
+handoff. Eligible assistant-authored designs may be delivered as unvalidated
+prototypes, not certified load-bearing products.
+
+Task-specific source/checks outside these templates are custom engineering.
+The existing setup API's `unsupported_setup` response means no supported
+model-specific preset/use, not that every decorative design is impossible.
+Do not broaden an existing template's allowed uses or copy its passport to
+custom geometry. No arbitrary-source MCP endpoint or structural solver exists.
+
 ## Windows: browse without installing CAD
 
 From your clone's root:

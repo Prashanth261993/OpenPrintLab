@@ -1,7 +1,7 @@
 ---
 artifact: decisions
 updated: 2026-11-11
-decisions: [D-01, D-02, D-03, D-04]
+decisions: [D-01, D-02, D-03, D-04, D-05]
 ---
 
 # Decisions
@@ -68,3 +68,23 @@ decisions: [D-01, D-02, D-03, D-04]
   design workspaces are outside the authorized cleanup.
 - **Reversible:** a normal deletion commit preserves Git history. Private archival
   copies may support the ongoing local comparison without re-adding them to the repo.
+
+## D-05 - Allow bounded structural-prototype guidance
+
+- **When:** 2026-11-11.
+- **Phase:** 005 guidance revision, not a structural generator or individual design.
+- **Decided by:** human-confirmed.
+- **Options:** blanket rejection of loads; unrestricted structural authoring;
+  bounded decorative prototype exploration with evidence and escalation.
+- **Chosen:** "we need to consider how to solve structural gudiance within
+  OpenPrintLab's guidance and then test this out". Implement the bounded guidance
+  described in [005 requirements](features/005-structural-guidance/requirements.md)
+  and [the canonical policy](../docs/structural-design.md). Distinguish hazard,
+  uncertainty, prototype eligibility and verified suitability. Preserve hard
+  exclusions, actual tool limits and physical/competent-review gates.
+- **Rejected because:** lack of physical evidence alone does not establish
+  impossibility, but useful prototype geometry does not establish safe use.
+  Neither unrestricted load claims nor extending templates to hide unsupported
+  operations is justified.
+- **Reversible:** revise guidance with review; no catalog geometry, supported-use
+  allowlist, solver, dependency or automatic safety status is changed.

@@ -79,3 +79,12 @@ The proposed first integration experiment reuses CadQuery for a bounded rounded
 tray instead of extending the in-house geometry engine to advanced CAD.
 Future provider/editor installations, paid API calls and broad migrations require
 user review. Local testing is ready independently; see `local-testing.md`.
+
+## Approved structural-prototype guidance (2026-11-11)
+
+[Milestone 005](../devtool/features/005-structural-guidance/plan.md) adds reusable
+guidance, not a structural generator. The [canonical guide](structural-design.md)
+permits eligible decorative custom-engineering prototypes with explicit evidence
+gates, retains safety-critical exclusions and escalates serious consequences.
+This supersedes a blanket rejection of every load-bearing design; it does not
+expand starter catalog uses or establish mechanical suitability.

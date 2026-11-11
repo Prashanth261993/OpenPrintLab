@@ -24,6 +24,10 @@ real previews, CLI/MCP and honest evidence. The
 retain their history. Generic A/B evaluation remains an unimplemented product
 backlog item, separate from individual experiments.
 
+[Milestone 005](../005-structural-guidance/plan.md) separately implements bounded
+structural-prototype guidance. It does not complete the controlled-new-design
+automation, assembly diagnostics or evaluation-harness items below.
+
 Tracking is approved by the user's 2026-11-11 request that plans and useful reuse
 ideas live in the repo rather than only the session. The user clarified that
 one-off tests should not be stored in the product tree by default. Keep reusable

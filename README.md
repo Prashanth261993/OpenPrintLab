@@ -177,9 +177,24 @@ constraints, source, reproducible exports and evidence, not just screenshots.
 - **Physical-print-tested:** requires an actual documented print. **Not performed.**
 
 These are limited checks, not a general self-intersection/repair algorithm,
-fit guarantee, strength rating or safety certification. Never use starter models
-for food contact, electrical, medical, weapon, structural, hot or safety-critical
-applications. All process suggestions must be reviewed against the actual setup.
+fit guarantee, strength rating or safety certification. Starter models retain
+their catalog uses; they are not structural components. All process suggestions
+must be reviewed against the actual setup.
+
+### Decorative prototypes with joints or loads
+
+The [structural-prototype guide](docs/structural-design.md) is the source of truth
+for eligibility, hard exclusions, hazard escalation and required evidence.
+Assistants may explore eligible non-safety-critical decorative objects, including
+modular frames, as **custom engineering**, not built-in template support.
+Unknown wall conditions or missing print evidence need not prevent modeling,
+but do prevent an unsupported installation go-ahead.
+
+Expect a risk register, mass budget/load-path diagram, editable geometry and
+coupons, actual checks and staged physical gates. Such a result remains
+**"Prototype - not validated for hanging/load use."** Safety-critical uses remain
+excluded; serious falling/breakable-glazing hazards need qualified review.
+This guidance does not add a generator, solver, new MCP endpoint or load rating.
 
 ### Model passports and real feedback
 
@@ -197,6 +212,8 @@ automatic certification or status promotion.
 
 ### Technology reuse plan
 
+The bounded [structural-guidance milestone](devtool/features/005-structural-guidance/plan.md)
+records this guidance revision separately from unimplemented product capabilities.
 The current [repository roadmap and reuse backlog](devtool/features/004-reuse-roadmap/plan.md)
 tracks controlled new-design authoring, P2S project-3MF plus real slicer review,
 cross-assistant packages, reusable evidence-backed patterns, OpenSCAD/assembly

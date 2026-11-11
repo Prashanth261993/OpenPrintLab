@@ -7,6 +7,12 @@ description: Create or customize OpenPrintLab parametric 3D models with validate
 
 This skill produces a **candidate for slicing**, not a printability certification.
 
+For loads, joints, glazing or mounting, first read
+[the canonical structural-prototype guide](../../../docs/structural-design.md).
+Classify hazard, uncertainty, prototype eligibility and suitability separately.
+Follow its exclusions and escalation; missing physical evidence is not by itself
+a reason to refuse all modeling or a reason to promise safe use.
+
 For the optional template lab, also read `docs/template-lab.md`. You (the user's
 tool-capable assistant) interpret their instructions. The CLI/MCP is a
 deterministic geometry tool, not a natural-language model.
@@ -15,7 +21,8 @@ deterministic geometry tool, not a natural-language model.
    `list_templates` / `describe_template`). Clarify missing dimensions, intended
    use, fit/clearance and unsupported style requests. Supported CAD aesthetics
    are rounded corners and compartment/channel counts; text/sculpting/import
-   are not shipped.
+   are not shipped. For shapes outside these operations, use the custom
+   engineering boundary below rather than pretending a template supports them.
 2. With the optional interpreter, use `python -m tools.cli customize ID --variant
    NEW-NAME --set key=value`. For revisions, read the prior `parameters.json`,
    create a different name and use `--params FILE` plus explicit overrides.
@@ -38,8 +45,8 @@ Original simple-model workflow (still dependency-free):
    Never assume AMS. Refuse out-of-scope safety-critical applications.
 2. Run `python -m tools.cli parameters MODEL`. Prefer changing supported
    parameters over inventing new mesh logic. If the requested shape cannot be
-   expressed by a supported recipe, explain that boundary before implementing
-   an original recipe and focused tests.
+   expressed by a supported recipe, explain that boundary and follow the custom
+   engineering path below. Do not silently add or alter catalog defaults.
 3. Use `python -m tools.cli check MODEL --set length=120` (replace with actual
    dimensions). Address invalid values; never weaken constraints just to pass.
 4. Export with `python -m tools.cli build MODEL --set length=120 --output
@@ -51,6 +58,25 @@ Original simple-model workflow (still dependency-free):
 6. Hand back exact source/output paths, dimensions, parameter changes, checks
    performed, and any failures. Say "not slicer-checked or physically print-tested".
    Point to `docs/beginner.html` for a human Bambu Studio review and print.
+
+## Eligible custom engineering beyond templates
+
+Frames and general assemblies have no shipped generator. For a permitted
+prototype, author task-specific editable CAD only with the user's authorized
+tools/workspace. Preserve each revision and its source/license/output identities.
+Follow the canonical guide's utility contracts: binary STL, one connected
+printable part per mesh check, recorded print orientation and separate assembly
+transforms. Unsupported checks must be reported, not bypassed.
+
+Return the guide's complete prototype handoff: risk/assumptions, component mass
+budget and load path, actual geometry views/checks, fit/joint coupons, assembly
+and reversible service instructions, remaining modes and staged physical gates.
+Keep **"Prototype - not validated for hanging/load use."** No ready-to-hang claim
+comes from a mesh check, calculation, printed coupon or short test.
+
+The setup-guidance API remains limited to known variants/uses. Its rejection of
+a custom use is not a general modeling ban, nor permission to invent a tested
+profile. There is no arbitrary-source MCP endpoint or automatic suitability check.
 
 Never generate machine-ready G-code or invoke printer controls. Never fabricate
 print time, material usage, photos or successful prints. Suggested settings are
