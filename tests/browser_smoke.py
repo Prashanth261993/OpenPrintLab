@@ -60,7 +60,7 @@ def main():
             assert page.get_by_role("link", name="Editable source ZIP").get_attribute("href").endswith(".source.zip")
             for width, height in ((375, 812), (812, 375), (768, 1024), (1440, 1000)):
                 page.set_viewport_size({"width": width, "height": height})
-                for route in ("/", "/beginner.html", "/create.html", "/reuse.html", "/models/parts-palette.html"):
+                for route in ("/", "/beginner.html", "/create.html", "/reuse.html", "/custom/round-palette/", "/models/parts-palette.html"):
                     page.goto(base + route, wait_until="networkidle")
                     assert page.evaluate("document.documentElement.scrollWidth <= innerWidth"), (width, route)
                     assert page.locator("h1").is_visible()

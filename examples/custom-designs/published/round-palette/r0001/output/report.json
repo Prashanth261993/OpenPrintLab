@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "kind": "custom_engineering",
+  "design_id": "round-palette",
+  "revision": "r0001",
+  "units": "mm",
+  "brief": {
+    "intended_use": "Lightweight dry craft bead sorting on a desk, noncritical decorative prototype; not food contact.",
+    "assumptions": [
+      "Dimensions are mm",
+      "One flat-base printable part",
+      "Actual hardware and filament remain user inputs"
+    ],
+    "acceptance": [
+      "Outside diameter 72 mm and height 8 mm",
+      "Six blind circular wells of diameter 14 mm",
+      "Base 2 mm and at least 2 mm material between wells"
+    ],
+    "parameters": {
+      "diameter": 72,
+      "height": 8,
+      "base": 2,
+      "well_diameter": 14,
+      "wells": 6
+    },
+    "expected_dimensions_mm": [
+      72,
+      72,
+      8
+    ],
+    "license": "CC-BY-4.0",
+    "attribution": "OpenPrintLab contributors"
+  },
+  "inputs": {
+    "source.py": "98fe92b366e387bee7cb7ddb57ff46b6cdf3aec07fa4caad377350ef783454f9",
+    "brief.json": "7ec91184ba734d75481a448689125915e1a816a9fad4769fcff5287cbf3fbbfc"
+  },
+  "review_sha256": "12a561c33a2bb40f93105d7167826952bbff24ebc87b72fe0f9c4fa7843d25fc",
+  "artifacts": {
+    "brief.json": "7ec91184ba734d75481a448689125915e1a816a9fad4769fcff5287cbf3fbbfc",
+    "model.step": "e2d0b8498af86104a9f71e23e2becb335c9d43b1e980561866c92dabb48aba73",
+    "model.stl": "881f186d7ad6891f19fef62506edd9e9f6cf2056cdc4828c5a52a15541c1e041",
+    "preview.svg": "60158f38c8720699d1ac24c40efcabeb9c00de637bf25ea2b92fbe67d2a6346a",
+    "source.py": "98fe92b366e387bee7cb7ddb57ff46b6cdf3aec07fa4caad377350ef783454f9"
+  },
+  "sha256": "881f186d7ad6891f19fef62506edd9e9f6cf2056cdc4828c5a52a15541c1e041",
+  "backend": {
+    "name": "cadquery",
+    "version": "2.8.0",
+    "ocp_version": "7.9.3.1.1",
+    "linear_tolerance_mm": 0.02,
+    "angular_tolerance_radians": 0.1
+  },
+  "checks": {
+    "dimensions_mm": [
+      72.0,
+      71.9802,
+      8.0
+    ],
+    "triangles": 3556,
+    "volume_mm3": 27020.625,
+    "closed_edges": true,
+    "consistent_winding": true,
+    "connected": true,
+    "nondegenerate": true,
+    "within_p2s_envelope": true,
+    "kernel_valid": true,
+    "step_roundtrip_valid": true,
+    "kernel_volume_mm3": 27030.2631914866
+  },
+  "acceptance_scope": "Dimensions/kernel/mesh/STEP checked. Other textual acceptance requires separate review; source checks run only if authored.",
+  "validation": {
+    "generated": true,
+    "software_checked": true,
+    "slicer_checked": false,
+    "physical_print_tested": false
+  },
+  "checker_sources": {
+    "tools/designs.py": "6491d75672380b2990ecdfe21c511da5610da34126b40be9d218bc602c7c771c",
+    "tools/geometry.py": "c7c10af43469c94dc56322ff4711f68589f82f38d5fce5b304cdaf117c61674f",
+    "tools/mesh_preview.py": "dd7a6beae1afdf876e1b88bf5f0ba1ec3cc84ef97bff76a2216141bab36e9086"
+  },
+  "state": "Prototype - not validated for hanging/load use",
+  "limitations": [
+    "Single-file trusted source only; external custom helpers/data are not captured.",
+    "Explicit source execution is not sandboxed; hash matching is not a security review.",
+    "One printable connected solid only; no assembly/import/edit/FEA capability implied.",
+    "Geometry checks do not certify printability, fit, material use or mechanical safety.",
+    "No actual printer/material profile is selected; slice/physical evidence is absent."
+  ]
+}

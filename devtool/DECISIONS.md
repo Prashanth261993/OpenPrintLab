@@ -1,7 +1,7 @@
 ---
 artifact: decisions
 updated: 2026-11-11
-decisions: [D-01, D-02, D-03, D-04, D-05, D-06, D-07]
+decisions: [D-01, D-02, D-03, D-04, D-05, D-06, D-07, D-08]
 ---
 
 # Decisions
@@ -120,3 +120,19 @@ decisions: [D-01, D-02, D-03, D-04, D-05, D-06, D-07]
   structural verification. See [policy](../docs/offline-slicing.md).
 - **Reversible:** local disposable artifacts only; no printer/client configuration
   is changed by this policy update.
+
+## D-08 - Named designer and bounded new-design publishing
+
+- **When:** 2026-11-25.
+- **Decided by:** human-approved roadmap; bounded implementation by agent.
+- **Chosen:** selectable OpenPrintLab Designer profile and reviewed single-file
+  custom CadQuery source with measurable briefs, checked immutable revision
+  exports and a read-only live viewer. The user's own assistant interprets
+  requests. [007](features/007-authoring-roadmap/plan.md) tracks later phases.
+- **Boundary:** local Python execution requires review/permission and is not
+  sandboxed by a digest. No arbitrary-code MCP/web endpoint, new CAD engine,
+  telemetry/global install or automatic suitability claim. No client model run
+  is claimed solely from validating the profile schema.
+- **Alternative deferred:** adopting the broader upstream XCAF/build123d document
+  engine would add migration and dependency cost unnecessary for this one-solid
+  slice. Persistent face editing, assemblies and imported geometry remain separate.

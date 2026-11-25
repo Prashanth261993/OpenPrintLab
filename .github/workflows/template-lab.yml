@@ -30,3 +30,4 @@ jobs:
         run: |
           .venv-cadquery/bin/python -m tests.mcp_smoke
           .venv-cadquery/bin/python -m tests.lab_browser_smoke
+          .venv-cadquery/bin/python -m tests.design_browser_smoke

@@ -27,6 +27,8 @@ Example after selecting the agent:
 
 The baseline needs Python 3.11+. Rounded templates require the separately
 installed optional CadQuery environment in the [template-lab walkthrough](template-lab.md).
+The [new-design workflow](new-design.md) uses that same environment for reviewed
+single-file CAD, not an additional kernel or generic source-execution endpoint.
 Selecting an agent installs neither Python nor CAD, starts no viewer and gives
 no automatic permission to execute source. The profile uses CLI tools and does
 not silently configure MCP or other agents.

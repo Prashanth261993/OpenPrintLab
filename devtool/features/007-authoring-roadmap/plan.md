@@ -13,8 +13,8 @@ Keep Python/CadQuery optional and the existing standard-library baseline.
 
 | Phase | Scope / acceptance | State / dependencies |
 |---|---|---|
-| A: named designer | Real repository profile, canonical rule pointers, documented discovery/runtime/client limits; schema and links verified; README/Pages and canonical file published | Verified locally; publishing first slice |
-| B: new-design/edit/live preview | Isolated editable design source, measurable brief, reviewed local execution, checked STL/STEP, immutable revision outputs, stable viewer and bounded edit example beyond named templates | Next, after A |
+| A: named designer | Real repository profile, canonical rule pointers, documented discovery/runtime/client limits; schema and links verified; README/Pages and canonical file published | Published c2221d9; CI succeeded |
+| B: new-design/edit/live preview | Isolated editable design source, measurable brief, reviewed local execution, checked STL/STEP, immutable revision outputs, stable viewer and bounded edit example beyond named templates | Verified locally; publishing source and both sample revisions |
 | C: P2S project-3MF | Strict actual profile identity, geometry + metadata, installed Studio round-trip and offline slice review; no printer control or machine-ready G-code distribution | Parallel isolated worker owns module/tests/app verification; shared integration follows B and reviewed handoff |
 | D: assistant packaging | Generated repository-scoped package with full canonical references/notices, manifest, install/uninstall verification; no global config or telemetry | After C; client scope gate |
 | E: drawings/assembly diagnostics | Actual geometry-derived dimensioned views and stronger bounded assembly checks with synthetic positive/negative cases | After D; precise contracts before claims |
@@ -38,7 +38,7 @@ slicer evidence stays not performed.
 ## Upstream assessment
 
 Candidate: [earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad/tree/a35df3f4ab8abe86d370fbffb631277a4e170e7b),
-revision `a35df3f4ab8abe86d370fbffb631277a4e170e7b`. Root license read:
+revision `a35df3f4ab8abe86d370fbffb631277a4e170e7b`. root license read:
 MIT, copyright 2026 Thompson Labs LLC. `viewerAutoReload.js` implementation
 reviewed: separates identity changes from transient errors, polls a read-only
 server identity, does not execute source in the page. Adopt the separation of
@@ -55,3 +55,32 @@ name/description/tools schema; checked tool aliases, prompt length and reference
 local files. Local CLI 1.0.114 `--help` confirms `--agent` and `--add-dir`.
 Existing generated-site link test and complete responsive/no-JS browser smoke
 passed. Native agent-picker/model-run evidence is not claimed.
+
+Phase B implementation/source review:
+
+- `engine/document.py` documentation and identity structures and the complete
+  `engine/export/stl.py` were inspected at the pinned upstream revision. Its
+  XCAF prototype/instance/placement architecture is much broader than this slice.
+  Defer importing that engine, persistent face selection and mesh placement
+  export; retain our tested CadQuery/STL/checker utilities. No upstream code was
+  copied, so no new adaptation license is claimed. Cite the upstream repository
+  as design research, not installed functionality.
+- Single-file drafts and explicit local script execution with reviewed source/
+  brief hashes; no CLI/MCP/web source-execution endpoint. The publisher accepts
+  an in-memory shape. Shared mesh and preview code is reused without modifying
+  historical template sources or artifacts.
+- Circular palette example: r0001 nominal 72 mm / six wells, r0002 nominal
+  80 mm / eight wells. Source bounds, spacing and analytical solid-volume checks
+  complement exported dimension/mesh/STEP checks. Both sources/briefs, exact
+  artifacts and reports are deliberately published, not private user data.
+- `python -m unittest discover -s tests -q`: 38 tests, 33 passed, 5 optional-CAD
+  cases skipped in the no-CAD interpreter. All 7 `tests.test_designs` tests
+  passed with CAD. All 16 original artifacts unchanged.
+- `tests.design_browser_smoke` executed actual reviewed source, rejected stale
+  review, published a dimension/count edit, detected it on the same page,
+  preserved originals, verified download bytes and visibly rejected a corrupt
+  report hash. The existing responsive/no-JS site smoke also passed.
+- 98 internal Markdown links verified. Detached loopback viewer at port 8767
+  responded with the actual r0002 palette; geometry screenshot inspected.
+  Native client hot-load, physical printing and slicing of this palette are
+  not claimed. Public CI/deployment is a subsequent release gate.

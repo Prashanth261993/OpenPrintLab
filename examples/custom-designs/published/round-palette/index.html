@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>round-palette | OpenPrintLab custom design</title>
+<style>body{font:16px system-ui;max-width:960px;margin:32px auto;padding:0 20px;background:#f7f6f2;color:#192b25}
+img{width:100%;max-width:700px} a{display:inline-block;color:#215b47;margin-right:16px} pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.notice{padding:16px;background:#faefd9} select{font:inherit;padding:6px}</style>
+<h1>round-palette</h1><p class="notice">Custom engineering. Not slicer-checked or physically print-tested.
+Not validated for hanging/load use. The viewer cannot execute or edit source.</p>
+<p id="status" role="status">Waiting for a published revision. Requires the local HTTP viewer for live updates.</p>
+<p>Selection reference for your assistant: <strong id="reference">none</strong></p>
+<p id="links"></p><img id="preview" alt="Actual exported geometry preview" hidden>
+<pre id="details"></pre><noscript>JavaScript is needed to follow current.json; inspect the exported revision files directly.</noscript>
+<script>
+let version = "";
+async function refresh() {
+ try {
+  const response = await fetch("current.json", {cache:"no-store"});
+  if (!response.ok) throw Error(response.status === 404 ? "No published revision yet." : "Cannot read current revision.");
+  const current = await response.json();
+  if (!/^r[0-9]{4}$/.test(current.revision)) throw Error("Invalid revision record.");
+  const key = current.revision + current.report_sha256;
+  if (key !== version) {
+   const prefix = current.revision + "/output/";
+   const r = await fetch(prefix + "report.json", {cache:"no-store"});
+   if (!r.ok) throw Error("Revision report unavailable.");
+   const text = await r.text();
+   const hash = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text)))).map(b=>b.toString(16).padStart(2,"0")).join("");
+   if (hash !== current.report_sha256) throw Error("Report hash mismatch; not showing new revision.");
+   const report = JSON.parse(text);
+   document.getElementById("details").textContent = JSON.stringify({dimensions_mm:report.checks.dimensions_mm, parameters:report.brief.parameters, checks:report.checks, limitations:report.limitations},null,2);
+   document.getElementById("reference").textContent = current.design_id + ":" + current.revision;
+   const links = document.getElementById("links"); links.replaceChildren();
+   for (const file of ["model.stl","model.step","source.py","brief.json","report.json"]) {
+    const a=document.createElement("a");a.href=prefix+file;a.textContent=file;a.setAttribute("download","");links.append(a);
+   }
+   const img=document.getElementById("preview");img.src=prefix+"preview.svg";img.hidden=false;version=key;
+  }
+  document.getElementById("status").textContent = "Showing " + current.revision + ". Watching for a newly published revision; your assistant performs edits.";
+ } catch (error) { document.getElementById("status").textContent = "Preview not current: " + error.message; }
+}
+refresh(); setInterval(refresh,2000);
+</script></html>

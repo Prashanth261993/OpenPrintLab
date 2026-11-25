@@ -110,6 +110,9 @@ def build_site(destination=None):
         (directory / f"{name}.html").write_text(page(title, f'<article class="wrap article">{body}</article>'), encoding="utf-8")
     (directory / ".nojekyll").write_text("", encoding="utf-8")
     seed_examples(directory / "lab", refresh_curated=True)
+    public_designs = ROOT / "examples" / "custom-designs" / "published"
+    if public_designs.is_dir():
+        shutil.copytree(public_designs, directory / "custom", dirs_exist_ok=True)
     print(f"Built {len(cards)} model pages and guides in {directory}")
 
 

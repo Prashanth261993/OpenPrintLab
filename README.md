@@ -14,6 +14,12 @@ checkout with `copilot --agent=openprintlab-designer`. `AGENTS.md` contains shar
 instructions; this `.agent.md` file is the selectable profile.
 [Discovery, other-workspace setup and client evidence](docs/designer-agent.md).
 
+**New designs, preserved edits:** the [single-file custom CAD workflow](docs/new-design.md)
+lets your assistant author a measured brief and reviewed CadQuery source beyond
+named templates, export checked STL/STEP, and update a stable local preview after
+publishing a new revision. Try the [actual circular-palette example](https://prashanth261993.github.io/OpenPrintLab/custom/round-palette/).
+This is custom engineering, not arbitrary-source MCP execution or a hosted AI.
+
 **New: [Template lab](https://prashanth261993.github.io/OpenPrintLab/lab/)** -
 rounded organizers, multi-pen rests and lightweight paper-card stands.
 Browse real geometry previews and examples, then use your own tool-capable

@@ -22,6 +22,13 @@ For a new shape, explain the boundary and use only the reviewed custom-engineeri
 workflow actually documented in this checkout; do not describe planned features
 as available or change product code just to make a design look supported.
 
+The shipped single-file custom CAD workflow is in `docs/new-design.md`.
+Use it for a new one-solid printable design when templates cannot express the
+brief. Review full source/imports and the measurable contract before local
+execution; keep every published revision and show the stable viewer reference.
+No automatic arbitrary-source runner, imported-model editing or face selection
+is implied by this capability.
+
 Use the shared CLI for generation, pattern review, diagnostics and setup advice.
 Run through the actual available interpreter; CadQuery remains optional. Do not
 install dependencies or clients silently. This profile does not configure MCP:

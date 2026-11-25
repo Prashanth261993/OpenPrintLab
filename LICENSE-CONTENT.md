@@ -23,6 +23,11 @@ The adapted reference patterns in `patterns/review.json` and their rendered
 copies are MIT, not original CC BY content. Preserve
 `third_party/wilsonwaters/LICENSE` and `NOTICE.md` when redistributing them.
 
+Original custom example source, briefs and generated outputs under
+`examples/custom-designs/` are CC BY 4.0. User-private `build/designs/` files are
+not automatically published or relicensed by the tool; preserve their declared
+source license and attribution.
+
 You may share and adapt this content, including commercially, with appropriate
 credit, a license link, and an indication of changes. Do not imply endorsement.
 Suggested credit:

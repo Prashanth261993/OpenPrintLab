@@ -8,6 +8,10 @@ Build useful, understandable models; never imply that generated means printable.
 - Use `.github/skills/create-printable-model/SKILL.md` for authoring/customization.
 - For richer editable templates, read `docs/template-lab.md`. The optional
   CadQuery backend is approved under milestone 003; keep it opt-in.
+- For new designs beyond templates, read `docs/new-design.md`. `design-new`,
+  `design-review` and `design-revise` manage drafts only. Review the complete
+  source/brief before explicit local Python execution; matching hashes are not
+  a sandbox. Use the read-only design viewer for live published revisions.
 - Discover using `python -m tools.cli templates` and `template ID`. Interpret
   natural-language requests in the assistant, not a fabricated CLI parser.
 - Use `customize ID --variant NEW-NAME --set key=value` for non-destructive

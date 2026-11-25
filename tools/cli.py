@@ -14,6 +14,15 @@ def main():
     commands.add_parser("list", help="List original models")
     commands.add_parser("templates", help="List original models and optional CAD generators")
     commands.add_parser("patterns", help="Read curated review patterns and source-specific evidence")
+    new_design = commands.add_parser("design-new", help="Copy a reviewed single-file source/brief into a new isolated draft; never executes code")
+    new_design.add_argument("name")
+    new_design.add_argument("--brief", required=True, type=Path)
+    new_design.add_argument("--source", required=True, type=Path)
+    for name in ("design-review", "design-revise"):
+        design = commands.add_parser(name, help="Read review hash or create a new draft from the latest published revision; never executes code")
+        design.add_argument("name")
+        if name == "design-review":
+            design.add_argument("--revision", required=True)
     pattern = commands.add_parser("pattern", help="Read one pattern; not a validated design or rating")
     pattern.add_argument("identifier")
     for name in ("inspect-stl", "inspect-variant"):
@@ -50,6 +59,21 @@ def main():
     try:
         if args.command == "list":
             result = load_catalog()
+        elif args.command in ("design-new", "design-review", "design-revise"):
+            from tools.designs import DEFAULT_DESIGNS, create_design, revise_design, review_digest
+            from tools.variants import safe_name
+            safe_name(args.name)
+            if args.command == "design-new":
+                result = create_design(args.name, json.loads(args.brief.read_text(encoding="utf-8")),
+                                       args.source.read_text(encoding="utf-8"))
+            elif args.command == "design-revise":
+                result = revise_design(args.name)
+            else:
+                import re
+                if not re.fullmatch(r"r[0-9]{4}", args.revision):
+                    raise ValueError("revision must be rNNNN")
+                result = {"review_sha256": review_digest(DEFAULT_DESIGNS / args.name / args.revision),
+                          "notice": "Read and review source/brief before execution; a matching hash is not a sandbox."}
         elif args.command in ("patterns", "pattern"):
             from tools.patterns import describe_pattern, list_patterns
             result = list_patterns() if args.command == "patterns" else describe_pattern(args.identifier)

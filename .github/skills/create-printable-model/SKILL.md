@@ -66,6 +66,14 @@ Original simple-model workflow (still dependency-free):
 
 ## Eligible custom engineering beyond templates
 
+For one-solid custom CAD, use the shipped [new-design workflow](../../../docs/new-design.md).
+`design-new` copies source/brief, `design-review` returns their identity, and
+`design-revise` copies the latest published inputs into a fresh draft. None
+executes source. After reviewing full Python/imports and permissions, execute
+the local source with its exact review digest using the optional CAD interpreter.
+Return the actual stable viewer URL and revision reference; the viewer follows
+only successful publications, not live unreviewed code edits.
+
 Frames and general assemblies have no shipped generator. For a permitted
 prototype, author task-specific editable CAD only with the user's authorized
 tools/workspace. Preserve each revision and its source/license/output identities.
