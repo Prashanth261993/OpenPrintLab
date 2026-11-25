@@ -97,6 +97,12 @@ The setup-guidance API remains limited to known variants/uses. Its rejection of
 a custom use is not a general modeling ban, nor permission to invent a tested
 profile. There is no arbitrary-source MCP endpoint or automatic suitability check.
 
+For later handoffs, read `docs/drawings-assemblies.md` before using `draw-stl`
+or optional-CAD `check-assembly`: overall dimensions/static numerical pair
+measurements are not feature tolerances, motion checks or physical fit proof.
+Read `docs/bambu-project.md` for the current narrow project/export/application
+evidence scope; do not equate ZIP integrity with native or toolpath review.
+
 Local toolpath/G-code generation is permitted for offline slicing/inspection,
 without a printer connection. Keep it disposable and separate from unsliced
 source/projects. Never publish/distribute machine-ready G-code or invoke printer

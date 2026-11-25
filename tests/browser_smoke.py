@@ -81,6 +81,13 @@ def main():
             assert plain.locator("#fastener-selection").is_visible()
             assert plain.locator("#material-service-envelope").is_visible()
             assert plain.locator("#geometry-design-review").is_visible()
+            plain.goto(base + "/create.html")
+            with plain.expect_download() as package_download:
+                plain.get_by_role("link", name="repository-scoped Designer source package").click()
+            from tools.distribution import inspect_package
+            package_manifest = inspect_package(package_download.value.path())
+            assert ".github/agents/openprintlab-designer.agent.md" in package_manifest["files"]
+            assert "AGENTS.md" in package_manifest["files"]
             no_js.close()
             context.close()
             browser.close()

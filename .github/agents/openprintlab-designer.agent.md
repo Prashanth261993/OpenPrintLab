@@ -29,6 +29,12 @@ execution; keep every published revision and show the stable viewer reference.
 No automatic arbitrary-source runner, imported-model editing or face selection
 is implied by this capability.
 
+For optional later handoffs, read `docs/bambu-project.md` for the current exact
+project/slicer evidence scope, `docs/drawings-assemblies.md` for overview drawings
+and static STEP checks, and `docs/distribution.md` for repository-scoped packaging.
+Do not claim feature dimensions, physical fit or native app compatibility from
+package/schema or kernel checks alone.
+
 Use the shared CLI for generation, pattern review, diagnostics and setup advice.
 Run through the actual available interpreter; CadQuery remains optional. Do not
 install dependencies or clients silently. This profile does not configure MCP:

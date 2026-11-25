@@ -14,6 +14,13 @@ def main():
     commands.add_parser("list", help="List original models")
     commands.add_parser("templates", help="List original models and optional CAD generators")
     commands.add_parser("patterns", help="Read curated review patterns and source-specific evidence")
+    project = commands.add_parser("bambu-project", help="Experimental unsliced P2S project tools; native validation pending", add_help=False)
+    project.add_argument("arguments", nargs=argparse.REMAINDER)
+    drawing = commands.add_parser("draw-stl", help="Create new dimensioned orthographic overview SVGs; not fabrication certification")
+    drawing.add_argument("source", type=Path)
+    drawing.add_argument("--output", type=Path, required=True)
+    assembly = commands.add_parser("check-assembly", help="Optional-CAD static STEP pair clearance/intersection checks")
+    assembly.add_argument("manifest", type=Path)
     new_design = commands.add_parser("design-new", help="Copy a reviewed single-file source/brief into a new isolated draft; never executes code")
     new_design.add_argument("name")
     new_design.add_argument("--brief", required=True, type=Path)
@@ -59,6 +66,16 @@ def main():
     try:
         if args.command == "list":
             result = load_catalog()
+        elif args.command == "bambu-project":
+            from tools.bambu_project import main as project_main
+            project_main(args.arguments)
+            return 0
+        elif args.command == "draw-stl":
+            from tools.drawings import draw_stl
+            result = draw_stl(args.source, args.output)
+        elif args.command == "check-assembly":
+            from tools.assembly_checks import check_assembly
+            result = check_assembly(args.manifest)
         elif args.command in ("design-new", "design-review", "design-revise"):
             from tools.designs import DEFAULT_DESIGNS, create_design, revise_design, review_digest
             from tools.variants import safe_name
@@ -115,7 +132,7 @@ def main():
             else:
                 _, result = build_model(args.model, overrides)
         print(json.dumps(result, indent=2))
-        if args.command in ("inspect-stl", "inspect-variant") and result["has_errors"]:
+        if args.command in ("inspect-stl", "inspect-variant", "check-assembly") and result["has_errors"]:
             return 1
     except (ValueError, OSError, RuntimeError) as exc:
         print(f"OpenPrintLab: {exc}", file=sys.stderr)

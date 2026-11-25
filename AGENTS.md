@@ -56,6 +56,12 @@ Build useful, understandable models; never imply that generated means printable.
   and preserving originals. Label custom work honestly; do not extend CLI/MCP
   capabilities, template allowed uses or safety claims to make it look supported.
 - Reuse shared catalog/build tools across CLI, site and MCP.
+- Use `docs/drawings-assemblies.md` for geometry-derived overview drawings and
+  optional static STEP-pair checks; do not claim motion or physical clearance.
+- Follow `docs/bambu-project.md` for exact P2S project/runtime limitations and
+  separate native/toolpath evidence. Never promote from archive checks alone.
+- `docs/distribution.md` describes full-source repository-scoped packaging;
+  never silently install global client configuration or dependencies.
 - For design review, use `patterns` / `pattern ID` (MCP `design_patterns`).
   Preserve source-reported evidence scope; none of those observations is local
   print validation. The structural policy takes precedence over pattern advice.

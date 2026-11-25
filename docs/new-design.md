@@ -27,6 +27,8 @@ The initial six-well [STL](https://prashanth261993.github.io/OpenPrintLab/custom
 [preview](https://prashanth261993.github.io/OpenPrintLab/custom/round-palette/r0001/output/preview.svg)
 and [report](https://prashanth261993.github.io/OpenPrintLab/custom/round-palette/r0001/output/report.json)
 remain available alongside the latest eight-well revision.
+[Dimensioned overview drawings](drawings-assemblies.md) are also available;
+they show overall mesh bounds rather than manufacturing tolerances.
 
 Read `examples/custom-designs/round-palette/source.py` and `brief.json`, then:
 

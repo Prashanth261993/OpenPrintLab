@@ -1,0 +1,44 @@
+{
+  "source_stl_sha256": "dd84e39955017a88bb8b66c8d0ed881b463a195fdabf311150f7438ec97e1743",
+  "units": "mm",
+  "views": {
+    "top": {
+      "axes": [
+        "X",
+        "Y"
+      ],
+      "dimensions_mm": [
+        79.99007173068821,
+        79.99503830238245
+      ],
+      "sha256": "c587f82be4183709f54953d606e15a969a3621db4aa87de6bd832ab4f95b40cb"
+    },
+    "front": {
+      "axes": [
+        "X",
+        "Z"
+      ],
+      "dimensions_mm": [
+        79.99007173068821,
+        8.0
+      ],
+      "sha256": "b4cfd61b995929da438a760a63d9c1c0e6c038f23062eca67ea9067fb056b72e"
+    },
+    "right": {
+      "axes": [
+        "Y",
+        "Z"
+      ],
+      "dimensions_mm": [
+        79.99503830238245,
+        8.0
+      ],
+      "sha256": "753f31e9d6f98849331e1a90df80c14bf3633757e40d3ae450880df3458aba79"
+    }
+  },
+  "checker_source_sha256": "54f3a732a729daf24e5db540fc54deca5f703dfceb192f73a82ed15849acf1a4",
+  "renderer_source_sha256": "dd7a6beae1afdf876e1b88bf5f0ba1ec3cc84ef97bff76a2216141bab36e9086",
+  "scope": "Orthographic triangulated geometry overview and overall extents only, not toleranced fabrication drawings.",
+  "physical_print_tested": false,
+  "slicer_checked": false
+}

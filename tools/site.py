@@ -8,6 +8,7 @@ from tools.catalog import ROOT, build_model, load_catalog, parameter_schema, sou
 from tools.release import release
 from tools.lab import seed_examples
 from tools.patterns import list_patterns
+from tools.distribution import build_package, inspect_package
 
 
 def page(title, body, prefix=""):
@@ -113,6 +114,13 @@ def build_site(destination=None):
     public_designs = ROOT / "examples" / "custom-designs" / "published"
     if public_designs.is_dir():
         shutil.copytree(public_designs, directory / "custom", dirs_exist_ok=True)
+    package = directory / "downloads" / "openprintlab-designer.zip"
+    if package.exists():
+        if package.is_symlink():
+            raise ValueError("Site package output must not be a symlink")
+        inspect_package(package)  # Do not replace an unrelated file with our known name.
+        package.unlink()
+    build_package(package)
     print(f"Built {len(cards)} model pages and guides in {directory}")
 
 

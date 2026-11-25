@@ -230,6 +230,24 @@ automatic certification or status promotion.
 
 ### Technology reuse plan
 
+Additional bounded tools:
+
+- [Repository-scoped Designer package](docs/distribution.md): deterministic full
+  source snapshot, manifest verification and guarded install/uninstall. No global
+  client configuration or dependency installation.
+- [Dimensioned overviews and native assembly checks](docs/drawings-assemblies.md):
+  top/front/right overall mesh dimensions; optional CadQuery static STEP-pair
+  distance/intersection checks. Not fabrication tolerances or mechanical proof.
+- [Experimental P2S project export](docs/bambu-project.md): explicit installed
+  profiles and exact geometry/passport identities. Native application/slicer
+  status is recorded in the guide; package integrity alone is not compatibility.
+
+```powershell
+python -m tools.cli bambu-project supported
+python -m tools.cli draw-stl models\exports\step-study.stl --output build\drawings\staircase-v1
+python -m tools.distribution build build\packages\designer-snapshot.zip
+```
+
 Two [verified reuse slices](https://prashanth261993.github.io/OpenPrintLab/reuse.html)
 now work from a **full clone**, without new dependencies:
 
@@ -261,9 +279,9 @@ Adapted from [wilsonwaters/3d-printing](https://github.com/wilsonwaters/3d-print
 at `f5e18a16031f5a11b20f7753574ff48494891587`; copyright 2026 Wilson Waters, MIT.
 [Attribution and adaptation scope](third_party/wilsonwaters/NOTICE.md) and
 [upstream license](third_party/wilsonwaters/LICENSE) are retained. The source's
-universal strength/tolerance/material recipes were not imported. Project-3MF,
-installable cross-client packages and evaluation infrastructure remain deferred,
-not shipped by importing an upstream script. Bambu Studio is installed locally,
+universal strength/tolerance/material recipes were not imported. Broad multi-client/global installers and evaluation infrastructure remain deferred.
+The narrower source package and experimental P2S project tools above are separate
+verified-software slices, not claims inherited from importing an upstream script. Bambu Studio is installed locally,
 but no project round-trip/slice verification is claimed for this release.
 
 The bounded [structural-guidance milestone](devtool/features/005-structural-guidance/plan.md)

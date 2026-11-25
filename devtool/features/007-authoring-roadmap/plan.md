@@ -15,9 +15,9 @@ Keep Python/CadQuery optional and the existing standard-library baseline.
 |---|---|---|
 | A: named designer | Real repository profile, canonical rule pointers, documented discovery/runtime/client limits; schema and links verified; README/Pages and canonical file published | Published c2221d9; CI succeeded |
 | B: new-design/edit/live preview | Isolated editable design source, measurable brief, reviewed local execution, checked STL/STEP, immutable revision outputs, stable viewer and bounded edit example beyond named templates | Verified locally; publishing source and both sample revisions |
-| C: P2S project-3MF | Strict actual profile identity, geometry + metadata, installed Studio round-trip and offline slice review; no printer control or machine-ready G-code distribution | Parallel isolated worker owns module/tests/app verification; shared integration follows B and reviewed handoff |
-| D: assistant packaging | Generated repository-scoped package with full canonical references/notices, manifest, install/uninstall verification; no global config or telemetry | After C; client scope gate |
-| E: drawings/assembly diagnostics | Actual geometry-derived dimensioned views and stronger bounded assembly checks with synthetic positive/negative cases | After D; precise contracts before claims |
+| C: P2S project-3MF | Strict actual profile identity, geometry + metadata, installed Studio round-trip and offline slice review; no printer control or machine-ready G-code distribution | Initial module integrated as 44514d2, experimental; worker owns active native verification and follow-ups |
+| D: assistant packaging | Generated repository-scoped package with full canonical references/notices, manifest, install/uninstall verification; no global config or telemetry | Verified locally; publishing a generated package through Pages |
+| E: drawings/assembly diagnostics | Actual geometry-derived dimensioned views and stronger bounded assembly checks with synthetic positive/negative cases | Verified locally; overall orthographic views and optional-kernel STEP pair checks, not full engineering drawings or motion analysis |
 
 ## Phase B requirements and boundary
 
@@ -84,3 +84,33 @@ Phase B implementation/source review:
   responded with the actual r0002 palette; geometry screenshot inspected.
   Native client hot-load, physical printing and slicing of this palette are
   not claimed. Public CI/deployment is a subsequent release gate.
+
+Phase C's native verification can run independently of D/E. It was paused on UI
+interruptions and resumed by the user in an approved uninterrupted window; this
+session does not operate Studio concurrently or mark the native gate passed.
+Only reviewed worker evidence may promote that status.
+
+Phase D packages committed Git HEAD, not dirty/ignored user work, as a complete
+source snapshot retaining canonical instructions, tools and notices. Installation
+is into a new separate directory; no client configuration edits. Uninstall
+refuses modified or extra files/directories, including caches and user models.
+Native client picker support is still documented evidence, not a claimed test.
+
+Phase E scope: three geometry-derived projected SVG views with **overall bounds
+only**, not GD&T, feature dimensions or toleranced fabrication drawings. Optional
+CadQuery STEP-pair intersection volume and minimum distance use explicit
+translations, hashes, expected contact pairs and a declared clearance. Reject
+unsupported manifests, not silently drop parts. Numerical kernel results are
+not physical fit, motion, strength or slicing evidence.
+
+Combined local evidence: 57 baseline tests, 50 passed with 7 optional-CAD cases
+skipped; 12 selected custom-CAD/drawing/assembly tests passed with CAD. Packaging
+tests pass deterministic bytes, extracted CLI execution, changed/extra-file
+preservation, malformed/tampered package rejection and clean removal. Original
+16 model artifacts unchanged. Browser checks pass including custom preview and
+package link; actual depth-shaded palette drawing was inspected and its extents
+match the exported mesh. No upstream code was copied for D/E: existing standard
+library, renderer and installed CadQuery kernel APIs are reused.
+
+The P2S worker's native follow-up is still authoritative for application/slice
+claims; no such success is inferred from these combined software checks.
