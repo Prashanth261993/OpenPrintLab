@@ -32,5 +32,7 @@ URI, verified local URL when running, editable source, STL/STEP when exported,
 exact identities, checks performed and unresolved failures. Explain missing
 hardware/setup facts instead of inventing a tested preset. Follow the canonical
 evidence and hazard policy; do not turn a clean mesh or coupon into a safe-to-hang
-claim. No printer control, machine-ready G-code, paid generation or automatic
+claim. Offline local slicing/toolpath generation is allowed under the canonical
+policy without a printer; never distribute machine-ready G-code or send jobs.
+No printer control, paid generation or automatic
 publication of private designs.

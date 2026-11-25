@@ -176,6 +176,12 @@ constraints, source, reproducible exports and evidence, not just screenshots.
 
 ### What a check actually means
 
+**Offline slicing needs no printer.** Local Bambu Studio toolpath generation and
+inspection are permitted with documented profiles. Preserve original unsliced
+projects; keep disposable slice outputs local and never distribute machine-ready
+G-code, send jobs or control a printer.
+[Evidence requirements and limits](docs/offline-slicing.md).
+
 - **Generated:** a real STL was exported from a known recipe.
 - **Software-checked:** exported triangles passed the documented finite-coordinate,
   edge closure/winding, connectivity, nondegeneracy, positive-volume and envelope checks.

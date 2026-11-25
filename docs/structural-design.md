@@ -232,6 +232,11 @@ cannot be justified, mark the plan incomplete and do not authorize load use.
 
 Keep the unvalidated state until appropriate evidence **and** competent review
 exist. A documented physical print or one short test does not alone satisfy that
+
+The [offline slicing policy](offline-slicing.md) permits local generation and
+inspection of toolpaths without a printer. Preserve unsliced sources separately;
+never distribute machine-ready G-code or transmit a print job. Record a real
+toolpath review separately from project-open/schema checks and physical evidence. A documented physical print or one short test does not alone satisfy that
 gate. Record any later suitability conclusion with its reviewer, exact artifact,
 scope, conditions and remaining limitations; never a blanket "safe" badge.
 

@@ -89,7 +89,14 @@ The setup-guidance API remains limited to known variants/uses. Its rejection of
 a custom use is not a general modeling ban, nor permission to invent a tested
 profile. There is no arbitrary-source MCP endpoint or automatic suitability check.
 
-Never generate machine-ready G-code or invoke printer controls. Never fabricate
+Local toolpath/G-code generation is permitted for offline slicing/inspection,
+without a printer connection. Keep it disposable and separate from unsliced
+source/projects. Never publish/distribute machine-ready G-code or invoke printer
+controls, send jobs or print automatically. Record project-open/round-trip checks
+separately from actual toolpath-reviewed evidence with exact Studio version,
+geometry/profile identities, settings and warnings. Software slicing needs no
+physical printer; it cannot validate adhesion, physical fit, strength or creep.
+Never fabricate
 print time, material usage, photos or successful prints. Suggested settings are
 starting points, not certified profiles. Changing a model invalidates any
 previous slicer or physical test evidence. Preserve CC BY 4.0 attribution for

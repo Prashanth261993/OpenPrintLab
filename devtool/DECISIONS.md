@@ -1,7 +1,7 @@
 ---
 artifact: decisions
 updated: 2026-11-11
-decisions: [D-01, D-02, D-03, D-04, D-05, D-06]
+decisions: [D-01, D-02, D-03, D-04, D-05, D-06, D-07]
 ---
 
 # Decisions
@@ -106,3 +106,17 @@ decisions: [D-01, D-02, D-03, D-04, D-05, D-06]
 - **Reversible:** separate read-only modules; baseline geometry/exports and setup
   allowlists remain unchanged. Preserve upstream MIT notice and original CC BY
   boundaries. No new environment, paid workflow or design comparison.
+
+## D-07 - Permit local offline slicing, not printing or G-code distribution
+
+- **When:** 2026-11-25.
+- **Decided by:** human-confirmed.
+- **Chosen:** the user requested local slicing whether or not a physical printer
+  is available. Allow Bambu Studio toolpath/G-code generation strictly for offline
+  review; keep unsliced originals separate and preserve exact evidence identities.
+- **Boundary:** never connect/control a printer, transmit jobs, print automatically
+  or publish/distribute machine-ready G-code (including sliced archives).
+  Project-open/round-trip is not toolpath review; slicing is not physical or
+  structural verification. See [policy](../docs/offline-slicing.md).
+- **Reversible:** local disposable artifacts only; no printer/client configuration
+  is changed by this policy update.

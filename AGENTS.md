@@ -23,6 +23,11 @@ Build useful, understandable models; never imply that generated means printable.
   `python -m tools.release --check` and `python -m tools.site`.
 - For UI changes run the browser checks documented in README.
 - Never connect to a printer, send G-code, or supply machine-ready G-code.
+- Local toolpath/G-code generation is permitted only for offline slicing and
+  inspection in Bambu Studio, without a connected printer. Keep disposable local
+  slice outputs separate from original unsliced projects; never publish/distribute
+  machine-ready G-code. Record exact app, geometry/profile identities, settings,
+  warnings and toolpath review. Slicer evidence is not physical/structural evidence.
 - Initial printer is Bambu Lab **P2S**, not P1S. Do not assume AMS ownership.
 - Never invent slice times, filament usage, successful prints, photos or evidence.
   Reports explicitly keep slicer_checked and physical_print_tested false.

@@ -47,6 +47,11 @@ or safety references to travel with it. Check for an existing profile before
 copying; maintain the copied profile when OpenPrintLab changes. No global
 installation or user configuration change is performed by this project.
 
+Offline Bambu Studio slicing is permitted without a physical printer. Local
+toolpaths are disposable inspection artifacts, not downloads to publish or jobs
+to send. Project-open/round-trip, actual toolpath review and physical evidence
+are distinct; see the [offline slicing policy](offline-slicing.md).
+
 ## Evidence and references
 
 Validated against GitHub's current profile schema on 2026-11-25: required string

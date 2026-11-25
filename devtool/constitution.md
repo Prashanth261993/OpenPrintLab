@@ -61,3 +61,10 @@ standard library, unittest, the existing CLI/optional MCP and static Pages.
 No new framework, datastore, dependency, provider or global client installation
 is selected. Scope: curated provenance/evidence patterns and read-only geometry
 diagnostics first; other candidates require their own verified release gates.
+
+## Offline slicing clarification (2026-11-25)
+
+User-authorized local toolpath generation for inspection supersedes the blanket
+generation prohibition, not the no-printer-control or no-distribution boundary.
+Machine-ready G-code remains local/disposable; never send jobs or publish it.
+Exact application/profile/artifact toolpath review is software evidence only.
