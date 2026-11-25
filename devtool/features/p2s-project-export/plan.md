@@ -35,9 +35,13 @@ Research pinned on 2026-11-25:
 
 Current application executable file version: `02.09.02.62`. Installed profile
 inspection, exporter, focused tests and baseline compatibility checks are done.
-Native verification is paused at the user-interruption boundary, not complete.
+The user subsequently granted an uninterrupted native window: actual project
+open/save/reopen and local slicing passed for the staircase. Full visual
+layer/warning review remains incomplete because the automation capture renders
+the native Preview labels/legend/warning areas as unreadable black blocks.
 See [evidence](evidence.md) and [integration interface](../../../docs/bambu-project.md).
-No native compatibility/slicer/physical evidence is claimed.
+Only the recorded exact-fixture native observations are claimed, not complete
+slicer review or physical validation.
 
 For the integrating worker: shared CLI/MCP/site wiring is intentionally absent.
 Do not remove the experimental label or mark roadmap 004 R-03 fully accepted

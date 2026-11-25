@@ -1,14 +1,19 @@
 # Experimental P2S project export
 
-**Native Bambu Studio acceptance, save/reopen and slice review are pending.**
+**Native open/save/reopen and local slicing passed for the recorded staircase
+in Bambu Studio 02.09.02.62. Complete per-layer/warning review remains pending.**
 This module writes an unsliced Bambu project candidate with mesh, model settings,
 named system-preset bindings, explicit process values/overrides and provenance.
 It is more than a geometry-only ZIP, but package tests are **not** application
-compatibility evidence. Do not label it ready to print or slicer-checked.
+compatibility evidence. Do not label arbitrary exports ready to print or
+slicer-checked.
 
-The initial native check reached Bambu Studio's Open Project dialog but Computer
-Use repeatedly reported user-input interruptions before the filename could be
-entered. UI actions were paused; no alternate automation route was used.
+After an initially interrupted session, the user granted an uninterrupted window.
+The project opened and round-tripped with all 72 placed triangles and explicit
+settings retained; local slicing produced 80 layers. Studio discarded the custom
+provenance members, as anticipated. The native Preview's ImGui labels/legend and
+warning areas rendered as unreadable black blocks to Computer Use, so exact
+per-layer visual coverage and complete warning review cannot be claimed.
 See the [bounded slice evidence](../devtool/features/p2s-project-export/evidence.md).
 
 ## Deliberately narrow contract
@@ -27,7 +32,9 @@ See the [bounded slice evidence](../devtool/features/p2s-project-export/evidence
 These are **declared offline test choices**, not a claim about the user's actual
 plate/filament/hotend or ownership of AMS. No other version/material/nozzle/process,
 multi-material, assembly, arbitrary 3MF import, profile editing or mesh repair is
-supported. Exact names are required; missing or ambiguous presets fail instead
+supported. New custom-engineering authoring reports without a v1 model passport
+are also rejected; never fabricate a template passport to bypass this boundary.
+Exact names are required; missing or ambiguous presets fail instead
 of substituting P1S or another material.
 
 `--profiles-dir` points to the installed official `resources\profiles\BBL`
@@ -120,12 +127,12 @@ only combines exactly equal triples. Triangle order and winding are retained.
 Software checks remain the existing shared mesh checks, not self-intersection,
 support, adhesion, fit, strength or printability certification.
 
-Studio may discard unknown provenance members when saving. Preserve the original
+The observed Studio save discarded unknown provenance members. Preserve the original
 export and its passport; never replace it with the app-saved copy. The comparison
 reports whether Studio retained the original passport, without treating loss as
 new provenance or silently reconstructing it.
 
-## Completing native acceptance
+## Repeating and completing native acceptance
 
 With an uninterrupted, approved native UI session:
 

@@ -233,7 +233,7 @@ def _settings(profiles_dir, studio_version, printer, process, filament, plate,
 def supported_setup():
     """Return an export contract, not a claim of slicing or physical validation."""
     return {
-        "status": "experimental; native application verification pending",
+        "status": "experimental; recorded native round-trip/slice passed, complete layer review pending",
         "studio_version": STUDIO_VERSION, "printer": PRINTER, "process": PROCESS,
         "filament": FILAMENT, "plate": PLATE, "nozzle_mm": 0.4,
         "extruder_variant": EXTRUDER, "units": "mm", "objects": 1, "filaments": 1,

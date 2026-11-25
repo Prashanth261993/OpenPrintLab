@@ -289,6 +289,23 @@ class BambuProjectTests(unittest.TestCase):
         self.assertTrue(result["geometry_and_placement_retained"])
         self.assertFalse(result["source_passport_retained_by_studio"])
 
+    def test_actual_studio_saved_fragments_retain_geometry_and_explicit_settings(self):
+        fixture = json.loads((Path(__file__).parent / "fixtures" / "bambu_project"
+                              / "studio-02.09.02.62-save.json").read_text())
+        self.write_profile("filament", "base", self.documents["filament"]["base"] | {"filament_id": "GFA00"})
+        self.export(overrides={"wall_loops": 3, "sparse_infill_density": "20%",
+                               "brim_type": "no_brim", "top_shell_layers": 5})
+        saved = self.rewrite({
+            "3D/3dmodel.model": fixture["root_model_xml"].encode(),
+            "3D/Objects/object_1.model": fixture["object_model_xml"].encode(),
+            "Metadata/project_settings.config": json.dumps(fixture["explicit_settings"]).encode(),
+        })
+        result = bp.compare_saved_project(self.output, saved)
+        self.assertTrue(result["geometry_and_placement_retained"])
+        self.assertTrue(result["explicit_settings_retained"])
+        self.assertEqual(result["triangles"], 72)
+        self.assertFalse(result["source_passport_retained_by_studio"])
+
     def test_defective_mesh_with_matching_hash_is_not_silently_repaired(self):
         from tools.geometry import encode_stl
         stl = encode_stl(decode_stl(self.stl.read_bytes())[:-1])

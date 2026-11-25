@@ -1,0 +1,358 @@
+{
+  "source_stl_sha256": "2c960fa1e38497cf5bb611c232b7b3119791727761780b0501ecd3e32a463ef9",
+  "profile_dependencies": {
+    "filament": [
+      {
+        "path": "filament/Bambu PLA Basic @BBL P2S.json",
+        "sha256": "6c4a439dc67674120cfb1a8741cd2ce71a31f25d530e2a9e97a34ab8c3b81149"
+      },
+      {
+        "path": "filament/Bambu PLA Basic @base.json",
+        "sha256": "3dba85da42a2489169c2fd6e0f827eb274fd218287c1b5ae9ef8781139da5b8f"
+      },
+      {
+        "path": "filament/fdm_filament_common.json",
+        "sha256": "68e54331d80ddff4a4e2a4bb5aacc7e87af17f8af8ca08d2717a267dcb14f943"
+      },
+      {
+        "path": "filament/fdm_filament_pla.json",
+        "sha256": "bd730678488ac4beb470d30834d5ba945057bda5caf01cc3a761f41f96058774"
+      },
+      {
+        "path": "filament/fdm_filament_template_direct_dual_e3d.json",
+        "sha256": "623fba9d74071e87a035ffa6b7b84dd325563941c88302d133b7dbe0322eea20"
+      }
+    ],
+    "machine": [
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle template change_filament_gcode.json",
+        "sha256": "8d5eb3101deb43ecd4dcd1a1c75aa92f4f6900aaf525f5ccac3ea913a384c0e6"
+      },
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle template layer_change_gcode.json",
+        "sha256": "a1d020eac0eb5bf61e9afa648350a7ae718a9750d17f94ec6ae743b068bba82a"
+      },
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle template machine_end_gcode.json",
+        "sha256": "bc4acc2bf517e3328cca4c42376c47ca46870810bac3e55d465be814a5d50e45"
+      },
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle template machine_start_gcode.json",
+        "sha256": "5f8a7912c3d9ec1f85d78da4954949210589fa5018d6bfbabc41b2a02b9e1b10"
+      },
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle template time_lapse_gcode.json",
+        "sha256": "6801ce9dc5c85f03de8baa831c91b2e29fef7c659f7b802f3ea98dd005c511a1"
+      },
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle template wrapping_detection_gcode.json",
+        "sha256": "8ce9a14b5f72fdd9fa983d920919d81b6e0be5f8ecad776f1508584dfb40f3b6"
+      },
+      {
+        "path": "machine/Bambu Lab P2S 0.4 nozzle.json",
+        "sha256": "ac5d2c43f0b70db7c60b2d22082c42aa81d47cb8893171924ec75d61b2438341"
+      },
+      {
+        "path": "machine/fdm_bbl_3dp_001_common.json",
+        "sha256": "fbd643afb4888fcd4b88db84b85f74a3729c15253e8d5f8e56bbb4b2c4eb99b4"
+      },
+      {
+        "path": "machine/fdm_machine_common.json",
+        "sha256": "402718c005c067e4aafe1fd74cc5a27750996043e20fc908331e91ab2c1b2687"
+      }
+    ],
+    "process": [
+      {
+        "path": "process/0.20mm Standard @BBL P2S.json",
+        "sha256": "95f166fc5a9804e64bd5cc6cf373eaba3dea1545e1f6558b1015e9861eb3312b"
+      },
+      {
+        "path": "process/fdm_process_common.json",
+        "sha256": "b2cada35ad8a1ccb623adbc312539f307ce5773f8d8ce3d3216724e29613fb9e"
+      },
+      {
+        "path": "process/fdm_process_single_0.20.json",
+        "sha256": "dc32f236bb0ae0d19560954a1beb87701dac4db85877f5f7c92b3a67315431c5"
+      },
+      {
+        "path": "process/fdm_process_single_common.json",
+        "sha256": "bf51fc6f93c03ffd8a88cdcc3276d378bf8b0657ec43ed1a8644389f472e5a3f"
+      }
+    ]
+  },
+  "roundtrip": {
+    "geometry_and_placement_retained": true,
+    "explicit_settings_retained": true,
+    "triangles": 72,
+    "coordinate_comparison_mm": 1e-05,
+    "original_sha256": "911d2cac1b5883a4595c48578a1817fa83a464209cb7a7b539f062da6b4c8901",
+    "saved_sha256": "e2d6a84e3397957167252d43fa72a6522b4f6710251736385483a9b501cd8be9",
+    "source_passport_retained_by_studio": false,
+    "slicer_checked": false,
+    "physical_print_tested": false,
+    "scope": "File comparison only; native UI observations must be recorded separately."
+  },
+  "slice_output": {
+    "prediction": "1024",
+    "weight": "6.73",
+    "first_layer_time": "67.936401",
+    "outside": "false",
+    "support_used": "false",
+    "pause_count": "0",
+    "total_layers": 80,
+    "archive_sha256": "b8d952a0be33f003156bbbb879f9f23db6f7ee9f386f0c357cab7a4d60cec3de",
+    "toolpath_sha256": "d6914580689c8fa8509a2e88b29f9645f09cdbc1e047b0128ac37dfbe5fa7e71",
+    "feature_blocks": {
+      "Custom": 2,
+      "Inner wall": 79,
+      "Outer wall": 80,
+      "Bottom surface": 1,
+      "Internal solid infill": 14,
+      "Sparse infill": 74,
+      "Floating vertical shell": 10,
+      "Bridge": 4,
+      "Top surface": 4
+    },
+    "layer_z_mm": [
+      0.2,
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8,
+      2.0,
+      2.2,
+      2.4,
+      2.6,
+      2.8,
+      3.0,
+      3.2,
+      3.4,
+      3.6,
+      3.8,
+      4.0,
+      4.2,
+      4.4,
+      4.6,
+      4.8,
+      5.0,
+      5.2,
+      5.4,
+      5.6,
+      5.8,
+      6.0,
+      6.2,
+      6.4,
+      6.6,
+      6.8,
+      7.0,
+      7.2,
+      7.4,
+      7.6,
+      7.8,
+      8.0,
+      8.2,
+      8.4,
+      8.6,
+      8.8,
+      9.0,
+      9.2,
+      9.4,
+      9.6,
+      9.8,
+      10.0,
+      10.2,
+      10.4,
+      10.6,
+      10.8,
+      11.0,
+      11.2,
+      11.4,
+      11.6,
+      11.8,
+      12.0,
+      12.2,
+      12.4,
+      12.6,
+      12.8,
+      13.0,
+      13.2,
+      13.4,
+      13.6,
+      13.8,
+      14.0,
+      14.2,
+      14.4,
+      14.6,
+      14.8,
+      15.0,
+      15.2,
+      15.4,
+      15.6,
+      15.8,
+      16.0
+    ],
+    "all_expected_heights": true,
+    "feature_layers": {
+      "Bridge": [
+        16,
+        36,
+        56,
+        76
+      ],
+      "Floating vertical shell": [
+        15,
+        21,
+        22,
+        35,
+        41,
+        42,
+        55,
+        61,
+        62,
+        75
+      ],
+      "Top surface": [
+        20,
+        40,
+        60,
+        80
+      ],
+      "Bottom surface": [
+        1
+      ],
+      "Outer wall": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ]
+    }
+  },
+  "review_status": "partial: native preview labels/warnings rendered unreadably; no complete per-layer claim",
+  "observed_native_choices": {
+    "printer": "Bambu Lab P2S",
+    "nozzle_mm": 0.4,
+    "flow": "Standard",
+    "plate": "Textured PEI Plate",
+    "filament": "PLA Basic",
+    "process": "0.20mm Standard @BBL P2S",
+    "wall_loops": 3,
+    "infill_percent": 20,
+    "layer_height_mm": 0.2
+  },
+  "recorded_at": "2026-11-25",
+  "studio_file_version": "02.09.02.62",
+  "bundled_bbl_version": "02.09.00.89",
+  "saved_material_values": {
+    "filament_settings_id": [
+      "Bambu PLA Basic @BBL P2S"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "filament_diameter": [
+      "1.75"
+    ],
+    "filament_flow_ratio": [
+      "0.98",
+      "0.98",
+      "0.98"
+    ],
+    "nozzle_temperature": [
+      "220",
+      "220",
+      "220"
+    ],
+    "nozzle_temperature_initial_layer": [
+      "220",
+      "220",
+      "220"
+    ],
+    "textured_plate_temp": [
+      "55"
+    ],
+    "textured_plate_temp_initial_layer": [
+      "55"
+    ]
+  }
+}

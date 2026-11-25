@@ -1,0 +1,59 @@
+{
+  "studio_file_version": "02.09.02.62",
+  "original_sha256": "911d2cac1b5883a4595c48578a1817fa83a464209cb7a7b539f062da6b4c8901",
+  "saved_sha256": "e2d6a84e3397957167252d43fa72a6522b4f6710251736385483a9b501cd8be9",
+  "root_model_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<model unit=\"millimeter\" xml:lang=\"en-US\" xmlns=\"http://schemas.microsoft.com/3dmanufacturing/core/2015/02\" xmlns:BambuStudio=\"http://schemas.bambulab.com/package/2021\" xmlns:p=\"http://schemas.microsoft.com/3dmanufacturing/production/2015/06\" requiredextensions=\"p\">\n <metadata name=\"Application\">BambuStudio-02.09.02.62</metadata>\n <metadata name=\"BambuStudio:3mfVersion\">1</metadata>\n <metadata name=\"Copyright\"></metadata>\n <metadata name=\"CreationDate\">2026-11-25</metadata>\n <metadata name=\"Description\">OpenPrintLab unsliced candidate; not print-tested</metadata>\n <metadata name=\"Designer\"></metadata>\n <metadata name=\"DesignerCover\"></metadata>\n <metadata name=\"DesignerUserId\"></metadata>\n <metadata name=\"License\"></metadata>\n <metadata name=\"ModificationDate\">2026-11-25</metadata>\n <metadata name=\"Origin\"></metadata>\n <metadata name=\"ProfileCover\"></metadata>\n <metadata name=\"ProfileDescription\"></metadata>\n <metadata name=\"ProfileTitle\"></metadata>\n <metadata name=\"Title\"></metadata>\n <resources>\n  <object id=\"2\" p:UUID=\"00000001-61cb-4c03-9d28-80fed5dfa1dc\" type=\"model\">\n   <components>\n    <component p:path=\"/3D/Objects/object_1.model\" objectid=\"1\" p:UUID=\"00010000-b206-40ff-9872-83e8017abed1\" transform=\"1 0 0 0 1 0 0 0 1 0 0 0\"/>\n   </components>\n  </object>\n </resources>\n <build p:UUID=\"2c7c17d8-22b5-4d84-8835-1976022ea369\">\n  <item objectid=\"2\" p:UUID=\"00000002-b1ec-4553-aec9-835e5b724bb4\" transform=\"1 0 0 0 1 0 0 0 1 128 128 8\" printable=\"1\"/>\n </build>\n</model>\n",
+  "object_model_xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<model unit=\"millimeter\" xml:lang=\"en-US\" xmlns=\"http://schemas.microsoft.com/3dmanufacturing/core/2015/02\" xmlns:BambuStudio=\"http://schemas.bambulab.com/package/2021\" xmlns:p=\"http://schemas.microsoft.com/3dmanufacturing/production/2015/06\" requiredextensions=\"p\">\n <metadata name=\"BambuStudio:3mfVersion\">1</metadata>\n <resources>\n  <object id=\"1\" p:UUID=\"00010000-81cb-4c03-9d28-80fed5dfa1dc\" type=\"model\">\n   <mesh>\n    <vertices>\n     <vertex x=\"-24\" y=\"-12\" z=\"-4\"/>\n     <vertex x=\"-24\" y=\"12\" z=\"-4\"/>\n     <vertex x=\"-24\" y=\"12\" z=\"-8\"/>\n     <vertex x=\"-24\" y=\"-12\" z=\"-8\"/>\n     <vertex x=\"-12\" y=\"-12\" z=\"-8\"/>\n     <vertex x=\"-12\" y=\"-12\" z=\"-4\"/>\n     <vertex x=\"-12\" y=\"12\" z=\"-4\"/>\n     <vertex x=\"-12\" y=\"12\" z=\"-8\"/>\n     <vertex x=\"0\" y=\"-12\" z=\"-8\"/>\n     <vertex x=\"0\" y=\"-12\" z=\"-4\"/>\n     <vertex x=\"0\" y=\"12\" z=\"-4\"/>\n     <vertex x=\"0\" y=\"12\" z=\"-8\"/>\n     <vertex x=\"-12\" y=\"-12\" z=\"0\"/>\n     <vertex x=\"-12\" y=\"12\" z=\"0\"/>\n     <vertex x=\"0\" y=\"-12\" z=\"0\"/>\n     <vertex x=\"0\" y=\"12\" z=\"0\"/>\n     <vertex x=\"12\" y=\"-12\" z=\"-8\"/>\n     <vertex x=\"12\" y=\"-12\" z=\"-4\"/>\n     <vertex x=\"12\" y=\"12\" z=\"-4\"/>\n     <vertex x=\"12\" y=\"12\" z=\"-8\"/>\n     <vertex x=\"12\" y=\"-12\" z=\"0\"/>\n     <vertex x=\"12\" y=\"12\" z=\"0\"/>\n     <vertex x=\"0\" y=\"-12\" z=\"4\"/>\n     <vertex x=\"0\" y=\"12\" z=\"4\"/>\n     <vertex x=\"12\" y=\"-12\" z=\"4\"/>\n     <vertex x=\"12\" y=\"12\" z=\"4\"/>\n     <vertex x=\"24\" y=\"-12\" z=\"-8\"/>\n     <vertex x=\"24\" y=\"12\" z=\"-8\"/>\n     <vertex x=\"24\" y=\"12\" z=\"-4\"/>\n     <vertex x=\"24\" y=\"-12\" z=\"-4\"/>\n     <vertex x=\"24\" y=\"12\" z=\"0\"/>\n     <vertex x=\"24\" y=\"-12\" z=\"0\"/>\n     <vertex x=\"24\" y=\"12\" z=\"4\"/>\n     <vertex x=\"24\" y=\"-12\" z=\"4\"/>\n     <vertex x=\"12\" y=\"-12\" z=\"8\"/>\n     <vertex x=\"12\" y=\"12\" z=\"8\"/>\n     <vertex x=\"24\" y=\"12\" z=\"8\"/>\n     <vertex x=\"24\" y=\"-12\" z=\"8\"/>\n    </vertices>\n    <triangles>\n     <triangle v1=\"0\" v2=\"1\" v3=\"2\"/>\n     <triangle v1=\"0\" v2=\"2\" v3=\"3\"/>\n     <triangle v1=\"4\" v2=\"5\" v3=\"0\"/>\n     <triangle v1=\"4\" v2=\"0\" v3=\"3\"/>\n     <triangle v1=\"2\" v2=\"1\" v3=\"6\"/>\n     <triangle v1=\"2\" v2=\"6\" v3=\"7\"/>\n     <triangle v1=\"2\" v2=\"7\" v3=\"4\"/>\n     <triangle v1=\"2\" v2=\"4\" v3=\"3\"/>\n     <triangle v1=\"0\" v2=\"5\" v3=\"6\"/>\n     <triangle v1=\"0\" v2=\"6\" v3=\"1\"/>\n     <triangle v1=\"8\" v2=\"9\" v3=\"5\"/>\n     <triangle v1=\"8\" v2=\"5\" v3=\"4\"/>\n     <triangle v1=\"7\" v2=\"6\" v3=\"10\"/>\n     <triangle v1=\"7\" v2=\"10\" v3=\"11\"/>\n     <triangle v1=\"7\" v2=\"11\" v3=\"8\"/>\n     <triangle v1=\"7\" v2=\"8\" v3=\"4\"/>\n     <triangle v1=\"12\" v2=\"13\" v3=\"6\"/>\n     <triangle v1=\"12\" v2=\"6\" v3=\"5\"/>\n     <triangle v1=\"9\" v2=\"14\" v3=\"12\"/>\n     <triangle v1=\"9\" v2=\"12\" v3=\"5\"/>\n     <triangle v1=\"6\" v2=\"13\" v3=\"15\"/>\n     <triangle v1=\"6\" v2=\"15\" v3=\"10\"/>\n     <triangle v1=\"12\" v2=\"14\" v3=\"15\"/>\n     <triangle v1=\"12\" v2=\"15\" v3=\"13\"/>\n     <triangle v1=\"16\" v2=\"17\" v3=\"9\"/>\n     <triangle v1=\"16\" v2=\"9\" v3=\"8\"/>\n     <triangle v1=\"11\" v2=\"10\" v3=\"18\"/>\n     <triangle v1=\"11\" v2=\"18\" v3=\"19\"/>\n     <triangle v1=\"11\" v2=\"19\" v3=\"16\"/>\n     <triangle v1=\"11\" v2=\"16\" v3=\"8\"/>\n     <triangle v1=\"17\" v2=\"20\" v3=\"14\"/>\n     <triangle v1=\"17\" v2=\"14\" v3=\"9\"/>\n     <triangle v1=\"10\" v2=\"15\" v3=\"21\"/>\n     <triangle v1=\"10\" v2=\"21\" v3=\"18\"/>\n     <triangle v1=\"22\" v2=\"23\" v3=\"15\"/>\n     <triangle v1=\"22\" v2=\"15\" v3=\"14\"/>\n     <triangle v1=\"20\" v2=\"24\" v3=\"22\"/>\n     <triangle v1=\"20\" v2=\"22\" v3=\"14\"/>\n     <triangle v1=\"15\" v2=\"23\" v3=\"25\"/>\n     <triangle v1=\"15\" v2=\"25\" v3=\"21\"/>\n     <triangle v1=\"22\" v2=\"24\" v3=\"25\"/>\n     <triangle v1=\"22\" v2=\"25\" v3=\"23\"/>\n     <triangle v1=\"26\" v2=\"27\" v3=\"28\"/>\n     <triangle v1=\"26\" v2=\"28\" v3=\"29\"/>\n     <triangle v1=\"26\" v2=\"29\" v3=\"17\"/>\n     <triangle v1=\"26\" v2=\"17\" v3=\"16\"/>\n     <triangle v1=\"19\" v2=\"18\" v3=\"28\"/>\n     <triangle v1=\"19\" v2=\"28\" v3=\"27\"/>\n     <triangle v1=\"19\" v2=\"27\" v3=\"26\"/>\n     <triangle v1=\"19\" v2=\"26\" v3=\"16\"/>\n     <triangle v1=\"29\" v2=\"28\" v3=\"30\"/>\n     <triangle v1=\"29\" v2=\"30\" v3=\"31\"/>\n     <triangle v1=\"29\" v2=\"31\" v3=\"20\"/>\n     <triangle v1=\"29\" v2=\"20\" v3=\"17\"/>\n     <triangle v1=\"18\" v2=\"21\" v3=\"30\"/>\n     <triangle v1=\"18\" v2=\"30\" v3=\"28\"/>\n     <triangle v1=\"31\" v2=\"30\" v3=\"32\"/>\n     <triangle v1=\"31\" v2=\"32\" v3=\"33\"/>\n     <triangle v1=\"31\" v2=\"33\" v3=\"24\"/>\n     <triangle v1=\"31\" v2=\"24\" v3=\"20\"/>\n     <triangle v1=\"21\" v2=\"25\" v3=\"32\"/>\n     <triangle v1=\"21\" v2=\"32\" v3=\"30\"/>\n     <triangle v1=\"34\" v2=\"35\" v3=\"25\"/>\n     <triangle v1=\"34\" v2=\"25\" v3=\"24\"/>\n     <triangle v1=\"33\" v2=\"32\" v3=\"36\"/>\n     <triangle v1=\"33\" v2=\"36\" v3=\"37\"/>\n     <triangle v1=\"33\" v2=\"37\" v3=\"34\"/>\n     <triangle v1=\"33\" v2=\"34\" v3=\"24\"/>\n     <triangle v1=\"25\" v2=\"35\" v3=\"36\"/>\n     <triangle v1=\"25\" v2=\"36\" v3=\"32\"/>\n     <triangle v1=\"34\" v2=\"37\" v3=\"36\"/>\n     <triangle v1=\"34\" v2=\"36\" v3=\"35\"/>\n    </triangles>\n   </mesh>\n  </object>\n </resources>\n <build/>\n</model>\n",
+  "explicit_settings": {
+    "bed_exclude_area": [],
+    "bottom_shell_layers": "3",
+    "brim_type": "no_brim",
+    "curr_bed_type": "Textured PEI Plate",
+    "default_nozzle_volume_type": [
+      "Standard"
+    ],
+    "different_settings_to_system": [
+      "brim_type;sparse_infill_density;wall_loops",
+      "",
+      ""
+    ],
+    "enable_support": "0",
+    "extruder_type": [
+      "Direct Drive"
+    ],
+    "filament_ids": [
+      "GFA00"
+    ],
+    "filament_settings_id": [
+      "Bambu PLA Basic @BBL P2S"
+    ],
+    "filament_type": [
+      "PLA"
+    ],
+    "from": "project",
+    "layer_height": "0.2",
+    "name": "project_settings",
+    "nozzle_diameter": [
+      "0.4"
+    ],
+    "nozzle_volume_type": [
+      "Standard"
+    ],
+    "print_settings_id": "0.20mm Standard @BBL P2S",
+    "printable_area": [
+      "0x0",
+      "256x0",
+      "256x256",
+      "0x256"
+    ],
+    "printable_height": "256",
+    "printer_model": "Bambu Lab P2S",
+    "printer_settings_id": "Bambu Lab P2S 0.4 nozzle",
+    "printer_variant": "0.4",
+    "sparse_infill_density": "20%",
+    "sparse_infill_pattern": "grid",
+    "top_shell_layers": "5",
+    "version": "02.09.02.62",
+    "wall_loops": "3"
+  }
+}
