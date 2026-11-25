@@ -8,6 +8,12 @@ requirement. Independent community project, not affiliated with Bambu Lab.
 
 **[Browse models & beginner guides](https://Prashanth261993.github.io/OpenPrintLab/)**
 
+**Named agent: [OpenPrintLab Designer](.github/agents/openprintlab-designer.agent.md).**
+Select it in a compatible Copilot agent picker, or start Copilot CLI in this
+checkout with `copilot --agent=openprintlab-designer`. `AGENTS.md` contains shared
+instructions; this `.agent.md` file is the selectable profile.
+[Discovery, other-workspace setup and client evidence](docs/designer-agent.md).
+
 **New: [Template lab](https://prashanth261993.github.io/OpenPrintLab/lab/)** -
 rounded organizers, multi-pen rests and lightweight paper-card stands.
 Browse real geometry previews and examples, then use your own tool-capable
