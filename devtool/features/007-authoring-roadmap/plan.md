@@ -1,7 +1,7 @@
 ---
 artifact: plan
 feature: 007-authoring-roadmap
-status: in_progress
+status: blocked
 updated: 2026-11-25
 ---
 
@@ -14,10 +14,10 @@ Keep Python/CadQuery optional and the existing standard-library baseline.
 | Phase | Scope / acceptance | State / dependencies |
 |---|---|---|
 | A: named designer | Real repository profile, canonical rule pointers, documented discovery/runtime/client limits; schema and links verified; README/Pages and canonical file published | Published c2221d9; CI succeeded |
-| B: new-design/edit/live preview | Isolated editable design source, measurable brief, reviewed local execution, checked STL/STEP, immutable revision outputs, stable viewer and bounded edit example beyond named templates | Verified locally; publishing source and both sample revisions |
-| C: P2S project-3MF | Strict actual profile identity, geometry + metadata, installed Studio round-trip and offline slice review; no printer control or machine-ready G-code distribution | Initial module integrated as 44514d2, experimental; worker owns active native verification and follow-ups |
-| D: assistant packaging | Generated repository-scoped package with full canonical references/notices, manifest, install/uninstall verification; no global config or telemetry | Verified locally; publishing a generated package through Pages |
-| E: drawings/assembly diagnostics | Actual geometry-derived dimensioned views and stronger bounded assembly checks with synthetic positive/negative cases | Verified locally; overall orthographic views and optional-kernel STEP pair checks, not full engineering drawings or motion analysis |
+| B: new-design/edit/live preview | Isolated editable design source, measurable brief, reviewed local execution, checked STL/STEP, immutable revision outputs, stable viewer and bounded edit example beyond named templates | Published 92dbd3d + exact-byte preservation dd22c8e; CI passed |
+| C: P2S project-3MF | Strict actual profile identity, geometry + metadata, installed Studio round-trip and offline slice review; no printer control or machine-ready G-code distribution | Experimental: native open/save/reopen and slice generation verified for the exact fixture; full layer/warning review BLOCKED by unreadable Preview labels. Custom-report integration not implemented |
+| D: assistant packaging | Generated repository-scoped package with full canonical references/notices, manifest, install/uninstall verification; no global config or telemetry | Published 3cb732b, CI passed; native client picker certification not claimed |
+| E: drawings/assembly diagnostics | Actual geometry-derived dimensioned views and stronger bounded assembly checks with synthetic positive/negative cases | Published 3cb732b, CI passed; overview/static pair checks only, not complete engineering drawings or motion analysis |
 
 ## Phase B requirements and boundary
 
@@ -112,5 +112,24 @@ package link; actual depth-shaded palette drawing was inspected and its extents
 match the exported mesh. No upstream code was copied for D/E: existing standard
 library, renderer and installed CadQuery kernel APIs are reused.
 
-The P2S worker's native follow-up is still authoritative for application/slice
-claims; no such success is inferred from these combined software checks.
+The P2S worker's follow-up a9420ce was integrated as daa77eb. See its
+[native evidence](../p2s-project-export/evidence.md) and
+[unresolved layer-role review](../../../docs/bambu-project.md). This does not
+complete the full reviewed-slice requirement or authorize a physical print.
+New custom-engineering reports are intentionally rejected by the v1-passport
+project writer, not converted to fabricated template identities.
+
+All 57 combined tests also passed in the optional-CAD environment; real MCP
+smoke passed. The 3cb732b package contains all implemented modules, profile,
+canonical references and notices (194 tracked files at that revision). Post-commit
+package contents were inspected. Subsequent native evidence adds one focused
+regression case and preserves the unreviewed/physical flags.
+
+Final combined verification after native follow-up: 58 baseline tests (51 passed,
+7 optional-CAD skips); all 58 passed with CadQuery installed. Release check still
+verifies the original 16 artifacts. Browser/package-download checks passed and
+115 internal Markdown links resolved. No G-code or sliced archives are tracked.
+The full native layer/warning review remains incomplete within the bounded P2S
+slice. Custom-report project integration is also not implemented; manual STL
+handoff is documented instead. Broader capabilities explicitly listed as
+unsupported are not silently claimed complete.

@@ -281,8 +281,11 @@ at `f5e18a16031f5a11b20f7753574ff48494891587`; copyright 2026 Wilson Waters, MIT
 [upstream license](third_party/wilsonwaters/LICENSE) are retained. The source's
 universal strength/tolerance/material recipes were not imported. Broad multi-client/global installers and evaluation infrastructure remain deferred.
 The narrower source package and experimental P2S project tools above are separate
-verified-software slices, not claims inherited from importing an upstream script. Bambu Studio is installed locally,
-but no project round-trip/slice verification is claimed for this release.
+verified-software slices, not claims inherited from importing an upstream script. Bambu Studio 02.09.02.62 opened/saved/reopened and generated toolpaths for one
+recorded staircase fixture. Full layer/warning review is **incomplete**: Preview
+labels were unreadable to automation, and bridge/floating-shell classifications
+remain review items. Preserve the original unsliced project/passport because
+Studio strips custom provenance on save. [Exact scope and unresolved layers](docs/bambu-project.md).
 
 The bounded [structural-guidance milestone](devtool/features/005-structural-guidance/plan.md)
 records this guidance revision separately from unimplemented product capabilities.

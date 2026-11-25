@@ -34,7 +34,9 @@ still run in the installed directory. No automated global registration occurs.
 The original model CLI works with Python alone. Optional CadQuery/MCP/browser
 dependencies need their own isolated installation under the
 [template-lab instructions](template-lab.md). No environment is bundled.
-This package is not a Git checkout; repackaging requires the original Git repo.
+This package is not a Git checkout; repackaging and building the website's
+committed-source download require the original Git repo. Runtime model CLI and
+local viewers do not require Git history.
 
 ## Reproduce or remove
 

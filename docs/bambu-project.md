@@ -16,6 +16,25 @@ warning areas rendered as unreadable black blocks to Computer Use, so exact
 per-layer visual coverage and complete warning review cannot be claimed.
 See the [bounded slice evidence](../devtool/features/p2s-project-export/evidence.md).
 
+**Unresolved review items:** bridge feature blocks at layers 16/36/56/76 and
+floating-vertical-shell blocks at 15/21/22/35/41/42/55/61/62/75. Do not dismiss
+these as benign or infer support-free suitability from `support_used=false`.
+Review their support below, continuity, span/anchoring and the actual warning
+area in a correctly rendered Preview before completing the slice-review gate.
+
+Read-only source research provides context, not a pass: at BambuStudio source
+revision `23a33758933e712c6041e1f8f135f7d6b50004aa`,
+[`ExtrusionEntity.cpp`](https://github.com/bambulab/BambuStudio/blob/23a33758933e712c6041e1f8f135f7d6b50004aa/src/libslic3r/ExtrusionEntity.cpp#L615-L628)
+maps both strings to extrusion roles.
+[`ExtrusionEntity.hpp`](https://github.com/bambulab/BambuStudio/blob/23a33758933e712c6041e1f8f135f7d6b50004aa/src/libslic3r/ExtrusionEntity.hpp#L99-L128)
+includes floating vertical shell among solid-infill roles, and
+[`Fill.cpp`](https://github.com/bambulab/BambuStudio/blob/23a33758933e712c6041e1f8f135f7d6b50004aa/src/libslic3r/Fill/Fill.cpp#L354-L364)
+can assign it a bridge-speed setting. Thus the label is not by itself a verdict
+that the exported mesh is disconnected, nor evidence it will print successfully.
+The inspected source revision was not established as the exact installed
+binary's source; no source-level inference substitutes for reviewing these
+specific toolpaths. No settings were changed based on this research.
+
 ## Deliberately narrow contract
 
 | Choice | Accepted value |

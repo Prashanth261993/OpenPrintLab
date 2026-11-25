@@ -120,6 +120,10 @@ The CAD model and geometry-derived preview are generated; the documented checks
 are software evidence. Actual hardware/profile selection remains separate.
 [Offline slicing](offline-slicing.md) may be performed without a printer, but
 this workflow does not slice automatically or inherit slicer/physical evidence.
+The current P2S project writer accepts v1 catalog/template passports, **not**
+these custom-engineering reports. Do not fabricate a template passport to bridge
+the gap. For a custom part, use explicit manual STL import/profile selection and
+the same offline-review gates until project integration supports its identity.
 All initial reports state **not validated for hanging/load use**.
 
 Custom artifacts stay under ignored `build/` by default. Only the deliberately
